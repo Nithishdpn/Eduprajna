@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Searchable Course Grid</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .container {
+            text-align: center;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+            padding: 10px;
+            width: 50%;
+            font-size: 16px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            border: 2px solid #48a4f0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+       
+     .card-poc{
+        background-color: #99cdf8;
+        width: 210px;
+     }
+     body {
+      padding-left: 10px;
+      padding-right: 10px;
+     }
+    
+        
+    </style>
+</head>
+<body>
+    <!-- header -->
+      <!-- Header -->
+    <header>
+        <div class="container">
+          <div class="logo">EDUPRAJNA</div>
+          <nav>
+            <ul>
+              <li><a href="index.html" >Home</a></li>
+              <li><a href="courses.html" style="color: #1976d2">Courses</a></li>
+              <li><a href="hire-us.html">Hire From Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <!-- <li><a href="#">About Us</a></li> -->
+            </ul>
+          </nav>
+          <button class="cssbuttons-io-button">
+            Get started
+            <div class="icon">
+              <svg
+                height="24"
+                width="24"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path
+                  d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </header>
+
+      <!-- search bar -->
+    <div class="container">
+        <input type="text" class="search-bar" id="search" placeholder="Search courses..." onkeyup="filterCourses()">
+        <div class="grid" id="courseGrid"></div>
+    </div>
+<!-- items -->
+    <script>
+        const courses = [
+  { "title": "Machine Learning", "image": "img/machine-learning.png", "description": "Explore the fundamentals of machine learning, including algorithms, models, and real-world applications." },
+  { "title": "Adversarial Machine Learning", "image": "img/adversarial-ml.png", "description": "Learn about different attacks (extraction, inference, poisoning, evasion) and defenses in adversarial machine learning." },
+  { "title": "Data Science & Analytics", "image": "img/data-science.png", "description": "Master Python, MySQL, statistics, machine learning, R, deep learning, and advanced Excel for data-driven decision-making." },
+  { "title": "Python", "image": "img/python.png", "description": "Start from basics to advanced Python, covering data structures, algorithms, scripting, and code optimization." },
+  { "title": "Advance Java", "image": "img/java.png", "description": "Dive into JDBC, JSP, Servlets, multi-threading, JavaMail API, design patterns, JUnit, and Maven." },
+  { "title": "DevOps", "image": "img/devops.png", "description": "Understand DevOps concepts, Git, Jenkins, Docker, Ansible, and cloud deployment tools." },
+  { "title": "AWS", "image": "img/aws.png", "description": "Gain expertise in cloud computing, AWS services, identity management, networking, and security." },
+  { "title": "MCSA", "image": "img/mcsa.png", "description": "Learn Windows Server installation, DHCP, DNS, Hyper-V, backups, and group policies." },
+  { "title": "CCNA", "image": "img/ccna.png", "description": "Understand networking fundamentals, router configurations, VLANs, ACLs, and security." },
+  { "title": "A+", "image": "img/hardware.png", "description": "Explore computer hardware components including CPU, motherboard, hard disk, and peripherals." },
+  { "title": "N+", "image": "img/networking.png", "description": "Master networking topologies, OSI model, IP addressing, protocols, and troubleshooting tools." },
+  { "title": "Certified Ethical Hacker", "image": "img/ethical-hacking.png", "description": "Learn penetration testing, system hacking, web application security, IoT hacking, and cloud security." },
+  { "title": "Embedded System Design", "image": "img/embedded.png", "description": "Understand embedded C, C++, microcontrollers, networking, and real-world projects." },
+  { "title": "Azure AZ-104", "image": "img/azure.png", "description": "Master Azure identity, governance, networking, storage, virtual machines, and security." },
+  { "title": "Azure AZ-400", "image": "img/azure-devops.png", "description": "Explore DevOps, CI/CD, Git, Azure Pipelines, Docker, Kubernetes, and security practices." },
+  { "title": "Red Hat (Linux)", "image": "img/linux.png", "description": "Learn Linux command line, file management, process control, and system monitoring." },
+  { "title": "Artificial Intelligence (AI)", "image": "img/ai.png", "description": "Cover Python, ML, deep learning, NLP, data visualization, MLOps, and cloud deployment." },
+  { "title": "Google Cloud", "image": "img/google-cloud.png", "description": "Understand GCP services, security, DevOps, APIs, database, storage, and cloud migration." },
+  { "title": "Tally", "image": "img/tally.png", "description": "Master accounting, inventory, taxation, payroll, and reporting using Tally ERP 9." },
+  { "title": "Full Stack Web Development", "image": "img/fullstack.png", "description": "Learn HTML, CSS, JavaScript, React, Node.js, MongoDB, Express.js, Bootstrap, and Redux." },
+  { "title": "SAP FICO", "image": "img/sap-fico.png", "description": "Understand financial enterprise structures, accounts, asset management, and SAP controlling." },
+  { "title": "CCNP", "image": "img/ccnp.png", "description": "Master advanced networking topics including EIGRP, OSPF, BGP, IPv6, security, and VLANs." },
+  { "title": "Android & iOS Development", "image": "img/mobile-dev.png", "description": "Develop mobile applications with UI design, notifications, threads, and advanced features." },
+  { "title": "PCB Design", "image": "img/pcb.png", "description": "Learn schematic creation, footprint design, PCB layout, rule checking, and 3D modeling." },
+  { "title": "R Programming", "image": "img/r.png", "description": "Explore data manipulation, visualization, statistical modeling, and machine learning with R." },
+  { "title": "C#", "image": "img/csharp.png", "description": "Learn C# basics, data structures, OOP, exception handling, and advanced programming techniques." },
+  { "title": "ASP.NET & MVC", "image": "img/aspnet.png", "description": "Master web application development with ASP.NET, MVC, authentication, and Bootstrap." },
+  { "title": "Digital Marketing", "image": "img/digital-marketing.png", "description": "Understand SEO, social media, email marketing, branding, analytics, and advertising strategies." },
+  { "title": "Frontend Web Development", "image": "img/frontend.png", "description": "Build responsive web apps using HTML, CSS, JavaScript, React, Redux, and GitHub." }
+];
+
+        function displayCourses(filteredCourses = courses) {
+            const courseGrid = document.getElementById("courseGrid");
+            courseGrid.innerHTML = "";
+            filteredCourses.forEach(course => {
+                courseGrid.innerHTML += `
+                    
+                    
+                    
+                    
+                    
+
+<div id="crd1" style="padding:20px; gap:20px;" class=" relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-80">
+  <div class="relative h-56 m-2.5 overflow-hidden text-white rounded-xl" style="
+    object-fit: scale-down;">
+    <img style="border-radius: 20px;object-fit: inherit;width: 100%;height: 100%;" src="${course.image}" alt="${course.title}" />
+  </div>
+  <div class="p-4">
+    <h6 class="mb-2 text-slate-800 text-xl font-semibold" style="margin: 20px;
+">
+      ${course.title}
+    </h6>
+    <p style="
+    text-align: left;
+" class="text-slate-600 leading-normal font-light">
+      ${course.description}
+    </p>
+  </div>
+  <div class="px-4 pb-4 pt-0 mt-2">
+    
+  </div>
+</div>  
+
+                    
+                    
+                    
+                    
+                    
+                    `;
+            });
+        }
+
+        function filterCourses() {
+            const query = document.getElementById("search").value.toLowerCase();
+            const filtered = courses.filter(course => course.title.toLowerCase().includes(query));
+            displayCourses(filtered);
+        }
+
+        window.onload = () => displayCourses();
+    </script>
+
+     <!-- Call to Action Section -->
+     <section class="cta-parent">
+
+        <div class="cta-v2">
+        <img alt="Contact Us Background" loading="lazy" width="1448" height="354" decoding="async" data-nimg="1" class="page_backgroundImage___AIxn" srcset="https://as1.ftcdn.net/v2/jpg/02/77/30/98/1000_F_277309825_h8RvZkoyBGPDocMtippdfe3497xTrOXO.jpg" src="https://as1.ftcdn.net/v2/jpg/02/77/30/98/1000_F_277309825_h8RvZkoyBGPDocMtippdfe3497xTrOXO.jpg" style="color: transparent">
+        <div class="cta-v2-content">
+            <div class="cta-container">
+                <div class="cta-main-logo">
+                  <img src="img/logo.png" alt="" />
+                </div>
+      
+                <h2>
+                  Transform the way you Learn with <br />
+                  EDUPRAJNA!
+                </h2>
+                <button class="btn-cta">Get Started</button>
+              </div>
+        </div>
+    </div>
+    </section>
+     
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+          <!-- Column 1: Logo and Description -->
+          <div class="footer-column">
+            <div class="logo-footer">
+              <span class="logo-icon-footer">⚡</span> EDUPRAJNA
+            </div>
+            <p>Education Opens Up the Mind, & Unlocking Endless Possibilities.</p>
+            <button class="cssbuttons-io-button">
+              Get started
+              <div class="icon">
+                <svg
+                  height="24"
+                  width="24"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+          </div>
+          <!-- Column 2: Quick Links -->
+          <div class="footer-column">
+            <h3>Quick links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="courses.html">Courses</a></li>
+              <li><a href="hire-us.html">Hire From Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <!-- <li><a href="#">About Us</a></li> -->
+            </ul>
+          </div>
+          <!-- Column 3: Services -->
+          <div class="footer-column">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="#">Content Creation</a></li>
+              <li><a href="#">Development</a></li>
+              <li><a href="#">Automation</a></li>
+              <li><a href="#">LLM Development</a></li>
+            </ul>
+          </div>
+          <!-- Column 4: Follow Us -->
+          <div class="footer-column">
+            <h3>Follow us</h3>
+            <ul>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">LinkedIn</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="line-parent">
+          <div class="line"></div>
+        </div>
+        <div class="footer2">
+          <p>© eduprajna 2025</p>
+        </div>
+      </footer>
+</body>
+</html>
