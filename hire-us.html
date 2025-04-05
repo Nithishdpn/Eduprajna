@@ -11,9 +11,14 @@
   <header>
     <div class="container">
       <div class="logo">EDUPRAJNA</div>
+      <div class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <nav>
         <ul>
-          <li><a href="index.html" >Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="courses.html">Courses</a></li>
           <li><a href="hire-us.html" style="color: #1976d2">Hire From Us</a></li>
           <li><a href="contact.html">Contact Us</a></li>
@@ -209,5 +214,39 @@
       <p>© eduprajna 2025</p>
     </div>
   </footer>
+
+<script>
+  // Mobile menu functionality
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const nav = document.querySelector('nav');
+  const overlay = document.createElement('div');
+  overlay.classList.add('overlay');
+  document.body.appendChild(overlay);
+
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenuBtn.classList.toggle('active');
+    nav.classList.toggle('active');
+    overlay.classList.toggle('active');
+    document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+  });
+
+  overlay.addEventListener('click', () => {
+    mobileMenuBtn.classList.remove('active');
+    nav.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+
+  // Close menu when clicking a link
+  const navLinks = document.querySelectorAll('nav ul li a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenuBtn.classList.remove('active');
+      nav.classList.remove('active');
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+</script>
 </body>
 </html>
