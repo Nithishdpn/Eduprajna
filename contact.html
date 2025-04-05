@@ -1,8 +1,13 @@
-<html lang="en" style>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Contact Us - Eduprajna</title>
     <!-- <link rel="stylesheet" href="style2.css" /> -->
     <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
     <style data-emotion="css o9f9y7" data-s>
         .css-o9f9y7 {
             display: -webkit-box;
@@ -384,13 +389,17 @@
     <header>
         <div class="container">
             <div class="logo">EDUPRAJNA</div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="courses.html">Courses</a></li>
                     <li><a href="hire-us.html">Hire From Us</a></li>
                     <li><a href="contact.html" style="color: #1976d2;">Contact Us</a></li>
-                    <!-- <li><a href="#">About Us</a></li> -->
                 </ul>
             </nav>
             <button class="cssbuttons-io-button">
@@ -612,7 +621,6 @@
                     <li><a href="courses.html">Courses</a></li>
                     <li><a href="hire-us.html">Hire From Us</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
-                    <!-- <li><a href="#">About Us</a></li> -->
                 </ul>
             </div>
             <!-- Column 3: Services -->
@@ -637,14 +645,70 @@
             </div>
         </div>
         <div class="line-parent">
-            <div class="line">
-            </div>
+            <div class="line"></div>
         </div>
         <div class="footer2">
-            <p>
-                © eduprajna 2025</p>
+            <p>© eduprajna 2025</p>
         </div>
     </footer>
+
+    <!-- Add this script before closing body tag if not already present -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get necessary elements
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        
+        // Create overlay if it doesn't exist
+        let overlay = document.querySelector('.overlay');
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'overlay';
+            document.body.appendChild(overlay);
+        }
+
+        // Toggle menu function
+        function toggleMenu() {
+            mobileMenuBtn.classList.toggle('active');
+            nav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+        }
+
+        // Event listeners
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (nav.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && nav.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+    });
+    </script>
+
+    <script>
+    // Fix for iOS viewport height issues
+    function fixViewportHeight() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+
+    window.addEventListener('resize', fixViewportHeight);
+    window.addEventListener('orientationchange', fixViewportHeight);
+    fixViewportHeight();
+    </script>
 
 </body>
 
