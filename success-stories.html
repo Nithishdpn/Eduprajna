@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Success Stories - SphereHive</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #64B5F6 0%, #1976D2 100%);
+            color: white;
+            text-align: center;
+            padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 5vw, 2rem);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(100, 181, 246, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 40vh;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: clamp(0.5rem, 2vw, 1rem);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease-out;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .header p {
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            opacity: 0.95;
+            max-width: min(800px, 90%);
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            line-height: 1.5;
+            padding: 0 clamp(0.5rem, 2vw, 1rem);
+        }
+
+        /* Success Stories Container */
+        .success-stories {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Stats Section */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            max-width: 1200px;
+            width: 95%;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+            border-radius: 15px;
+            box-shadow: 
+                0 8px 16px rgba(100, 181, 246, 0.1),
+                0 4px 8px rgba(100, 181, 246, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 150px;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 12px 20px rgba(100, 181, 246, 0.15),
+                0 6px 10px rgba(100, 181, 246, 0.1);
+        }
+
+        .stat-number {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #1976D2, #2196F3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* Updated Story Card Styles with Better Responsiveness */
+        .story-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+            border-radius: 20px;
+            box-shadow: 
+                0 10px 20px rgba(100, 181, 246, 0.1),
+                0 6px 6px rgba(100, 181, 246, 0.1),
+                0 0 100px rgba(100, 181, 246, 0.1);
+            margin-bottom: 3rem;
+            padding: 2.5rem;
+            display: grid;
+            grid-template-columns: minmax(250px, 300px) 1fr;
+            gap: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: translateY(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(100, 181, 246, 0.05) 0%,
+                rgba(30, 136, 229, 0.05) 100%);
+            border-radius: 20px;
+            z-index: 0;
+        }
+
+        .story-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .story-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 20px 40px rgba(100, 181, 246, 0.15),
+                0 12px 12px rgba(100, 181, 246, 0.1),
+                0 0 120px rgba(100, 181, 246, 0.1);
+        }
+
+        .story-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 8px 16px rgba(100, 181, 246, 0.1);
+        }
+
+        .story-image:hover {
+            transform: scale(1.03) translateY(-5px);
+            box-shadow: 0 12px 24px rgba(100, 181, 246, 0.2);
+        }
+
+        .story-content h2 {
+            color: #1565C0;
+            margin-bottom: 1.2rem;
+            font-size: 1.8rem;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .story-content h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #2196F3, #64B5F6);
+            margin-top: 0.5rem;
+            transition: width 0.4s ease;
+            border-radius: 2px;
+        }
+
+        .story-content:hover h2::after {
+            width: 120px;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #1976D2;
+            padding: 2rem;
+            border-left: 4px solid #2196F3;
+            margin: 1.5rem 0;
+            background: linear-gradient(135deg, 
+                rgba(233, 236, 239, 0.5) 0%,
+                rgba(241, 243, 245, 0.5) 100%);
+            border-radius: 0 15px 15px 0;
+            position: relative;
+            box-shadow: 
+                inset 0 2px 4px rgba(100, 181, 246, 0.05),
+                0 4px 8px rgba(100, 181, 246, 0.05);
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 5rem;
+            color: #64B5F6;
+            position: absolute;
+            left: -2rem;
+            top: -1.5rem;
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        /* Updated Social Proof Styles */
+        .social-proof {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .metric {
+            background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+            padding: 0.7rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            color: #1565C0;
+            font-weight: 500;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 4px rgba(100, 181, 246, 0.1);
+        }
+
+        .metric:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(100, 181, 246, 0.2);
+        }
+
+        .metric i {
+            color: #1976D2;
+            margin-right: 0.5rem;
+        }
+
+        .student-info {
+            color: #546E7A;
+            font-style: italic;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.5rem 1rem;
+            background: rgba(100, 181, 246, 0.05);
+            border-radius: 10px;
+            font-size: 0.95rem;
+        }
+
+        .student-info i {
+            color: #1976D2;
+            font-size: 1.2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Updated Responsive Design */
+        @media (max-width: 1200px) {
+            .success-stories {
+                max-width: 95%;
+                padding: 0 1.5rem;
+            }
+
+            .story-card {
+                padding: 2rem;
+                gap: 1.5rem;
+            }
+
+            .stats-container {
+                padding: 1.5rem;
+                gap: 1.25rem;
+            }
+
+            .header {
+                min-height: 35vh;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .story-card {
+                grid-template-columns: minmax(200px, 250px) 1fr;
+            }
+
+            .story-image {
+                height: 250px;
+            }
+
+            .quote {
+                padding: 1.5rem;
+            }
+
+            .social-proof {
+                flex-wrap: wrap;
+                gap: 0.8rem;
+            }
+
+            .metric {
+                font-size: 0.85rem;
+                padding: 0.6rem 1rem;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 1.25rem;
+            }
+
+            .stat-item {
+                min-height: 130px;
+                padding: 1.25rem;
+            }
+
+            .header {
+                min-height: 30vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .story-card {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+
+            .story-image {
+                width: 100%;
+                max-width: 400px;
+                height: 220px;
+                margin: 0 auto;
+            }
+
+            .story-content h2 {
+                font-size: 1.6rem;
+                margin-top: 1rem;
+            }
+
+            .student-info {
+                flex-wrap: wrap;
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .quote {
+                padding: 1.2rem;
+                margin: 1rem 0;
+                font-size: 0.95rem;
+            }
+
+            .social-proof {
+                justify-content: flex-start;
+            }
+
+            .metric {
+                flex: 1 1 calc(50% - 0.8rem);
+                min-width: 150px;
+                text-align: center;
+            }
+
+            .stats-container {
+                width: 90%;
+                margin: 1.5rem auto;
+                gap: 1rem;
+            }
+
+            .header {
+                min-height: 25vh;
+                padding: clamp(2.5rem, 6vw, 4rem) clamp(1rem, 4vw, 1.5rem);
+            }
+
+            .header h1 {
+                letter-spacing: -0.3px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .success-stories {
+                padding: 0 1rem;
+            }
+
+            .story-card {
+                padding: 1.2rem;
+                margin-bottom: 2rem;
+            }
+
+            .story-image {
+                height: 180px;
+            }
+
+            .story-content h2 {
+                font-size: 1.4rem;
+            }
+
+            .student-info {
+                font-size: 0.85rem;
+                padding: 0.6rem;
+            }
+
+            .quote {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .quote::before {
+                font-size: 3rem;
+                left: -1rem;
+                top: -0.5rem;
+            }
+
+            .social-proof {
+                flex-direction: column;
+                gap: 0.6rem;
+            }
+
+            .metric {
+                width: 100%;
+                flex: 1 1 100%;
+                justify-content: flex-start;
+                text-align: left;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+                width: 85%;
+            }
+
+            .stat-item {
+                min-height: 120px;
+                padding: 1rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.9rem;
+            }
+
+            .header {
+                min-height: 20vh;
+                padding: 2rem 1rem;
+            }
+
+            .header h1 {
+                margin-bottom: 0.75rem;
+            }
+        }
+
+        /* Fix for story card grid on medium screens */
+        @media (min-width: 769px) and (max-width: 992px) {
+            .story-card {
+                grid-template-columns: 220px 1fr;
+            }
+        }
+
+        /* Improve touch interactions on mobile */
+        @media (hover: none) {
+            .story-card:hover {
+                transform: none;
+            }
+
+            .story-image:hover {
+                transform: none;
+            }
+
+            .metric {
+                touch-action: manipulation;
+            }
+
+            .stat-item:hover {
+                transform: none;
+            }
+        }
+
+        /* Ensure proper spacing for story content on mobile */
+        @media (max-width: 768px) {
+            .story-content {
+                padding-top: 0.5rem;
+            }
+
+            .story-content p {
+                font-size: 0.95rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Add smooth scrolling to the page */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Add a subtle animation to the stats */
+        .stat-item {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+            border-radius: 15px;
+            box-shadow: 
+                0 8px 16px rgba(100, 181, 246, 0.1),
+                0 4px 8px rgba(100, 181, 246, 0.05);
+        }
+
+        .stat-number {
+            background: linear-gradient(45deg, #1976D2, #2196F3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        /* Fix for larger screens to prevent stretching */
+        @media (min-width: 1400px) {
+            .stats-container {
+                grid-template-columns: repeat(4, 1fr);
+                max-width: 1400px;
+            }
+        }
+
+        /* Ensure smooth transitions */
+        .stats-container, .stat-item {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Enhanced Header Responsive Design */
+        @media (max-width: 1200px) {
+            .header {
+                min-height: 35vh;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header {
+                min-height: 30vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                min-height: 25vh;
+                padding: clamp(2.5rem, 6vw, 4rem) clamp(1rem, 4vw, 1.5rem);
+            }
+
+            .header h1 {
+                letter-spacing: -0.3px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                min-height: 20vh;
+                padding: 2rem 1rem;
+            }
+
+            .header h1 {
+                margin-bottom: 0.75rem;
+            }
+        }
+
+        /* Landscape Mode Optimization */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .header {
+                min-height: auto;
+                padding: 2rem 1rem;
+            }
+
+            .header h1 {
+                font-size: clamp(1.8rem, 4vw, 2.5rem);
+                margin-bottom: 0.5rem;
+            }
+
+            .header p {
+                font-size: clamp(0.9rem, 2vw, 1.2rem);
+            }
+        }
+
+        /* High-resolution screens */
+        @media (min-width: 2000px) {
+            .header {
+                padding: 8rem 2rem;
+            }
+
+            .header h1 {
+                font-size: 4rem;
+            }
+
+            .header p {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Ensure content is centered on ultra-wide screens */
+        @media (min-width: 2500px) {
+            .header {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                min-height: 50vh;
+            }
+        }
+
+        /* Animation enhancement for smoother transitions */
+        .header, .header h1, .header p {
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Improve text readability on different backgrounds */
+        @media (prefers-color-scheme: dark) {
+            .header h1, .header p {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        /* Navigation Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1976D2;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #1976D2;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: #f8f9fa;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            color: #1976D2;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: #1976D2;
+        }
+
+        .logo-footer {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #1976D2;
+        }
+
+        .line-parent {
+            padding: 2rem 0;
+        }
+
+        .line {
+            height: 1px;
+            background: #ddd;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer2 {
+            text-align: center;
+            color: #666;
+            padding-top: 1rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">EDUPRAJNA</div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="hire-us.html">Hire From Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <button class="cssbuttons-io-button" id="get-started-btn">
+                Get started
+                <div class="icon">
+                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                    </svg>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <div class="stats-container">
+        <div class="stat-item">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Graduates</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">92%</div>
+            <div class="stat-label">Employment Rate</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">85k+</div>
+            <div class="stat-label">Avg. Starting Salary</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Partner Companies</div>
+        </div>
+    </div>
+
+    <div class="success-stories">
+        <!-- Success Story 1 -->
+        <div class="story-card">
+            <img src="path/to/student1-image.jpg" alt="John Doe" class="story-image">
+            <div class="story-content">
+                <h2>From Beginner to Full-Stack Developer</h2>
+                <div class="student-info">
+                    <i class="fas fa-user-graduate"></i>
+                    John Doe | Web Development Course | 2023 Graduate
+                </div>
+                <p>After completing our comprehensive web development program, John secured a position at a leading tech company, doubling his previous salary.</p>
+                <div class="quote">
+                    "The practical approach and hands-on experience I gained at SphereHive were invaluable. The mentors were always there to support my learning journey."
+                </div>
+                <p>John now leads a team of developers and continues to use the skills he learned in our program.</p>
+                <div class="social-proof">
+                    <span class="metric"><i class="fas fa-briefcase"></i>Employed at Google</span>
+                    <span class="metric"><i class="fas fa-chart-line"></i>150% Salary Increase</span>
+                    <span class="metric"><i class="fas fa-clock"></i>Hired within 2 months</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Story 2 -->
+        <div class="story-card">
+            <img src="path/to/student2-image.jpg" alt="Sarah Smith" class="story-image">
+            <div class="story-content">
+                <h2>Career Transition Success</h2>
+                <div class="student-info">
+                    <i class="fas fa-user-graduate"></i>
+                    Sarah Smith | Data Science Course | 2023 Graduate
+                </div>
+                <p>Sarah successfully transitioned from marketing to data science after completing our intensive program, landing a role at a Fortune 500 company.</p>
+                <div class="quote">
+                    "SphereHive's data science course gave me the perfect blend of theory and practical skills. The career support team was instrumental in helping me land my dream job."
+                </div>
+                <p>Sarah now works on machine learning projects and helps mentor new data scientists.</p>
+            </div>
+        </div>
+
+        <!-- Success Story 3 -->
+        <div class="story-card">
+            <img src="path/to/student3-image.jpg" alt="Mike Johnson" class="story-image">
+            <div class="story-content">
+                <h2>Startup Success Story</h2>
+                <div class="student-info">
+                    <i class="fas fa-user-graduate"></i>
+                    Mike Johnson | Entrepreneurship Program | 2022 Graduate
+                </div>
+                <p>Mike launched his own tech startup just months after graduating from our entrepreneurship program, securing seed funding of $500,000.</p>
+                <div class="quote">
+                    "The mentorship and networking opportunities at SphereHive were game-changing. They helped me turn my idea into a viable business."
+                </div>
+                <p>His startup now employs 15 people and continues to grow rapidly.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Intersection Observer for fade-in animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Observe all story cards
+        document.querySelectorAll('.story-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Animate statistics
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Animate stats when they come into view
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumber = entry.target.querySelector('.stat-number');
+                    const finalValue = parseInt(statNumber.innerText);
+                    animateValue(statNumber, 0, finalValue, 2000);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+
+        document.querySelectorAll('.stat-item').forEach(stat => {
+            statsObserver.observe(stat);
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Column 1: Logo and Description -->
+            <div class="footer-column">
+                <div class="logo-footer">
+                    <span class="logo-icon-footer">⚡</span> EDUPRAJNA
+                </div>
+                <p>Education Opens Up the Mind, & Unlocking Endless Possibilities.</p>
+                <button class="cssbuttons-io-button" id="get-started-btn">
+                    Get started
+                    <div class="icon">
+                        <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+            <!-- Column 2: Quick Links -->
+            <div class="footer-column">
+                <h3>Quick links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="hire-us.html">Hire From Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <!-- Column 3: Services -->
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Content Creation</a></li>
+                    <li><a href="#">Development</a></li>
+                    <li><a href="#">Automation</a></li>
+                    <li><a href="#">LLM Development</a></li>
+                </ul>
+            </div>
+            <!-- Column 4: Follow Us -->
+            <div class="footer-column">
+                <h3>Follow us</h3>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="line-parent">
+            <div class="line"></div>
+        </div>
+        <div class="footer2">
+            <p>© eduprajna 2025</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
