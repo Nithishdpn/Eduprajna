@@ -500,46 +500,391 @@
             }
         }
     </style>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation styles */
+        .navbar {
+            width: 100%;
+            background: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 10px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .nav-logo-img {
+            height: 120px;
+            width: auto;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-list {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+        }
+
+        .nav-link:hover {
+            color: #77ad26;
+        }
+
+        .nav-link.active {
+            color: #77ad26;
+        }
+
+        .cssbuttons-io-button {
+            background: #77ad26;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 50px;
+            border: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(119, 173, 38, 0.2);
+            min-width: 180px;
+            justify-content: center;
+            white-space: nowrap;
+        }
+
+        .cssbuttons-io-button:hover {
+            background: #669423;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(119, 173, 38, 0.3);
+        }
+
+        .nav-toggle {
+            display: none !important;
+        }
+
+        .nav-toggle span {
+            width: 30px;
+            height: 3px;
+            background-color: #333;
+            margin: 3px 0;
+            border-radius: 2px;
+            display: block;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        /* Close button styles */
+        .nav-toggle.active span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 9px;
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: -9px;
+        }
+
+        .mobile-cta {
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-toggle {
+                display: flex !important;
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 8px;
+                z-index: 2000;
+                position: relative;
+                width: 40px;
+                height: 40px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: -100%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+                max-width: 400px;
+                background: white;
+                padding: 1.5rem;
+                border-radius: 0 0 20px 20px;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+                z-index: 1000;
+            }
+
+            .nav-menu.active {
+                top: 0;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .nav-item {
+                width: 100%;
+                opacity: 0;
+                transform: translateY(-10px);
+                transition: all 0.3s ease;
+            }
+
+            .nav-menu.active .nav-item {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .nav-menu.active .nav-item:nth-child(1) { transition-delay: 0.1s; }
+            .nav-menu.active .nav-item:nth-child(2) { transition-delay: 0.15s; }
+            .nav-menu.active .nav-item:nth-child(3) { transition-delay: 0.2s; }
+            .nav-menu.active .nav-item:nth-child(4) { transition-delay: 0.25s; }
+
+            .nav-link {
+                display: block;
+                padding: 8px;
+                text-align: center;
+                font-size: 1.1rem;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .mobile-cta {
+                display: block;
+                margin-top: 0.75rem;
+                opacity: 0;
+                transform: translateY(-10px);
+                transition: all 0.3s ease;
+            }
+
+            .nav-menu.active .mobile-cta {
+                opacity: 1;
+                transform: translateY(0);
+                transition-delay: 0.3s;
+            }
+
+            .mobile-cta .cssbuttons-io-button {
+                width: 100%;
+            }
+
+            .nav-logo-img {
+                height: 95px;
+            }
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .page_contact_us__nDlr_ {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .page_backgroundImage___AIxn {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .page_heading_section___gLKE {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 2;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .page_first__YvfNd {
+            margin-bottom: 1.5rem;
+        }
+
+        .page_first__YvfNd b {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 1rem 0;
+            display: block;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .page_second__aZRyW p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .page_contact_us__nDlr_ {
+                height: 300px;
+            }
+
+            .page_first__YvfNd b {
+                font-size: 2rem;
+            }
+
+            .page_second__aZRyW p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 
 <body class="__className_d65c78">
     <!-- Header -->
     <header>
-        <div class="container">
-            <div class="logo">EDUPRAJNA</div>
-            <div class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><a href="hire-us.html">Hire From Us</a></li>
-                    <li><a href="contact.html" style="color: #77ad26;">Contact Us</a></li>
-                </ul>
-            </nav>
-            <button class="cssbuttons-io-button" id="get-started-btn">
-                Get started
-                <div class="icon">
-                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-                            fill="currentColor"></path>
-                    </svg>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="/" class="nav-logo">
+                    <img src="img/logo.png" alt="EduPrajna Logo" class="nav-logo-img">
+                </a>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation" type="button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="/" class="nav-link">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/courses.html" class="nav-link">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/hire-us.html" class="nav-link">Hire From Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/contact.html" class="nav-link active">Contact</a>
+                        </li>
+                    </ul>
+                    <!-- Mobile CTA Button -->
+                    <div class="mobile-cta">
+                        <button class="cssbuttons-io-button">
+                            Get started
+                            <div class="icon">
+                                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
                 </div>
-            </button>
-        </div>
+
+                <div class="nav-cta">
+                    <button class="cssbuttons-io-button">
+                        Get started
+                        <div class="icon">
+                            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </nav>
     </header>
+
+    <!-- Call to Action Section -->
+     
 
     <div class="page_header__H0DA1">
         <div class="page_contact_us__nDlr_">
-            <img alt="Contact Us Background" loading="lazy" width="1448" height="354" decoding="async" data-nimg="1"
+            <img alt="R.png" loading="lazy" width="100%" height="auto" decoding="async" data-nimg="1"
                 class="page_backgroundImage___AIxn"
-                srcset="https://as1.ftcdn.net/v2/jpg/02/77/30/98/1000_F_277309825_h8RvZkoyBGPDocMtippdfe3497xTrOXO.jpg"
-                src="https://as1.ftcdn.net/v2/jpg/02/77/30/98/1000_F_277309825_h8RvZkoyBGPDocMtippdfe3497xTrOXO.jpg"
-                style="color: transparent" />
+                src="https://img.freepik.com/free-photo/contact-us-communication-support-service-assistance-concept_53876-128103.jpg?w=1800&t=st=1709799331~exp=1709799931~hmac=b2c4c9eb1944e5e0b24c45e6acd5d7c4c8b9087bc106011e0cb3c45524b523d5"
+                style="object-fit: cover; object-position: center; filter: brightness(0.8); border-radius: 0;" />
             <div class="page_heading_section___gLKE">
                 <div class="page_first__YvfNd">
                     <div class="badge_mainBadge__XHtzD">
@@ -563,52 +908,43 @@
         <div class="page_middle_page__WgH6p">
 
             <div class="page_hero_form_container__66fkU">
-                <form class="page_form_section__rXLlf">
+                <form class="page_form_section__rXLlf" id="contactForm">
                     <div class="page_form_inner_section1__Ax0LJ">
                         <div class="page_form_inner_section2__03K_g">
                             <h1>Enter your details</h1>
                             <div class="page_horizontalInputs__xwO9u">
                                 <div class="text-field_container__Xn0Pn text-field_outlined__XFdNZ">
                                     <p class="label_label__vCEbR">
-                                        Name<span class="text-field_requiredStyle__wv1Ao">*</span>
+                                        Name<span class="text-field_requiredStyle__wv1Ao"></span>
                                     </p>
                                     <section class="text-field_inputContainer__ZxJyl text-field_outlined__XFdNZ"
                                         data-aria-disabled="false" data-error="false">
-                                        <input placeholder="Name"
-                                            class="text-field_input__L6Yab text-field_outlined__XFdNZ" type="text" value
-                                            name fdprocessedid="iqk8yf" />
+                                        <input placeholder="Name" name="name" id="name"
+                                            class="text-field_input__L6Yab text-field_outlined__XFdNZ" type="text" required />
                                     </section>
                                 </div>
                             </div>
                             <div class="page_emailInput_Wrapper__kPj_V">
                                 <div class="text-field_container__Xn0Pn text-field_outlined__XFdNZ">
                                     <p class="label_label__vCEbR">
-                                        Email<span class="text-field_requiredStyle__wv1Ao">*</span>
+                                        Email<span class="text-field_requiredStyle__wv1Ao"></span>
                                     </p>
                                     <section class="text-field_inputContainer__ZxJyl text-field_outlined__XFdNZ"
                                         data-aria-disabled="false" data-error="false">
-                                        <input placeholder="you@gmail.com"
-                                            class="text-field_input__L6Yab text-field_outlined__XFdNZ" type="email"
-                                            value name style="
-                          background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpiYmZkZTQxOS00ZGRkLWU5NDYtOWQ2MC05OGExNGJiMTA3N2YiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RDAyNDkwMkRDOTIyMTFFNkI0MzFGRTk2RjM1OTdENTciIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RDAyNDkwMkNDOTIyMTFFNkI0MzFGRTk2RjM1OTdENTciIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OTU2NTE1NDItMmIzOC1kZjRkLTk0N2UtN2NjOTlmMjQ5ZGFjIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOmJiZmRlNDE5LTRkZGQtZTk0Ni05ZDYwLTk4YTE0YmIxMDc3ZiIv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') !important;
-                          background-repeat: no-repeat;
-                          background-size: 20px;
-                          background-position: 97% center;
-                          cursor: auto;
-                        " data-temp-mail-org="0" fdprocessedid="rzqz7j" />
+                                        <input placeholder="you@gmail.com" name="email" id="email"
+                                            class="text-field_input__L6Yab text-field_outlined__XFdNZ" type="email" required />
                                     </section>
                                 </div>
                             </div>
                             <div class="page_phoneNumber_InputWrapper__IJyDj">
                                 <div class="text-field_container__Xn0Pn text-field_outlined__XFdNZ">
                                     <p class="label_label__vCEbR">
-                                        Phone number<span class="text-field_requiredStyle__wv1Ao">*</span>
+                                        Phone Number<span class="text-field_requiredStyle__wv1Ao"></span>
                                     </p>
                                     <section class="text-field_inputContainer__ZxJyl text-field_outlined__XFdNZ"
                                         data-aria-disabled="false" data-error="false">
-                                        <input placeholder="Phone number"
-                                            class="text-field_input__L6Yab text-field_outlined__XFdNZ" type="text"
-                                            value="+91" name fdprocessedid="fmw2tk" />
+                                        <input placeholder="Phone number" name="phone" id="phone"
+                                            class="text-field_input__L6Yab text-field_outlined__XFdNZ" type="tel" required />
                                     </section>
                                 </div>
                             </div>
@@ -617,26 +953,24 @@
                                     <p class="label_label__vCEbR">Message</p>
                                     <section class="textarea-field_inputContainer__m4t6u textarea-field_outlined__RrH2_"
                                         data-aria-disabled="false" data-error="false">
-                                        <textarea placeholder="Message"
-                                            class="textarea-field_textarea__RC_od textarea-field_outlined__RrH2_"></textarea>
+                                        <textarea placeholder="Message" name="message" id="message"
+                                            class="textarea-field_textarea__RC_od textarea-field_outlined__RrH2_" required></textarea>
                                     </section>
                                 </div>
                             </div>
-                            <div class="page_contact_agreement__OHLgN">
-                                <div class="custom-checkbox_customCheckboxWrapper__Ulm3Q">
-                                    <label class="custom-checkbox_customCheckbox__VUZrB"><input
-                                            class="custom-checkbox_checkboxInput__fBBOc" type="checkbox" /><span
-                                            class="custom-checkbox_checkboxCustom___2HN0"></span></label>
-                                </div>
-                                <div class="page_text__m6av6">
-                                    <span>You agree to our
-                                        friendly&nbsp;</span><a target="_blank" href="/privacy-policy">privacy
-                                        policy.</a>
-                                </div>
-                            </div>
-                            <button class="button_button__QnBCk button_xl__3rQ6_ button_btn-primary__5oex_ undefined" id="sendMessageBtn">
+                            
+                            <button type="submit" class="button_button__QnBCk button_xl__3rQ6_ button_btn-primary__5oex_" id="submitBtn">
                                 Send message
                             </button>
+                            <div id="loadingSpinner" style="display: none;">
+                                Sending...
+                            </div>
+                            <div id="successMessage" style="display: none; color: #4CAF50; margin-top: 10px;">
+                                Thank you! Your message has been sent successfully.
+                            </div>
+                            <div id="errorMessage" style="display: none; color: #f44336; margin-top: 10px;">
+                                Oops! Something went wrong. Please try again.
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -719,7 +1053,7 @@
                 </div>
                 <p>Education Opens Up the Mind,
                     & Unlocking Endless Possibilities.</p>
-                <button class="cssbuttons-io-button" id="get-started-btn">
+                <button class="cssbuttons-io-button" onclick="window.location.href='contact.html'">
                     Get started
                     <div class="icon">
                         <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -771,111 +1105,156 @@
 
     <!-- Add this script before closing body tag if not already present -->
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get necessary elements
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const nav = document.querySelector('nav');
-        
-        // Create overlay if it doesn't exist
-        let overlay = document.querySelector('.overlay');
-        if (!overlay) {
-            overlay = document.createElement('div');
-            overlay.className = 'overlay';
-            document.body.appendChild(overlay);
-        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            const overlay = document.querySelector('.overlay');
+            const navItems = document.querySelectorAll('.nav-item');
+            const mobileCta = document.querySelector('.mobile-cta');
+            let isMenuOpen = false;
 
-        // Toggle menu function
-        function toggleMenu() {
-            mobileMenuBtn.classList.toggle('active');
-            nav.classList.toggle('active');
-            overlay.classList.toggle('active');
-            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
-        }
+            function openMenu() {
+                isMenuOpen = true;
+                navMenu.classList.add('active');
+                overlay.classList.add('active');
+                navToggle.classList.add('active');
+                document.body.style.overflow = 'hidden';
 
-        // Event listeners
-        mobileMenuBtn.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
+                // Animate nav items
+                navItems.forEach((item, index) => {
+                    item.style.animation = `slideDown 0.5s ease forwards ${index * 0.1}s`;
+                });
 
-        // Close menu when clicking a link
-        const navLinks = document.querySelectorAll('nav ul li a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (nav.classList.contains('active')) {
-                    toggleMenu();
+                // Animate mobile CTA
+                if (mobileCta) {
+                    mobileCta.style.animation = 'slideDown 0.5s ease forwards 0.3s';
+                }
+            }
+
+            function closeMenu() {
+                isMenuOpen = false;
+                navMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                navToggle.classList.remove('active');
+                document.body.style.overflow = '';
+
+                // Clear animations
+                navItems.forEach(item => {
+                    item.style.animation = '';
+                });
+                if (mobileCta) {
+                    mobileCta.style.animation = '';
+                }
+            }
+
+            function toggleMenu() {
+                if (isMenuOpen) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            }
+
+            // Event Listeners
+            navToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleMenu();
+            });
+
+            // Close menu when clicking overlay
+            overlay.addEventListener('click', closeMenu);
+
+            // Close menu when clicking navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // Close menu on window resize if open
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768 && isMenuOpen) {
+                    closeMenu();
                 }
             });
+
+            // Close menu on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && isMenuOpen) {
+                    closeMenu();
+                }
+            });
+
+            // Prevent clicks inside menu from closing it
+            navMenu.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+
+            // Updated Form submission handling
+            const form = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Show loading state
+                submitBtn.style.display = 'none';
+                loadingSpinner.style.display = 'block';
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'none';
+
+                // Get form data
+                const formData = new FormData(form);
+                const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    message: formData.get('message'),
+                    timestamp: new Date().toLocaleString()
+                };
+
+                try {
+                    // Replace this URL with your Google Apps Script URL
+                    const scriptURL = 'https://script.google.com/macros/s/AKfycbxZVBmLAFks4lfgW4kzKLgzk2OT_fhSQ8yG1k00JgLa9UzuxaoOHZ9xTWf7O1oc7iwt/exec';
+                    
+                    const response = await fetch(scriptURL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    // Show success message
+                    successMessage.style.display = 'block';
+                    form.reset();
+                } catch (error) {
+                    console.error('Error:', error);
+                    errorMessage.style.display = 'block';
+                } finally {
+                    submitBtn.style.display = 'block';
+                    loadingSpinner.style.display = 'none';
+                }
+            });
+
+            // Fix for iOS viewport height issues
+            function fixViewportHeight() {
+                let vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }
+
+            window.addEventListener('resize', fixViewportHeight);
+            window.addEventListener('orientationchange', fixViewportHeight);
+            fixViewportHeight();
         });
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && nav.classList.contains('active')) {
-                toggleMenu();
-            }
-        });
-
-        // Form submission handling
-        const sendMessageBtn = document.getElementById('sendMessageBtn');
-        const form = document.querySelector('.page_form_section__rXLlf');
-        const checkbox = document.querySelector('.custom-checkbox_checkboxInput__fBBOc');
-
-        function validateForm() {
-            const name = document.querySelector('input[placeholder="Name"]').value;
-            const email = document.querySelector('input[placeholder="you@gmail.com"]').value;
-            const phone = document.querySelector('input[placeholder="Phone number"]').value;
-            const message = document.querySelector('textarea[placeholder="Message"]').value;
-
-            if (!name || !email || !phone || !message) {
-                alert('Please fill in all required fields');
-                return false;
-            }
-
-            if (!checkbox.checked) {
-                alert('Please agree to the privacy policy');
-                return false;
-            }
-
-            return true;
-        }
-
-        function sendEmail() {
-            const name = document.querySelector('input[placeholder="Name"]').value;
-            const email = document.querySelector('input[placeholder="you@gmail.com"]').value;
-            const phone = document.querySelector('input[placeholder="Phone number"]').value;
-            const message = document.querySelector('textarea[placeholder="Message"]').value;
-
-            const subject = `New Contact Form Submission from ${name}`;
-            const body = `
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Message: ${message}
-            `;
-
-            // Using mailto link to open default email client
-            const mailtoLink = `mailto:nithishvasanth@eduprajna.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            window.location.href = mailtoLink;
-        }
-
-        sendMessageBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (validateForm()) {
-                sendEmail();
-            }
-        });
-    });
     </script>
 
-    <script>
-    // Fix for iOS viewport height issues
-    function fixViewportHeight() {
-        let vh = window.innerHeight * 0.01;
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-    }
-
-    window.addEventListener('resize', fixViewportHeight);
-    window.addEventListener('orientationchange', fixViewportHeight);
-    fixViewportHeight();
-    </script>
+    <!-- Add overlay for mobile menu -->
+    <div class="overlay"></div>
 
 </body>
 

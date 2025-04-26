@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eduprajna</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
@@ -128,108 +128,913 @@
         }
       }
     </script>
+  <style>
+  /* Reset and Base Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Main Container Styles */
+  .container, 
+  .nav-container,
+  .hero,
+  .services,
+  .features,
+  .reviews,
+  .footer {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+  }
+
+  /* Hero Section */
+  .hero {
+    width: 100%;
+    padding: 70px 20px;
+    margin-top: 80px;
+    background-color: #f8f9fa;
+    text-align: center;
+    position: relative;
+  }
+
+  .hero-main-logo {
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-main-logo img {
+    width: 180px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Services Section */
+  .services {
+    padding: 80px 0;
+    background: white;
+  }
+
+  .service-cards {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Features Section */
+  .features {
+    padding: 80px 0;
+    background: #f8f9fa;
+  }
+
+  .features-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Reviews Section */
+  .reviews {
+    padding: 80px 0;
+    background: white;
+  }
+
+  .review-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Mobile Styles */
+  @media screen and (max-width: 768px) {
+    .hero {
+      margin-top: 85px;
+      padding: 60px 15px;
+    }
+
+    .hero-content,
+    .service-cards,
+    .features-content,
+    .review-grid {
+      padding: 0 15px;
+    }
+  }
+
+  /* Tablet Styles */
+  @media screen and (min-width: 769px) and (max-width: 1023px) {
+    .hero {
+      margin-top: 85px;
+      padding: 65px 20px;
+    }
+  }
+
+  /* Laptop Styles */
+  @media screen and (min-width: 1024px) {
+    .hero {
+      margin-top: 80px;
+      padding: 70px 20px;
+    }
+  }
+
+  /* Navigation styles */
+  .navbar {
+    width: 100%;
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  .nav-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .nav-logo-img {
+    height: 120px;
+    width: auto;
+    transition: transform 0.3s ease;
+    display: block;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Navigation Link Styles */
+  .nav-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+  }
+
+  .nav-link:hover {
+    color: #77ad26;
+  }
+
+  .nav-link.active {
+    color: #77ad26;
+  }
+
+  /* Get Started Button Styles */
+  .cssbuttons-io-button {
+    background: #77ad26;
+    color: white;
+    padding: 12px 32px;
+    border-radius: 50px;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(119, 173, 38, 0.2);
+    min-width: 180px;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  .cssbuttons-io-button:hover {
+    background: #669423;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(119, 173, 38, 0.3);
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .mobile-cta {
+    display: none;
+  }
+
+  /* Mobile Navigation Styles */
+  @media screen and (max-width: 768px) {
+    .nav-toggle {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 2000;
+      position: relative;
+      width: 40px;
+      height: 40px;
+    }
+
+    .hamburger {
+      width: 24px;
+      height: 2px;
+      background: #333;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background: #333;
+      left: 0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger::before {
+      top: -8px;
+    }
+
+    .hamburger::after {
+      top: 8px;
+    }
+
+    .nav-toggle.active .hamburger {
+      background: transparent;
+    }
+
+    .nav-toggle.active .hamburger::before {
+      transform: rotate(45deg) translate(5.5px, 5.5px);
+    }
+
+    .nav-toggle.active .hamburger::after {
+      transform: rotate(-45deg) translate(5.5px, -5.5px);
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: -100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-100%);
+      width: 90%;
+      max-width: 400px;
+      height: auto;
+      max-height: 85vh;
+      background: white;
+      margin: 20px auto 0;
+      padding: 25px;
+      border-radius: 15px;
+      transition: transform 0.3s ease-in-out;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow-y: auto;
+    }
+
+    .nav-menu.active {
+      top: 0;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .nav-list {
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+      width: 100%;
+      padding: 10px 0;
+    }
+
+    .nav-item {
+      width: 100%;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-menu.active .nav-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .nav-menu.active .nav-item:nth-child(1) { transition-delay: 0.1s; }
+    .nav-menu.active .nav-item:nth-child(2) { transition-delay: 0.15s; }
+    .nav-menu.active .nav-item:nth-child(3) { transition-delay: 0.2s; }
+    .nav-menu.active .nav-item:nth-child(4) { transition-delay: 0.25s; }
+
+    .nav-link {
+      font-size: 1rem;
+      padding: 12px 16px;
+      display: block;
+      text-align: center;
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      color: #77ad26;
+    }
+
+    .nav-link.active {
+      color: #77ad26;
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    .mobile-cta {
+      display: flex;
+      margin-top: 15px;
+      padding: 0;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-menu.active .mobile-cta {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.3s;
+    }
+
+    .mobile-cta .cssbuttons-io-button {
+      width: 100%;
+      justify-content: center;
+      padding: 12px 24px;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      min-width: auto;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+      z-index: 999;
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  /* Additional tablet styles */
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+      .service-cards {
+          grid-template-columns: repeat(2, 1fr);
+      }
+
+      .card-main-poc {
+          grid-template-columns: repeat(2, 1fr);
+      }
+
+      .review-grid {
+          grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-container {
+          grid-template-columns: repeat(2, 1fr);
+      }
+  }
+
+  /* Add this to your existing styles */
+  .card-poc {
+      transition: transform 0.3s ease;
+  }
+
+  .card-poc:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-poc .textBox-poc {
+      transition: color 0.3s ease;
+  }
+
+  .card-poc:hover .textBox-poc {
+      color: inherit;  /* This removes the green color on hover */
+  }
+
+  .card-poc:hover h1 {
+      color: inherit;  /* This removes the green color on hover */
+  }
+
+  .card-poc:hover .price-poc {
+      color: inherit;  /* This removes the green color on hover */
+  }
+
+  .cta-parent {
+    padding: 4rem 0;
+    background-color: #fff;
+  }
+
+  .cta-v2 {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .cta-v2-content {
+    text-align: center;
+  }
+
+  .cta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .cta-main-logo img {
+    width: 120px;
+    height: auto;
+  }
+
+  .cta-v2-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin: 1rem 0;
+    line-height: 1.3;
+  }
+
+  .cta-v2 .cssbuttons-io-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 0.7em 1.4em 0.7em 1.6em;
+    color: white;
+    background: #77ad26;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    gap: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .cta-v2 .cssbuttons-io-button .icon {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .cta-v2 .cssbuttons-io-button .icon svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s ease;
+  }
+
+  .cta-v2 .cssbuttons-io-button:hover {
+    background: #83bc2b;
+  }
+
+  .cta-v2 .cssbuttons-io-button:hover .icon svg {
+    transform: translateX(2px);
+  }
+
+  .cta-v2 .cssbuttons-io-button:active {
+    transform: scale(0.98);
+  }
+
+  @media (max-width: 768px) {
+    .cta-v2 {
+      padding: 1.5rem;
+    }
+
+    .cta-v2-content h2 {
+      font-size: 1.8rem;
+    }
+
+    .btn-cta {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+    }
+  }
+
+  .main-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 80px auto 0;
+    padding: 20px;
+    min-height: calc(100vh - 80px);
+  }
+
+  .section {
+    margin: 4rem 0;
+    padding: 2rem 0;
+  }
+
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .main-container {
+      margin-top: 70px;
+      padding: 15px;
+    }
+
+    .flex-container {
+      flex-direction: column;
+    }
+
+    .section {
+      margin: 2rem 0;
+      padding: 1rem 0;
+    }
+  }
+
+  /* Hero Section */
+  .hero {
+    width: 100%;
+    padding: 80px 20px;
+    margin-top: 90px; /* Reduced for better laptop view */
+    background-color: #f8f9fa;
+    text-align: center;
+  }
+
+  .hero-main-logo {
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-main-logo img {
+    width: 180px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+
+  .hero p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  /* Laptop and larger screens */
+  @media screen and (min-width: 1024px) {
+    .hero {
+      margin-top: 80px; /* Specific adjustment for laptop screens */
+      padding: 70px 20px;
+    }
+  }
+
+  /* Mobile Styles */
+  @media screen and (max-width: 768px) {
+    .hero {
+      margin-top: 85px; /* Keeping the mobile spacing as is */
+      padding: 60px 20px;
+    }
+
+    .hero-main-logo {
+      margin-bottom: 2rem;
+    }
+
+    .hero-main-logo img {
+      width: 150px;
+    }
+  }
+
+  /* Tablet/Medium screens */
+  @media screen and (min-width: 769px) and (max-width: 1023px) {
+    .hero {
+      margin-top: 85px;
+      padding: 65px 20px;
+    }
+  }
+
+  .hero-logos {
+    /* Logos */
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .hero-btn {
+    /* Hero button styles */
+  }
+
+  /* Features Section */
+  .features {
+    width: 100%;
+    margin: 0;
+    padding: 80px 20px;
+    background: #f8f9fa;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #333;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+  }
+
+  .feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .feature-card p {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero .flex-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Services Section */
+  .services {
+    width: 100%;
+    padding: 80px 0;
+    margin: 0;
+  }
+
+  .service-cards {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Reviews Section */
+  .reviews {
+    width: 100%;
+    margin: 0;
+    padding: 80px 20px;
+  }
+
+  .review-grid {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* Footer */
+  .footer {
+    width: 100%;
+    margin: 0;
+    padding: 60px 20px 30px;
+  }
+
+  .footer-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .container,
+    .nav-container,
+    .service-cards,
+    .review-grid,
+    .footer-container {
+      padding: 0 15px;
+    }
+
+    .hero,
+    .services,
+    .features,
+    .reviews {
+      padding: 60px 15px;
+    }
+  }
+
+  .msg {
+    text-align: center;
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .msg p {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.3;
+    color: #1a1a1a;
+    max-width: 800px;
+    margin: 0 auto;
+    letter-spacing: 0.5px;
+  }
+
+  @media (max-width: 768px) {
+    .msg {
+      padding: 2rem 1rem;
+    }
+    
+    .msg p {
+      line-height: 1.4;
+      letter-spacing: 0.3px;
+    }
+  }
+  </style>
 </head>
 
 <body>
   <!-- Header -->
-  <header>
-    <div class="container">
-      <div class="logo">EDUPRAJNA</div>
-      <div class="mobile-menu-btn">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="index.html" style="color: #77ad26">Home</a></li>
-          <li><a href="courses.html">Courses</a></li>
-          <li><a href="hire-us.html">Hire From Us</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-          <!-- <li><a href="#">About Us</a></li> -->
-        </ul>
-      </nav>
-      <button class="cssbuttons-io-button" id="get-started-btn">
-        Get started
-        <div class="icon">
-          <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-              fill="currentColor"></path>
-          </svg>
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <img src="img/logo.png" alt="Eduprajna Logo" class="nav-logo-img">
+        </a>
+        
+        <button class="nav-toggle" aria-label="Toggle navigation" type="button">
+          <div class="hamburger"></div>
+        </button>
+
+        <div class="nav-menu">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+            <li class="nav-item"><a href="courses.html" class="nav-link">Courses</a></li>
+            <li class="nav-item"><a href="hire-us.html" class="nav-link">Hire From Us</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+          <!-- Mobile CTA Button -->
+          <div class="mobile-cta">
+            <button class="cssbuttons-io-button">
+              Get started
+              <div class="icon">
+                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                </svg>
+              </div>
+            </button>
+          </div>
         </div>
-      </button>
-    </div>
+
+        <div class="nav-cta">
+          <button class="cssbuttons-io-button">
+            Get started
+            <div class="icon">
+              <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+    </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-main-logo">
-      <img src="img/logo.png" alt="" />
-    </div>
-    <div class="hero-logos">
-      <!-- Logos -->
-      <div class="logos">
-        <img src="pic1.avif" alt="Logo 1" />
-        <img src="pic2.avif" alt="Logo 2" />
-        <img src="pic3.avif" alt="Logo 3" />
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-main-logo">
+        <img src="img/logo.png" alt="" />
       </div>
-      <!-- Rating Bar -->
-      <div class="rating-bar">
-        <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor" viewBox="0 0 22 20">
-          <path
-            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-        </svg>
-        <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor" viewBox="0 0 22 20">
-          <path
-            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-        </svg>
-        <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor" viewBox="0 0 22 20">
-          <path
-            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-        </svg>
-        <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor" viewBox="0 0 22 20">
-          <path
-            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-        </svg>
-        <svg class="w-4 h-4 text-gray-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor" viewBox="0 0 22 20">
-          <path
-            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-        </svg>
-        <p class="ms-1 text-sm font-medium text-gray-500">4.95</p>
-        <p class="ms-1 text-sm font-medium text-gray-500">out of</p>
-        <p class="ms-1 text-sm font-medium text-gray-500">5</p>
+      <div class="hero-logos">
+        <!-- Logos -->
+        
+        <!-- Rating Bar -->
+        
       </div>
-    </div>
-    <div class="container">
-      <h1>
-        Education Opens Up the Mind, <br />
-        <span>&</span> Unlocking Endless Possibilities.
-      </h1>
-      <p>
-        At Eduprajna learn tomorrow technologies today from industry experts.
-        <br />
-        Empowering students with knowledge and skills for the future.
-      </p>
-      <div class="hero-btn">
-        <button class="btn btn-primary cssbuttons-io-button" id="get-started-btn">
-          Get started
-          <div class="icon">
-            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-                fill="currentColor"></path>
-            </svg>
-          </div>
-        </button>
+      <div class="container">
+        <h1>
+          Education Opens Up the Mind, <br />
+          <span>&</span> Unlocking Endless Possibilities.
+        </h1>
+        <p>
+          At Eduprajna learn tomorrow technologies today from industry experts.
+          <br />
+          Empowering students with knowledge and skills for the future.
+        </p>
+        <div class="hero-btn">
+          <button class="btn btn-primary cssbuttons-io-button" id="get-started-btn">
+            Get started
+            <div class="icon">
+              <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                  fill="currentColor"></path>
+              </svg>
+            </div>
+          </button>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   <!-- Services Section -->
   <section class="services">
@@ -238,7 +1043,7 @@
         <div class="flex flex-wrap gap-4 mt-4">
           <button type="button"
             class="flex items-center text-[#77ad26] text-sm font-medium bg-blue-50 px-3 py-1.5 tracking-wide rounded-full">
-            : Services and Solutions
+             Services and Solutions
           </button>
         </div>
       </div>
@@ -351,10 +1156,10 @@
     </div>
   </section>
   <div class="msg">
-    <p class="text-4xl font-bold text-gray-900 dark:text-black">
-      LEARN FROM EXPERTS <br />
-      AT EDUPRAJNA. <br />
-      EXPERIENCE MATTERS.
+    <p>
+      LEARN FROM EXPERTS<br>
+      AT EDUPRAJNA<br>
+      EXPERIENCE MATTERS
     </p>
   </div>
   <!-- Workflow Section -->
@@ -362,8 +1167,8 @@
     <div class="mt-4 flex flex-col gap-4 items-center mx-auto">
       <div class="flex flex-wrap gap-4 mt-4">
         <button type="button"
-          class="flex items-center text-[#77ad26] text-sm font-medium bg-blue-50 px-3 py-1.5 tracking-wide rounded-full">
-          : Eduprajna Tuition
+          class="flex items-center text-[#77ad26] text-sm font-medium bg-[#f0f7e6] px-3 py-1.5 tracking-wide rounded-full cursor-default">
+           Eduprajna Tuition
         </button>
       </div>
     </div>
@@ -498,6 +1303,7 @@
   <!-- sponsor section -->
   <section class="sponsor">
     <h2>Eduprajna Featured</h2>
+    
     <!-- Left-moving slider -->
     <div class="slider-container left">
       <div class="slider" id="left-slider">
@@ -559,74 +1365,98 @@
     </div>
   </section>
 
-  <!-- slider -->
-   <section class="slider-main">
-    
-   </section>
-  <!-- Features Section -->
-  <section class="features">
-    <h2>Eduprajna Featured</h2>
+   <!-- Features Section -->
+   <section class="features" style="background: #f8f9fa; padding: clamp(40px, 8vw, 100px) 20px; margin: 40px 0;">
+    <div style="max-width: 1400px; margin: 0 auto;">
+        <h2 style="text-align: center; font-size: clamp(1.8rem, 3vw, 2.5rem); color: #1f2937; margin-bottom: clamp(30px, 5vw, 50px); font-weight: 600; position: relative;">
+            Eduprajna Featured
+             
+        </h2>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="grid gap-4">
-        <div>
-          <img class="h-auto max-w-full rounded-lg"
-            src="img/futured-pic/1.jpg" alt="">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4" style="padding: 20px;">
+            <!-- Column 1 -->
+            <div class="grid gap-4">
+                <div class="image-card" style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <img class="h-auto max-w-full rounded-lg hover-zoom" src="img/futured-pic/1.jpg" alt="" style="transition: transform 0.3s ease;">
+                </div>
+                <div class="image-card" style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <img class="h-auto max-w-full rounded-lg hover-zoom" src="img/futured-pic/2.jpg" alt="" style="transition: transform 0.3s ease;">
+                </div>
+                <div class="image-card" style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <img class="h-auto max-w-full rounded-lg hover-zoom" src="img/futured-pic/3.jpg" alt="" style="transition: transform 0.3s ease;">
+                </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div class="grid gap-4">
+                <div class="image-card" style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <img class="h-auto max-w-full rounded-lg hover-zoom" src="img/futured-pic/4.jpg" alt="" style="transition: transform 0.3s ease;">
+                </div>
+                <div class="image-card" style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <img class="h-auto max-w-full rounded-lg hover-zoom" src="img/futured-pic/5.jpg" alt="" style="transition: transform 0.3s ease;">
+                </div>
+                <div class="image-card" style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <img class="h-auto max-w-full rounded-lg hover-zoom" src="img/futured-pic/6.jpg" alt="" style="transition: transform 0.3s ease;">
+                </div>
+            </div>
+
+            <!-- Column 3 -->
+            <div class="grid gap-4">
+                <div class="image-card" style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <img class="h-auto max-w-full rounded-lg hover-zoom" src="img/futured-pic/7.jpg" alt="" style="transition: transform 0.3s ease;">
+                </div>
+                <div class="image-card" style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <img class="h-auto max-w-full rounded-lg hover-zoom" src="img/futured-pic/8.jpg" alt="" style="transition: transform 0.3s ease;">
+                </div>
+                <div class="image-card" style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <img class="h-auto max-w-full rounded-lg hover-zoom" src="img/futured-pic/7.jpg" alt="" style="transition: transform 0.3s ease;">
+                </div>
+            </div>
+
+            <!-- Column 4 -->
+            <div class="grid gap-4">
+                <div class="image-card" style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <img class="h-auto max-w-full rounded-lg hover-zoom" src="img/futured-pic/10.jpg" alt="" style="transition: transform 0.3s ease;">
+                </div>
+                <div class="image-card" style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <img class="h-auto max-w-full rounded-lg hover-zoom" src="img/futured-pic/11.jpg" alt="" style="transition: transform 0.3s ease;">
+                </div>
+                <div class="image-card" style="overflow: hidden; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                    <img class="h-auto max-w-full rounded-lg hover-zoom" src="img/futured-pic/12.jpg" alt="" style="transition: transform 0.3s ease;">
+                </div>
+            </div>
         </div>
-        <div>
-          <img class="h-auto max-w-full rounded-lg"
-            src="img/futured-pic/2.jpg" alt="">
-        </div>
-        <div>
-          <img class="h-auto max-w-full rounded-lg"
-            src="img/futured-pic/3.jpg" alt="">
-        </div>
-      </div>
-      <div class="grid gap-4">
-        <div>
-          <img class="h-auto max-w-full rounded-lg"
-            src="img/futured-pic/4.jpg" alt="">
-        </div>
-        <div>
-          <img class="h-auto max-w-full rounded-lg"
-            src="img/futured-pic/5.jpg" alt="">
-        </div>
-        <div>
-          <img class="h-auto max-w-full rounded-lg"
-            src="img/futured-pic/6.jpg" alt="">
-        </div>
-      </div>
-      <div class="grid gap-4">
-        <div>
-          <img class="h-auto max-w-full rounded-lg"
-            src="img/futured-pic/7.jpg" alt="">
-        </div>
-        <div>
-          <img class="h-auto max-w-full rounded-lg"
-            src="img/futured-pic/8.jpg" alt="">
-        </div>
-        <div>
-          <img class="h-auto max-w-full rounded-lg"
-            src="img/futured-pic/7.jpg" alt="">
-        </div>
-      </div>
-      <div class="grid gap-4">
-        <div>
-          <img class="h-auto max-w-full rounded-lg"
-            src="img/futured-pic/10.jpg" alt="">
-        </div>
-        <div>
-          <img class="h-auto max-w-full rounded-lg"
-            src="img/futured-pic/11.jpg" alt="">
-        </div>
-        <div>
-          <img class="h-auto max-w-full rounded-lg"
-            src="img/futured-pic/12.jpg" alt="">
-        </div>
-      </div>
     </div>
 
-  </section>
+    <style>
+        .image-card {
+            cursor: pointer;
+            background: white;
+            position: relative;
+        }
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+        .hover-zoom:hover {
+            transform: scale(1.1);
+        }
+        .image-card img {
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .image-card {
+                aspect-ratio: 1/1;
+            }
+            .image-card img {
+                aspect-ratio: 1/1;
+            }
+        }
+    </style>
+</section>
+  
 
   <!-- Testimonials Section -->
   <section class="reviews">
@@ -741,30 +1571,31 @@
 
   <!-- Call to Action Section -->
   <section class="cta-parent">
-
     <div class="cta-v2">
-      <img alt="Contact Us Background" loading="lazy" width="1448" height="354" decoding="async" data-nimg="1"
-        class="page_backgroundImage___AIxn"
-        srcset="https://as1.ftcdn.net/v2/jpg/02/77/30/98/1000_F_277309825_h8RvZkoyBGPDocMtippdfe3497xTrOXO.jpg"
-        src="https://as1.ftcdn.net/v2/jpg/02/77/30/98/1000_F_277309825_h8RvZkoyBGPDocMtippdfe3497xTrOXO.jpg"
-        style="color: transparent">
       <div class="cta-v2-content">
         <div class="cta-container">
           <div class="cta-main-logo">
-            <img src="img/logo.png" alt="" />
+            <img src="img/logo.png" alt="Eduprajna Logo" />
           </div>
 
           <h2>
             Transform the way you Learn with <br />
             EDUPRAJNA!
           </h2>
-          <button class="btn-cta" style="transition: background-color 0.3s ease, transform 0.1s ease;" id="get-started-btn">Get Started</button>
+          <button class="cssbuttons-io-button" id="get-started-btn">
+            Get Started
+            <div class="icon">
+              <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                  fill="currentColor"></path>
+              </svg>
+            </div>
+          </button>
         </div>
       </div>
     </div>
   </section>
-
-
 
   <!-- Footer -->
   <footer class="footer">
@@ -827,6 +1658,82 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navToggle = document.querySelector('.nav-toggle');
+      const navMenu = document.querySelector('.nav-menu');
+      const overlay = document.createElement('div');
+      overlay.classList.add('overlay');
+      document.body.appendChild(overlay);
+
+      let isMenuOpen = false;
+
+      function closeMenu() {
+        isMenuOpen = false;
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
+
+      function openMenu() {
+        isMenuOpen = true;
+        navToggle.classList.add('active');
+        navMenu.classList.add('active');
+        overlay.classList.add('active');
+        document.body.classList.add('menu-open');
+      }
+
+      function toggleMenu(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (isMenuOpen) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      }
+
+      // Toggle menu on hamburger click
+      navToggle.addEventListener('click', toggleMenu);
+
+      // Close menu when clicking overlay
+      overlay.addEventListener('click', closeMenu);
+
+      // Close menu when clicking a nav link
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      // Close menu on window resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          closeMenu();
+        }
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (isMenuOpen && !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+          closeMenu();
+        }
+      });
+
+      // Close menu on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isMenuOpen) {
+          closeMenu();
+        }
+      });
+
+      // Prevent clicks inside menu from closing it
+      navMenu.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    });
+  </script>
 </body>
 
 </html>

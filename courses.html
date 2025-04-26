@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Searchable Course Grid</title>
+    <title>Course - Eduprajna</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
@@ -126,15 +125,257 @@
       }
     </script>
     <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation styles */
+        .navbar {
+            width: 100%;
+            background: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 10px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .nav-logo-img {
+            height: 120px;
+            width: auto;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-list {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #77ad26;
+        }
+
+        .cssbuttons-io-button {
+            background: #77ad26;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 50px;
+            border: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(119, 173, 38, 0.2);
+            min-width: 180px;
+            justify-content: center;
+            white-space: nowrap;
+        }
+
+        .cssbuttons-io-button:hover {
+            background: #669423;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(119, 173, 38, 0.3);
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        .mobile-cta {
+            display: none;
+        }
+
+        /* Mobile Navigation Styles */
+        @media screen and (max-width: 768px) {
+            .nav-toggle {
+                display: flex !important;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 30px;
+                height: 21px;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+                z-index: 2000;
+            }
+
+            .nav-toggle span {
+                width: 100%;
+                height: 3px;
+                background-color: #333;
+                transition: all 0.3s ease-in-out;
+                border-radius: 2px;
+            }
+
+            .nav-toggle.active span:first-child {
+                transform: rotate(45deg) translate(6px, 6px);
+                background-color: #77ad26;
+            }
+
+            .nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            .nav-toggle.active span:last-child {
+                transform: rotate(-45deg) translate(6px, -6px);
+                background-color: #77ad26;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+                margin-bottom: 10px;
+            }
+
+            .nav-link {
+                display: block;
+                padding: 8px;
+                text-align: center;
+                font-size: 1.1rem;
+                color: #333;
+                transition: color 0.3s ease;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: -100%;
+                left: 0;
+                width: 100%;
+                height: auto;
+                background: white;
+                padding: 50px 20px 15px;
+                transition: all 0.4s ease;
+                opacity: 0;
+                visibility: hidden;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                top: 0;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-item {
+                width: 100%;
+                opacity: 0;
+                transform: translateY(-20px);
+                transition: all 0.3s ease;
+            }
+
+            .nav-menu.active .nav-item {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .nav-menu.active .nav-item:nth-child(1) { transition-delay: 0.1s; }
+            .nav-menu.active .nav-item:nth-child(2) { transition-delay: 0.2s; }
+            .nav-menu.active .nav-item:nth-child(3) { transition-delay: 0.3s; }
+            .nav-menu.active .nav-item:nth-child(4) { transition-delay: 0.4s; }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .mobile-cta {
+                margin-top: 5px;
+            }
+
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            body {
+                padding-top: 80px;
+            }
+
+            .container {
+                padding-top: 20px;
+            }
+        }
+
+        /* Container styles */
         .container {
             text-align: center;
             padding: 20px;
             max-width: 1400px;
-            margin: 0 auto;
+            margin: 120px auto 0; /* Increased from 40px to 120px to account for laptop nav height */
         }
         
         .search-bar {
-            margin: 20px auto 40px;
+            margin: 15px auto 25px; /* Increased top margin from 5px to 15px */
             padding: 12px 24px;
             width: 100%;
             max-width: 500px;
@@ -274,15 +515,13 @@
         }
         
         @media (max-width: 768px) {
-          header {
-        height: var(--header-height);
-        position: inherit;
-        width: 100%;
-        top: 0;
-        background: transparent;
-        z-index: 1000;
-    }
+            header {
+                width: 100%;
+                top: 0;
+                z-index: 1000;
+            }
             .container {
+                margin: 40px auto 0; /* Keep the smaller margin for mobile */
                 padding: 15px;
             }
             
@@ -310,6 +549,10 @@
             .course-description {
                 font-size: 0.9rem;
             }
+            
+            .search-bar {
+                margin: 5px auto 25px; /* Keep the smaller margin for mobile */
+            }
         }
         
         @media (max-width: 480px) {
@@ -322,106 +565,6 @@
             .grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
-            }
-        }
-
-        /* Navigation Styles */
-        .nav-toggle {
-            display: none;
-        }
-
-        .hamburger {
-            display: block;
-            position: relative;
-        }
-
-        .hamburger,
-        .hamburger::before,
-        .hamburger::after {
-            width: 2em;
-            height: 3px;
-            background: #0070f3;
-            transition: transform 0.3s ease;
-        }
-
-        .hamburger::before,
-        .hamburger::after {
-            content: '';
-            position: absolute;
-            left: 0;
-        }
-
-        .hamburger::before {
-            top: -8px;
-        }
-
-        .hamburger::after {
-            bottom: -8px;
-        }
-
-        @media (max-width: 768px) {
-            .nav-toggle {
-                display: block;
-                padding: 0.5em;
-                background: transparent;
-                border: 0;
-                cursor: pointer;
-                position: absolute;
-                right: 1em;
-                top: 1em;
-                z-index: 1000;
-            }
-
-            .nav {
-                position: fixed;
-                background: #fff;
-                width: 80%;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                padding: 2em;
-                transform: translateX(100%);
-                transition: transform 0.3s ease;
-                z-index: 999;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav--visible {
-                transform: translateX(0);
-            }
-
-            .nav-list {
-                display: flex;
-                flex-direction: column;
-                height: 100%;
-                align-items: center;
-                padding-top: 3em;
-            }
-
-            .nav-list li {
-                margin: 0.8em 0;
-            }
-
-            .mobile-nav-button {
-                margin-top: 2em;
-            }
-
-            /* Hamburger animation */
-            .nav-open .hamburger {
-                transform: rotate(45deg);
-            }
-
-            .nav-open .hamburger::before {
-                transform: translateY(8px) rotate(90deg);
-            }
-
-            .nav-open .hamburger::after {
-                opacity: 0;
-            }
-
-            /* Prevent body scroll when nav is open */
-            .nav-open body {
-                overflow: hidden;
             }
         }
 
@@ -612,41 +755,252 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin: 0;
+        }
+
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #77ad26;
+        }
+
+        .nav-link.active {
+            color: #77ad26;
+            font-weight: bold;
+        }
+
+        /* Button Styles */
+        .cssbuttons-io-button {
+            background: #77ad26;
+            color: white;
+            font-family: inherit;
+            padding: 0.35em;
+            padding-left: 1.2em;
+            font-size: 17px;
+            font-weight: 500;
+            border-radius: 50px;
+            border: none;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            box-shadow: inset 0 0 1.6em -0.6em #77ad26;
+            overflow: hidden;
+            position: relative;
+            height: 2.8em;
+            padding-right: 3.3em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cssbuttons-io-button .icon {
+            background: white;
+            margin-left: 1em;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 2.2em;
+            width: 2.2em;
+            border-radius: 50%;
+            box-shadow: 0.1em 0.1em 0.6em 0.2em #77ad26;
+            right: 0.3em;
+            transition: all 0.3s ease;
+        }
+
+        .cssbuttons-io-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(119, 173, 38, 0.3);
+        }
+
+        .cssbuttons-io-button:hover .icon {
+            width: calc(100% - 0.6em);
+            border-radius: 50px;
+        }
+
+        .cssbuttons-io-button .icon svg {
+            width: 1.1em;
+            transition: transform 0.3s ease;
+            color: #77ad26;
+        }
+
+        .cssbuttons-io-button:hover .icon svg {
+            transform: translateX(0.1em);
+        }
+
+        .cssbuttons-io-button:active {
+            transform: scale(0.95);
+        }
+
+        /* Footer button specific styles */
+        .footer .cssbuttons-io-button {
+            margin-top: 1em;
+            background: #77ad26;
+            border-radius: 50px;
+        }
+
+        .footer .cssbuttons-io-button:hover {
+            background: #669422;
+        }
+
+        /* CTA Section Styles */
+        .cta-parent {
+            width: 100%;
+            padding: 40px 20px;
+            background-color: #f2f8ff;
+        }
+
+        .cta-v2 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            border-radius: 20px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .cta-v2-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 600px;
+        }
+
+        .cta-main-logo {
+            margin-bottom: 40px;
+        }
+
+        .cta-main-logo img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .cta-v2 h2 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 40px;
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        .cta-button {
+            background: #77ad26;
+            color: white;
+            font-family: inherit;
+            padding: 16px 48px;
+            font-weight: 500;
+            font-size: 18px;
+            border: none;
+            border-radius: 100px;
+            cursor: pointer;
+            margin: 0 auto;
+            display: block;
+            width: auto;
+            min-width: 200px;
+        }
+
+        /* Removing hover and active states */
+        @media (max-width: 768px) {
+            .cta-v2 {
+                padding: 60px 20px;
+            }
+
+            .cta-v2 h2 {
+                font-size: 2rem;
+            }
+
+            .cta-main-logo img {
+                height: 60px;
+            }
+
+            .cta-button {
+                padding: 14px 32px;
+                font-size: 16px;
+                min-width: 180px;
+            }
+        }
+
+        .course-card {
+            cursor: pointer;
+            position: relative;
+            /* ... existing styles ... */
+        }
+
+        .course-card:hover .course-image {
+            filter: brightness(0.7);
+            transition: filter 0.3s ease;
+        }
     </style>
 </head>
 <body>
-    <!-- header -->
+    <!-- Header -->
     <header>
-      <div class="container">
-        <div class="logo">EDUPRAJNA</div>
-        
-        <!-- Add hamburger menu button for mobile -->
-        <button class="nav-toggle" aria-label="toggle navigation">
-          <span class="hamburger"></span>
-        </button>
-  
-        <nav class="nav">
-          <ul class="nav-list">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="courses.html" style="color: #77ad26">Courses</a></li>
-            <li><a href="hire-us.html">Hire From Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-          </ul>
-          
-        
-        </nav>
-          <!-- Move the get started button inside nav for mobile -->
-          <button class="cssbuttons-io-button mobile-nav-button" id="get-started-btn">
-            Get started
-            <div class="icon">
-              <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-                  fill="currentColor"></path>
-              </svg>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="/" class="nav-logo">
+                    <img src="img/logo.png" alt="Eduprajna Logo" class="nav-logo-img">
+                </a>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation" type="button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="/courses.html" class="nav-link active">Courses</a></li>
+                        <li class="nav-item"><a href="/hire-us.html" class="nav-link">Hire From Us</a></li>
+                        <li class="nav-item"><a href="/contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                    <div class="mobile-cta">
+                        <button class="cssbuttons-io-button">
+                            Get started
+                            <div class="icon">
+                                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="nav-cta">
+                    <button class="cssbuttons-io-button">
+                        Get started
+                        <div class="icon">
+                            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
             </div>
-          </button>
-      </div>
+        </nav>
     </header>
 
     <!-- search bar -->
@@ -684,31 +1038,77 @@
 { "title": "C#", "image": "img/course-pic/csharp.png", "description": "Learn C# basics</br> data structures</br> OOP</br> exception handling</br> and advanced programming techniques." },
 { "title": "ASP.NET & MVC", "image": "img/course-pic/aspnet.png", "description": "Master web application development with ASP.NET</br> MVC</br> authentication</br> and Bootstrap." },
 { "title": "Digital Marketing", "image": "img/course-pic/digital-marketing.png", "description": "Understand SEO</br> social media</br> email marketing</br> branding</br> analytics</br> and advertising strategies." },
-{ "title": "Frontend Web Development", "image": "img/course-pic/fullstack.png", "description": "Build responsive web apps using HTML</br> CSS</br> JavaScript</br> React</br> Redux</br> and GitHub." }
+ 
 
         ];
 
+        // Add this mapping object before the displayCourses function
+        const coursePages = {
+            "Machine Learning": "courses/aiml/aiml.html",
+            "Data Science & Analytics": "courses/data_science/data.html",
+            "Python": "courses/python full stack/pythonfullstack.html",
+            "Advance Java": "courses/java full stack/javafullstack.html",
+            "DevOps": "courses/devops/devops.html",
+            "AWS": "courses/aws&azure/aws_azure.html",
+            "MCSA": "courses/mcsa/mcsa.html",
+            "CCNA": "courses/ccna/ccna.html",
+            "A+": "courses/A+/a+.html",
+            "N+": "courses/N+/N+.html",
+            "Certified Ethical Hacker": "courses/ethical hacking/hacking.html",
+            "Embedded System Design": "courses/embedded system design/embedded.html",
+            "Azure AZ-104": "courses/aws&azure/aws_azure.html",
+            "Azure AZ-400": "courses/aws&azure/aws_azure.html",
+            "Red Hat (Linux)": "courses/linux course/linux.html",
+            "Artificial Intelligence (AI)": "courses/aiml/aiml.html",
+            "Google Cloud": "courses/google cloud/google cloud.html",
+            "Tally": "courses/tally/tally.html",
+            "Full Stack Web Development": "courses/full stack dev/full stack.html.html",
+            "SAP FICO": "courses/sap fico/sap.html",
+            "CCNP": "courses/ccnp/ccnp.html",
+            "Android & iOS Development": "courses/android dev/android.html",
+            "PCB Design": "courses/pcb design/pcb.html",
+            "R Programming": "courses/R programing/r programing.html",
+            "C#": "courses/c hash/chash.html",
+            "ASP.NET & MVC": "courses/asp.net&mvc/aspnet.html",
+            "Digital Marketing": "courses/digital marketing/digital marketing.html",
+            
+        };
+
+        // Update the click handler in the displayCourses function
         function displayCourses(filteredCourses = courses) {
             const courseGrid = document.getElementById("courseGrid");
             courseGrid.innerHTML = "";
             filteredCourses.forEach(course => {
-                courseGrid.innerHTML += `
-                    <div class="course-card">
-                        <div class="course-image-container">
-                            <img 
-                                class="course-image"
-                                src="${course.image}" 
-                                alt="${course.title}"
-                                loading="lazy"
-                            />
-                        </div>
-                        <div class="course-content">
-                            <h3 class="course-title">${course.title}</h3>
-                            <p class="course-description">${course.description}</p>
-                           
-                        </div>
+                const courseCard = document.createElement('div');
+                courseCard.className = 'course-card';
+                
+                // Add click handler for all courses
+                courseCard.onclick = () => {
+                    const coursePath = coursePages[course.title];
+                    if (coursePath) {
+                        window.location.href = coursePath;
+                    } else {
+                        // Optional: Show a message for courses without pages yet
+                        console.log(`Page for ${course.title} is coming soon!`);
+                    }
+                };
+                
+                courseCard.innerHTML = `
+                    <div class="course-image-container">
+                        <img 
+                            class="course-image"
+                            src="${course.image}" 
+                            alt="${course.title}"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">${course.title}</h3>
+                        <p class="course-description">${course.description}</p>
                     </div>
                 `;
+                
+                courseGrid.appendChild(courseCard);
             });
         }
 
@@ -722,26 +1122,6 @@
     </script>
 
      <!-- Call to Action Section -->
-     <section class="cta-parent">
-
-        <div class="cta-v2">
-        <img alt="Contact Us Background" loading="lazy" width="1448" height="354" decoding="async" data-nimg="1" class="page_backgroundImage___AIxn" srcset="https://as1.ftcdn.net/v2/jpg/02/77/30/98/1000_F_277309825_h8RvZkoyBGPDocMtippdfe3497xTrOXO.jpg" src="https://as1.ftcdn.net/v2/jpg/02/77/30/98/1000_F_277309825_h8RvZkoyBGPDocMtippdfe3497xTrOXO.jpg" style="color: transparent">
-        <div class="cta-v2-content">
-            <div class="cta-container">
-                <div class="cta-main-logo">
-                  <img src="img/logo.png" alt="" />
-                </div>
-      
-                <h2>
-                  Transform the way you Learn with <br />
-                  EDUPRAJNA!
-                </h2>
-                <button class="btn-cta">Get Started</button>
-              </div>
-        </div>
-    </div>
-    </section>
-     
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
@@ -751,20 +1131,13 @@
               <span class="logo-icon-footer">⚡</span> EDUPRAJNA
             </div>
             <p>Education Opens Up the Mind, & Unlocking Endless Possibilities.</p>
-            <button class="cssbuttons-io-button">
+            <button class="cssbuttons-io-button" onclick="window.location.href='contact.html'">
               Get started
               <div class="icon">
-                <svg
-                  height="24"
-                  width="24"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M0 0h24v24H0z" fill="none"></path>
-                  <path
-                    d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
-                    fill="currentColor"
-                  ></path>
+                  <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                    fill="currentColor"></path>
                 </svg>
               </div>
             </button>
@@ -812,67 +1185,64 @@
 
     <!-- Add this JavaScript at the end of the body -->
     <script>
-        // Navigation toggle
-        const navToggle = document.querySelector('.nav-toggle');
-        const nav = document.querySelector('.nav');
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            const overlay = document.createElement('div');
+            overlay.classList.add('overlay');
+            document.body.appendChild(overlay);
 
-        navToggle.addEventListener('click', () => {
-            document.body.classList.toggle('nav-open');
-            nav.classList.toggle('nav--visible');
-        });
-
-        // Close nav when clicking outside
-        document.addEventListener('click', (e) => {
-            if (nav.classList.contains('nav--visible') && 
-                !nav.contains(e.target) && 
-                !navToggle.contains(e.target)) {
-                document.body.classList.remove('nav-open');
-                nav.classList.remove('nav--visible');
+            function toggleMenu() {
+                const isOpen = navToggle.classList.contains('active');
+                
+                if (isOpen) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
             }
-        });
 
-        // Close nav when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-list a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                document.body.classList.remove('nav-open');
-                nav.classList.remove('nav--visible');
+            function openMenu() {
+                navToggle.classList.add('active');
+                navMenu.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            navToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                toggleMenu();
             });
-        });
 
-        function openModal(title, description, image) {
-            const modal = document.getElementById('courseModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalDescription = document.getElementById('modalDescription');
-            const modalImage = document.getElementById('modalImage');
+            // Close menu when clicking overlay
+            overlay.addEventListener('click', closeMenu);
 
-            modalTitle.textContent = title;
-            modalDescription.textContent = description;
-            modalImage.src = image;
-            modalImage.alt = title;
+            // Close menu when clicking a nav link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
 
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+            // Close menu on window resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    closeMenu();
+                }
+            });
 
-        function closeModal() {
-            const modal = document.getElementById('courseModal');
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Close modal when clicking outside
-        document.getElementById('courseModal').addEventListener('click', (e) => {
-            if (e.target.id === 'courseModal') {
-                closeModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
+            // Close menu on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeMenu();
+                }
+            });
         });
     </script>
 
