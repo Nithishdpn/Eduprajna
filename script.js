@@ -160,7 +160,4 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-//button
-document.getElementById("get-started-btn").addEventListener("click", function() {
-  window.location.href = "courses.html";
-});
+ 
