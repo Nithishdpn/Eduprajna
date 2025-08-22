@@ -963,8 +963,96 @@
   gtag('config', 'AW-17406763028');
 </script>
 </head>
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .close {
+      color: #aaa;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #enquiryForm label {
+      display: block;
+      margin-top: 10px;
+    }
+    #enquiryForm input, #enquiryForm textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #77ad26;;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    #enquiryForm button {
+      margin-top: 15px;
+      background: #77ad26;; /* Example: site accent color */
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 16px;
+      box-shadow: 0 2px 6px #77ad26;
+      transition: background 0.2s;
+    }
+    #enquiryForm button:hover {
+      background: #77ad26;
+    }
+  </style>
 
 <body>
+  <!-- Enquiry Popup Modal -->
+  <div id="enquiryModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Free Consulting &amp; Get Offer for the Course!</h2>
+      <form id="enquiryForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}"><br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea><br>
+        <div style="display: flex; justify-content: center;">
+          <button type="submit" id="submitBtn">Submit</button>
+          <span id="loadingSpinner" style="display:none;margin-left:10px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: spin 1s linear infinite;">
+              <circle cx="12" cy="12" r="10" stroke="#77ad26" stroke-width="4" stroke-linecap="round" stroke-dasharray="60"/>
+            </svg>
+          </span>
+        </div>
+        <div id="successMessage" style="display:none;color:#77ad26;text-align:center;margin-top:10px;">Thank you for your enquiry! We will contact you soon.</div>
+        <div id="errorMessage" style="display:none;color:#d32f2f;text-align:center;margin-top:10px;">Something went wrong. Please try again.</div>
+        <style>
+          @keyframes spin { 100% { transform: rotate(360deg); } }
+        </style>
+      </form>
+    </div>
+  </div>
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58MWVG25"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1611,5 +1699,65 @@
     });
   </script>
 </body>
+  <script>
+    // Modal open/close logic
+    const modal = document.getElementById('enquiryModal');
+    const closeBtn = document.getElementById('closeModal');
+    // Show modal on page load
+    window.onload = function() {
+      modal.style.display = 'block';
+    }
+    closeBtn.onclick = function() { modal.style.display = 'none'; }
+    window.onclick = function(event) {
+      if (event.target == modal) { modal.style.display = 'none'; }
+    }
+    // Enhanced Form submit logic
+    const form = document.getElementById('enquiryForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.style.display = 'none';
+      loadingSpinner.style.display = 'block';
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
+      const formData = new FormData(form);
+      const data = {
+        name: formData.get('name'),
+        phone: formData.get('phone'),
+        message: formData.get('message'),
+        timestamp: new Date().toLocaleString()
+      };
+      try {
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx9bDCObSqYnedMiv1uQdI_tzIKb3XIeoRO7KdVD5HkLgarfsHNhtQyLyiu7Zo-0WQ8TA/exec';
+        await fetch(scriptURL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+        successMessage.style.display = 'block';
+        form.reset();
+      } catch (error) {
+        console.error('Error:', error);
+        errorMessage.style.display = 'block';
+      } finally {
+        submitBtn.style.display = 'block';
+        loadingSpinner.style.display = 'none';
+      }
+    });
+    // Fix for iOS viewport height issues
+    function fixViewportHeight() {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    window.addEventListener('resize', fixViewportHeight);
+    window.addEventListener('orientationchange', fixViewportHeight);
+    fixViewportHeight();
+  </script>
 
 </html>
