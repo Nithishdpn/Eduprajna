@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -1344,20 +1344,15 @@
           <!-- CTA Buttons -->
           <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center; margin-bottom: 30px;">
             <button class="cssbuttons-io-button hero-primary-btn" style="background: #77ad26; padding: 15px 30px; font-size: 16px; font-weight: 600; border-radius: 8px; border: none; color: white; cursor: pointer; transition: all 0.3s ease;">
-                          Register your seat Now
-                        </button>
-
-            <script>
-              // Make the button open the Google Form link
-              document.addEventListener('DOMContentLoaded', function() {
-                var btn = document.querySelector('.cssbuttons-io-button.hero-primary-btn');
-                if (btn) {
+                Register you seat Now
+              </button>
+              <script>
+                document.querySelectorAll('.cssbuttons-io-button.hero-primary-btn').forEach(function(btn) {
                   btn.onclick = function() {
                     window.open('https://forms.gle/LXswUcNzxaQhma1w8', '_blank');
                   };
-                }
-              });
-            </script>
+                });
+              </script>
           </div>
 
           <!-- Rating -->
