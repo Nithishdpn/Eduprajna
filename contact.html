@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
@@ -7,6 +7,16 @@
     <title>Contact Us - Eduprajna</title>
     <!-- <link rel="stylesheet" href="style2.css" /> -->
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17507247162"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-17507247162');
+    </script>
     
   <script async="" src="https://www.clarity.ms/tag/oolt1oy5wj"></script>
   <script type="text/javascript">
@@ -816,16 +826,7 @@
             }
         }
     </style>
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17406763028">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'AW-17406763028');
-</script>
 </head>
 
 <body class="__className_d65c78">
@@ -1244,9 +1245,16 @@
                         body: JSON.stringify(data)
                     });
 
-                    // Show success message
+                    // If the request doesn't throw, show success and redirect to thank you page
                     successMessage.style.display = 'block';
                     form.reset();
+
+                    // Redirect to thankyou.html and pass the name via query string
+                    const nameParam = encodeURIComponent(data.name || '');
+                    // Use a small delay so user sees the success message briefly
+                    setTimeout(() => {
+                        window.location.href = `thankyou.html?name=${nameParam}`;
+                    }, 600);
                 } catch (error) {
                     console.error('Error:', error);
                     errorMessage.style.display = 'block';
@@ -1274,3 +1282,4 @@
 </body>
 
 </html>
+
