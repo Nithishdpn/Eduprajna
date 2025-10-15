@@ -83,7 +83,7 @@ body {
   line-height: 1.6;
   background-color: #f2f8ff;
   overflow-x: hidden;
-  margin-top: 80px; /* Adjust this value based on your header height */
+  margin-top: 0; /* reset - hero will account for header spacing */
 }
 
 .container {
@@ -306,7 +306,8 @@ body {
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 30px 0;
+  /* Reduced vertical padding so payment card shows on initial render */
+  padding: 18px 0 22px;
   background-color: #f2f8ff;
 }
 
@@ -373,7 +374,85 @@ body {
   width: 120px;
 }
 .hero h1 {
-  font-size: 48px;
+  /* Slightly smaller headline to free vertical space on load */
+  font-size: 40px;
+  line-height: 1.12;
+  margin: 0 0 6px 0;
+}
+
+/* Pull-up variant for right column: shifts only the right column up so payment/student card becomes visible initially */
+.hero-right-content.pull-up {
+  /* pull significantly more to reduce the visual gap to roughly half */
+  /* doubled from -64px to -128px to tighten spacing on large screens */
+  transform: translateY(-158px);
+  /* ensure it doesn't overlap the fixed navbar */
+  z-index: 2;
+}
+
+@media (max-width: 980px) {
+  /* moderate pull on medium screens (doubled from -28px to -56px) */
+  .hero-right-content.pull-up { transform: translateY(-56px); }
+}
+
+@media (max-width: 640px) {
+  /* on mobile, reset to normal stacking so hero layout remains vertical */
+  .hero-right-content.pull-up { transform: translateY(0); }
+}
+
+/* Final safety overrides: ensure hero content sits below the fixed header and avoid clipping */
+.hero {
+  /* header height + small gap: reduce vertical space below fixed header so student card sits closer */
+  padding-top: calc(var(--header-height, 80px) + 0.5rem) !important;
+  padding-bottom: 18px !important;
+}
+
+
+.hero-right-content.pull-up {
+  /* pull the right column up so the student card sits closer to the navbar without overlapping */
+  transform: translateY(-96px) !important;
+}
+
+@media (max-width: 1200px) {
+  /* tablet — moderate pull (doubled) */
+  .hero-right-content.pull-up { transform: translateY(-96px) !important; }
+}
+
+@media (max-width: 980px) {
+  .hero { padding-top: calc(var(--header-height, 72px) + 8px) !important; }
+  /* slightly stronger pull on medium screens (doubled) */
+  .hero-right-content.pull-up { transform: translateY(-56px) !important; }
+}
+
+/* Payment card lift + slight scale to make it more prominent */
+.payment-wrapper {
+  /* add vertical gap below hero text and keep a small lift for visual depth */
+  margin-top: 2.5rem;
+  transform: translateY(-8px);
+  transition: transform 0.25s ease, margin-top 0.25s ease;
+}
+
+.payment-card {
+  padding: 20px !important;
+}
+
+.payment-tile .tile-percent {
+  font-size: 30px !important;
+}
+
+@media (max-width: 1200px) {
+  .payment-wrapper { transform: translateY(-6px); margin-top: 2rem; }
+  .payment-tile .tile-percent { font-size: 28px !important; }
+}
+
+@media (max-width: 768px) {
+  .payment-wrapper { transform: translateY(0); margin-top: 1rem; }
+  .payment-card { padding: 14px !important; }
+  .payment-tile .tile-percent { font-size: 24px !important; }
+}
+
+@media (max-width: 640px) {
+  .hero { padding-top: calc(var(--header-height, 70px) + 6px) !important; }
+  .hero-right-content.pull-up { transform: translateY(0) !important; }
 }
 
 .hero h1 span {

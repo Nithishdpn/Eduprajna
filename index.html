@@ -14,15 +14,32 @@
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17507247162"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-17507247162');
+  </script>
   
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-W43WV4Z8');</script>
-  <!-- End Google Tag Manager -->
-  
+  <script async="" src="https://www.clarity.ms/tag/oolt1oy5wj"></script>
+  <script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "oolt1oy5wj");
+  </script>
   <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -64,6 +81,20 @@
     content="Online coding courses, Learn web development online, Python course for beginners, AWS certification training, AI and ML courses online, Full stack web development course, React JS online course, Python for beginners, AWS cloud certification, Artificial Intelligence course online, Machine Learning certification, Top online tech courses India, Best platform to learn coding, Hands-on tech projects online, EduPrajna online courses, WebDev, Python, AWS, AI, ML, Cloud, Coding, Programming, Development, JavaScript, React, DataScience, Tech, EdTech, Bootcamp, OnlineLearning, Courses, Skills, Training" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="next-size-adjust" />
+  <script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "oolt1oy5wj");
+  </script>
   <link rel="icon" href="img/logo.png" />
   <meta name="description"
     content="At Eduprajna learn tomorrow technologies today from industry experts. Empowering students with knowledge and skills for the future." />
@@ -1105,11 +1136,6 @@
   </style>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W43WV4Z8"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  
   <!-- Enquiry Popup Modal -->
   <div id="enquiryModal" class="modal">
   <canvas class="confetti-canvas" id="confettiCanvas"></canvas>
@@ -1287,20 +1313,136 @@
   </header>
 
     <!-- Hero Section -->
-    <!-- Hero Section -->
-    <section class="hero" style="padding: 80px 20px; margin-top: 40px; min-height: 70vh; display: flex; align-items: center;">
+    <!-- Payment card styles (inserted to match reference image) -->
+    <style>
+      /* Payment info card matching reference image */
+      .payment-wrapper {
+        margin: 18px 0 28px;
+        max-width: 540px;
+      }
+
+      .payment-card {
+        border-radius: 14px;
+        padding: 16px;
+        border: 2px solid rgba(119,173,38,0.18);
+        background: linear-gradient(180deg, #ffffff 0%, #fafdf6 100%);
+        box-shadow: 0 10px 22px rgba(119,173,38,0.06);
+      }
+
+      .payment-card .payment-title {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: #3b7d14;
+        font-weight: 700;
+        font-size: 16px;
+        padding: 10px 14px;
+        border-radius: 10px;
+        background: rgba(119,173,38,0.04);
+        margin: 4px auto 6px auto;
+      }
+
+      .payment-grid {
+        display: flex;
+        gap: 18px;
+        margin-top: 12px;
+      }
+
+      .payment-tile {
+        flex: 1 1 0;
+        background: #fff;
+        border-radius: 12px;
+        padding: 18px 14px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(22,28,36,0.06);
+        border: 1px solid rgba(2,6,23,0.04);
+      }
+
+      .payment-tile .step-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: #77ad26;
+        color: #fff;
+        font-weight: 700;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 12px rgba(119,173,38,0.14);
+      }
+
+      .payment-tile .tile-subtitle {
+        font-size: 14px;
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .payment-tile .tile-percent {
+        font-size: 26px;
+        color: #333;
+        font-weight: 800;
+        margin-bottom: 6px;
+      }
+
+      .payment-tile .tile-meta {
+        font-size: 13px;
+        color: #777;
+      }
+
+      .payment-note {
+        margin-top: 12px;
+        color: #77ad26;
+        font-weight: 600;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      @media (max-width: 720px) {
+        .payment-grid { flex-direction: column; }
+        .payment-wrapper { max-width: 100%; }
+      }
+    </style>
+
+  <section class="hero">
       <div class="container" style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
         <!-- Left Content -->
         <div class="hero-left-content" style="flex: 1; min-width: 300px;">
           <!-- Main Heading -->
-          <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: #333;">
+          <h1 style="font-size: clamp(2.2rem, 4.2vw, 3.6rem); font-weight: 700; line-height: 1.15; margin-bottom: 12px; color: #333;">
             Land a <span style="color: #77ad26;">₹7 – 18 LPA</span> Job<br>
             in <span style="color: #77ad26;">90 Days</span><br>
             <span style="font-size: 0.7em; opacity: 0.9;">or we keep training you <span style="color: #77ad26; font-weight: 600;">free</span></span>
           </h1>
+ <!-- Payment Info Card (matches reference image) -->
+          <div class="payment-wrapper">
+            <div class="payment-card" aria-label="Flexible Payment Structure">
+              <div class="payment-title">💰 Flexible Payment Structure</div>
 
+              <div class="payment-grid">
+                <div class="payment-tile">
+                  <div class="step-badge">1</div>
+                  <div class="tile-subtitle">Before Training</div>
+                  <div class="tile-percent">50%</div>
+                  <div class="tile-meta">Initial Payment</div>
+                </div>
+
+                <div class="payment-tile">
+                  <div class="step-badge" style="background:#f39c12">2</div>
+                  <div class="tile-subtitle">After Placement</div>
+                  <div class="tile-percent">50%</div>
+                  <div class="tile-meta">Success Payment</div>
+                </div>
+              </div>
+
+              <div class="payment-note">⭐ Pay only when you get placed! We're confident in your success.</div>
+            </div>
+          </div>
           <!-- Features List -->
-          <div style="margin-bottom: 40px;">
+          <div style="margin-bottom: 20px;">
             <div style="display: flex; align-items: center; margin-bottom: 12px; font-size: 16px;">
               <span style="color: #77ad26; margin-right: 12px; font-size: 18px;">✓</span>
               Online + Offline Classes
@@ -1314,6 +1456,8 @@
               Unlimited interview opportunities
             </div>
           </div>
+
+         
 
           <!-- CTA Buttons -->
           <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center; margin-bottom: 30px;">
@@ -1338,8 +1482,9 @@
           </div>
         </div>
 
-        <!-- Right Content - 3D Flip Student Showcase -->
-        <div class="hero-right-content" style="flex: 1; min-width: 300px; display: flex; justify-content: center; align-items: center; position: relative;">
+  <!-- Right Content - 3D Flip Student Showcase -->
+  <!-- align-self:flex-start and slight negative margin reduces the space between navbar and the student card only -->
+  <div class="hero-right-content pull-up" style="flex: 1; min-width: 300px; display: flex; justify-content: center; align-items: center; position: relative;">
           <div class="student-showcase-container" style="perspective: 1000px; width: 100%; max-width: 450px; height: 600px;">
             <div id="student-card" class="student-card" style="position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
                 
@@ -2085,13 +2230,13 @@ Placed In Top Companies</h2>
 
  /* Responsive adjustments to better match reference at different widths */
   @media (max-width: 1200px) {
-    .crew-section .crew-card { width: 440px; height: 260px; }
+    .crew-section .crew-card { width: 396px; height: 234px; }
     .crew-section .crew-card.left-1 { transform: translateX(-6px) translateY(4px) translateZ(-70px) rotateY(2.5deg) scale(0.88); }
     .crew-section .crew-card.right-1 { transform: translateX(6px) translateY(4px) translateZ(-70px) rotateY(-2.5deg) scale(0.88); }
   }
   @media (max-width: 980px) {
     .crew-section .crew-carousel { padding: 0 44px; }
-    .crew-section .crew-card { width: 380px; height: 230px; }
+    .crew-section .crew-card { width: 342px; height: 207px; }
     .crew-section .crew-card.left-1 { transform: translateX(-4px) translateY(4px) translateZ(-60px) rotateY(2.5deg) scale(0.88); }
     .crew-section .crew-card.right-1 { transform: translateX(4px) translateY(4px) translateZ(-60px) rotateY(-2.5deg) scale(0.88); }
     .crew-section .crew-card.left-2 { transform: translateX(-140px) translateY(8px) translateZ(-120px) rotateY(5deg) scale(0.88); }
@@ -2104,7 +2249,7 @@ Placed In Top Companies</h2>
   @media (max-width: 640px) {
     .crew-section { padding: 40px 0 36px; }
     .crew-section .crew-carousel { width: 100%; max-width: 360px; height: 220px; padding: 0 48px; }
-    .crew-section .crew-card { width: 320px; height: 200px; border-radius: 16px; }
+    .crew-section .crew-card { width: 288px; height: 180px; border-radius: 16px; }
     .crew-section .crew-card.center { transform: translateZ(0) scale(1); box-shadow: 0 0 0 2px rgba(119,173,38,0.35) inset, 0 10px 26px rgba(119,173,38,0.28), 0 0 28px rgba(119,173,38,0.22); }
     /* Show near side cards, hide far ones */
     .crew-section .crew-card.left-1 { opacity: 1; pointer-events: auto; z-index: 5; transform: translateX(-28px) translateY(2px) translateZ(-40px) rotateY(2deg) scale(0.92); }
