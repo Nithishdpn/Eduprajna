@@ -816,6 +816,29 @@
     .hero-main-logo img {
       width: 150px;
     }
+
+    /* Payment structure mobile styles */
+    .hero .payment-structure-grid {
+      grid-template-columns: 1fr !important;
+      gap: 15px !important;
+    }
+
+    .hero .payment-structure-box {
+      padding: 15px !important;
+    }
+
+    .hero .payment-structure-title {
+      font-size: 1.2rem !important;
+    }
+
+    .hero .payment-percentage {
+      font-size: 1.5rem !important;
+    }
+
+    /* Mobile responsive adjustment for student card positioning */
+    .hero-right-content {
+      transform: translateY(-90px) !important; /* Even more aggressive positioning on mobile */
+    }
   }
 
   /* Tablet/Medium screens */
@@ -823,6 +846,11 @@
     .hero {
       margin-top: 85px;
       padding: 65px 20px;
+    }
+
+    /* Tablet responsive adjustment for student card positioning */
+    .hero-right-content {
+      transform: translateY(-100px) !important; /* Even more aggressive positioning for tablets */
     }
   }
 
@@ -1369,7 +1397,7 @@
   </header>
 
     <!-- Hero Section -->
-    <section class="hero" style="padding: 80px 20px; margin-top: 40px; min-height: 70vh; display: flex; align-items: center;">
+    <section class="hero" style="padding: 80px 20px; margin-top: 10px; min-height: 70vh; display: flex; align-items: center;">
       <div class="container" style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
         <!-- Left Content -->
         <div class="hero-left-content" style="flex: 1; min-width: 300px;">
@@ -1377,8 +1405,39 @@
           <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.2; margin-bottom: 20px; color: #333;">
             Land a <span style="color: #77ad26;">₹7 – 18 LPA</span> Job<br>
             in <span style="color: #77ad26;">90 Days</span><br>
-            <span style="font-size: 0.7em; opacity: 0.9;">or we keep training you <span style="color: #77ad26; font-weight: 600;">free</span></span>
+            <span style="font-size: 0.7em; opacity: 0.9;">We keep training you <span style="color: #77ad26; font-weight: 600;">free</span></span>
           </h1>
+
+            <!-- Payment Structure -->
+          <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border: 2px solid #77ad26; border-radius: 15px; padding: 25px; margin-bottom: 40px; box-shadow: 0 8px 25px rgba(119, 173, 38, 0.1);">
+            <h3 class="payment-structure-title" style="color: #77ad26; font-size: 1.4rem; font-weight: 700; margin-bottom: 20px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px;">
+              <span style="font-size: 1.6rem;">💰</span>
+              Flexible Payment Structure
+            </h3>
+            <div class="payment-structure-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 15px;">
+              <div class="payment-structure-box" style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-left: 4px solid #77ad26;">
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                  <span style="background: #77ad26; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 12px;">1</span>
+                  <h4 style="color: #333; font-size: 1.1rem; font-weight: 600; margin: 0;">Before Training</h4>
+                </div>
+                <p class="payment-percentage" style="color: #666; font-size: 1.8rem; font-weight: 700; margin: 0; text-align: center;">50%</p>
+                <p style="color: #888; font-size: 0.9rem; margin: 5px 0 0 0; text-align: center;">Initial Payment</p>
+              </div>
+              <div class="payment-structure-box" style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-left: 4px solid #f39c12;">
+                <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                  <span style="background: #f39c12; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 12px;">2</span>
+                  <h4 style="color: #333; font-size: 1.1rem; font-weight: 600; margin: 0;">After Placement</h4>
+                </div>
+                <p class="payment-percentage" style="color: #666; font-size: 1.8rem; font-weight: 700; margin: 0; text-align: center;">50%</p>
+                <p style="color: #888; font-size: 0.9rem; margin: 5px 0 0 0; text-align: center;">Success Payment</p>
+              </div>
+            </div>
+            <div style="text-align: center; padding: 10px;">
+              <p style="color: #77ad26; font-weight: 600; font-size: 0.95rem; margin: 0;">
+                ⭐ Pay only when you get placed! We're confident in your success.
+              </p>
+            </div>
+          </div>
 
           <!-- Features List -->
           <div style="margin-bottom: 40px;">
@@ -1395,6 +1454,8 @@
               Unlimited interview opportunities
             </div>
           </div>
+
+        
 
           <!-- CTA Buttons -->
           <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center; margin-bottom: 30px;">
@@ -1413,7 +1474,7 @@
         </div>
 
         <!-- Right Content - 3D Flip Student Showcase -->
-        <div class="hero-right-content" style="flex: 1; min-width: 300px; display: flex; justify-content: center; align-items: center; position: relative;">
+        <div class="hero-right-content" style="flex: 1; min-width: 300px; display: flex; justify-content: center; align-items: center; position: relative; transform: translateY(-120px);">
           <div class="student-showcase-container" style="perspective: 1000px; width: 100%; max-width: 450px; height: 600px;">
             <div id="student-card" class="student-card" style="position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
                 
