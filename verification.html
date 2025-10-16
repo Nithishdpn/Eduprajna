@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steady | Credential Validation</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Confetti Birthday Blast Animation */
+    .confetti-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10001;
+    }
+    /* Blast Animation for Modal */
+    /* .blast {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 10000;
+    } */
+   
+        .result-box {
+          min-width: 280px;
+          max-width: 420px;
+          width: 100%;
+          align-self: flex-start;
+          color: #111;
+          display: block;
+          background: transparent;
+          transition: opacity 0.3s;
+          opacity: 1;
+          position: relative;
+          border-radius: 10px;
+          padding: 24px 20px;
+          font-size: 1.1rem;
+        }
+
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Main Container Styles */
+  .container, 
+  .nav-container,
+  .hero,
+  .services,
+  .features,
+  .reviews,
+  .footer {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+  }
+  
+
+  /* Mobile Styles */
+  @media screen and (max-width: 768px) {
+    .hero {
+      margin-top: 85px;
+      padding: 60px 15px;
+    }
+
+    .hero-content,
+    .service-cards,
+    .features-content,
+    .review-grid {
+      padding: 0 15px;
+    }
+  }
+
+  /* Tablet Styles */
+  @media screen and (min-width: 769px) and (max-width: 1023px) {
+    .hero {
+      margin-top: 85px;
+      padding: 65px 20px;
+    }
+  }
+
+  /* Laptop Styles */
+  @media screen and (min-width: 1024px) {
+    .hero {
+      margin-top: 80px;
+      padding: 70px 20px;
+    }
+  }
+
+  /* Navigation styles */
+  .navbar {
+    width: 100%;
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  .nav-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .nav-logo-img {
+    height: 120px;
+    width: auto;
+    transition: transform 0.3s ease;
+    display: block;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Navigation Link Styles */
+  .nav-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+  }
+
+  .nav-link:hover {
+    color: #77ad26;
+  }
+
+  .nav-link.active {
+    color: #77ad26;
+  }
+
+  /* Get Started Button Styles */
+  .cssbuttons-io-button {
+    background: #77ad26;
+    color: white;
+    padding: 12px 32px;
+    border-radius: 50px;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(119, 173, 38, 0.2);
+    min-width: 180px;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  .cssbuttons-io-button:hover {
+    background: #669423;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(119, 173, 38, 0.3);
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .mobile-cta {
+    display: none;
+  }
+
+  /* Mobile Navigation Styles */
+  @media screen and (max-width: 768px) {
+    .nav-toggle {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 2000;
+      position: relative;
+      width: 40px;
+      height: 40px;
+    }
+
+    .hamburger {
+      width: 24px;
+      height: 2px;
+      background: #333;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 2px;
+      background: #333;
+      left: 0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger::before {
+      top: -8px;
+    }
+
+    .hamburger::after {
+      top: 8px;
+    }
+
+    .nav-toggle.active .hamburger {
+      background: transparent;
+    }
+
+    .nav-toggle.active .hamburger::before {
+      transform: rotate(45deg) translate(5.5px, 5.5px);
+    }
+
+    .nav-toggle.active .hamburger::after {
+      transform: rotate(-45deg) translate(5.5px, -5.5px);
+    }
+
+    .nav-menu {
+      position: fixed;
+      top: -100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-100%);
+      width: 90%;
+      max-width: 400px;
+      height: auto;
+      max-height: 85vh;
+      background: white;
+      margin: 20px auto 0;
+      padding: 25px;
+      border-radius: 15px;
+      transition: transform 0.3s ease-in-out;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow-y: auto;
+    }
+
+    .nav-menu.active {
+      top: 0;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .nav-list {
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+      width: 100%;
+      padding: 10px 0;
+    }
+
+    .nav-item {
+      width: 100%;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-menu.active .nav-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .nav-menu.active .nav-item:nth-child(1) { transition-delay: 0.1s; }
+    .nav-menu.active .nav-item:nth-child(2) { transition-delay: 0.15s; }
+    .nav-menu.active .nav-item:nth-child(3) { transition-delay: 0.2s; }
+    .nav-menu.active .nav-item:nth-child(4) { transition-delay: 0.25s; }
+
+    .nav-link {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      padding: 8px 12px;
+    }
+
+    .nav-link:hover {
+      color: #77ad26;
+    }
+
+    .nav-link.active {
+      color: #77ad26;
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    .mobile-cta {
+      display: flex;
+      margin-top: 15px;
+      padding: 0;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .nav-menu.active .mobile-cta {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.3s;
+    }
+
+    .mobile-cta .cssbuttons-io-button {
+      width: 100%;
+      justify-content: center;
+      padding: 12px 24px;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      min-width: auto;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+      z-index: 999;
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  /* Additional tablet styles */
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+      .service-cards {
+          grid-template-columns: repeat(2, 1fr);
+      }
+
+      .card-main-poc {
+          grid-template-columns: repeat(2, 1fr);
+      }
+
+      .review-grid {
+          grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-container {
+          grid-template-columns: repeat(2, 1fr);
+      }
+  }
+
+  /* Add this to your existing styles */
+  .card-poc {
+      transition: transform 0.3s ease;
+  }
+
+  .card-poc:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-poc .textBox-poc {
+      transition: color 0.3s ease;
+  }
+
+  .card-poc:hover .textBox-poc {
+      color: inherit;  /* This removes the green color on hover */
+  }
+
+  .card-poc:hover h1 {
+      color: inherit;  /* This removes the green color on hover */
+  }
+
+  .card-poc:hover .price-poc {
+      color: inherit;  /* This removes the green color on hover */
+  }
+
+  .cta-parent {
+    padding: 4rem 0;
+    background-color: #fff;
+  }
+
+  .cta-v2 {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .cta-v2-content {
+    text-align: center;
+  }
+
+  .cta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .cta-main-logo img {
+    width: 120px;
+    height: auto;
+  }
+
+  .cta-v2-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin: 1rem 0;
+    line-height: 1.3;
+  }
+
+  .cta-v2 .cssbuttons-io-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 20px;
+    padding: 0.7em 1.4em 0.7em 1.6em;
+    color: white;
+    background: #77ad26;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    gap: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .cta-v2 .cssbuttons-io-button .icon {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .cta-v2 .cssbuttons-io-button .icon svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s ease;
+  }
+
+  .cta-v2 .cssbuttons-io-button:hover {
+    background: #83bc2b;
+  }
+
+  .cta-v2 .cssbuttons-io-button:hover .icon svg {
+    transform: translateX(2px);
+  }
+
+  .cta-v2 .cssbuttons-io-button:active {
+    transform: scale(0.98);
+  }
+
+  @media (max-width: 768px) {
+    .cta-v2 {
+      padding: 1.5rem;
+    }
+
+    .cta-v2-content h2 {
+      font-size: 1.8rem;
+    }
+
+    .btn-cta {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+    }
+  }
+
+  .main-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 80px auto 0;
+    padding: 20px;
+    min-height: calc(100vh - 80px);
+  }
+
+  .section {
+    margin: 4rem 0;
+    padding: 2rem 0;
+  }
+
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .main-container {
+      margin-top: 70px;
+      padding: 15px;
+    }
+
+    .flex-container {
+      flex-direction: column;
+    }
+
+    .section {
+      margin: 2rem 0;
+      padding: 1rem 0;
+    }
+  }
+
+  /* Hero Section */
+  .hero {
+    width: 100%;
+    padding: 80px 20px;
+    margin-top: 90px; /* Reduced for better laptop view */
+    background-color: #f8f9fa;
+    text-align: center;
+  }
+
+  .hero-main-logo {
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-main-logo img {
+    width: 180px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+
+  .hero p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  /* Laptop and larger screens */
+  @media screen and (min-width: 1024px) {
+    .hero {
+      margin-top: 80px; /* Specific adjustment for laptop screens */
+      padding: 70px 20px;
+    }
+  }
+
+  /* Mobile Styles */
+  @media screen and (max-width: 768px) {
+    .hero {
+      margin-top: 85px; /* Keeping the mobile spacing as is */
+      padding: 60px 20px;
+    }
+
+    .hero-main-logo {
+      margin-bottom: 2rem;
+    }
+
+    .hero-main-logo img {
+      width: 150px;
+    }
+  }
+
+  /* Tablet/Medium screens */
+  @media screen and (min-width: 769px) and (max-width: 1023px) {
+    .hero {
+      margin-top: 85px;
+      padding: 65px 20px;
+    }
+  }
+
+ 
+
+  .container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+ 
+  /* Features Section */
+  .features {
+    width: 100%;
+    margin: 0;
+    padding: 80px 20px;
+    background: #f8f9fa;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #333;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+  }
+
+  .feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .feature-card p {
+    color: #666;
+    line-height: 1.6;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero .flex-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Services Section */
+  .services {
+    width: 100%;
+    padding: 80px 0;
+    margin: 0;
+  }
+
+  .service-cards {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Reviews Section */
+  .reviews {
+    width: 100%;
+    margin: 0;
+    padding: 80px 20px;
+  }
+
+  .review-grid {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* Footer */
+  .footer {
+    width: 100%;
+    margin: 0;
+    padding: 60px 20px 30px;
+  }
+
+  .footer-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .container,
+    .nav-container,
+    .service-cards,
+    .review-grid,
+    .footer-container {
+      padding: 0 15px;
+    }
+
+    .hero,
+    .services,
+    .features,
+    .reviews {
+      padding: 60px 15px;
+    }
+  }
+
+  .msg {
+    text-align: center;
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .msg p {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.3;
+    color: #1a1a1a;
+    max-width: 800px;
+    margin: 0 auto;
+    letter-spacing: 0.5px;
+  }
+
+  @media (max-width: 768px) {
+    .msg {
+      padding: 2rem 1rem;
+    }
+    
+    .msg p {
+      line-height: 1.4;
+      letter-spacing: 0.3px;
+    }
+  }
+  </style>
+
+
+</head>
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+      animation: modalFadeIn 0.5s;
+    }
+    .modal.show {
+      display: block;
+      animation: modalFadeIn 0.5s;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 32px 24px 24px 24px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 8px 32px rgba(119,173,38,0.15), 0 2px 8px rgba(0,0,0,0.08);
+      position: relative;
+      animation: modalContentPop 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    @keyframes modalContentPop {
+      0% { transform: scale(0.8) translateY(40px); opacity: 0; }
+      60% { transform: scale(1.05) translateY(-8px); opacity: 1; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .modal-content h2 {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #77ad26;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
+      animation: fadeInDown 0.7s;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #enquiryForm label {
+      display: block;
+      margin-top: 10px;
+      font-weight: 500;
+      color: #333;
+      letter-spacing: 0.2px;
+      animation: fadeInLeft 0.7s;
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    #enquiryForm input, #enquiryForm textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #77ad26;
+      border-radius: 4px;
+      box-sizing: border-box;
+      transition: box-shadow 0.2s, border-color 0.2s;
+      box-shadow: 0 1px 4px rgba(119,173,38,0.08);
+      font-size: 1rem;
+      animation: fadeInUp 0.7s;
+    }
+    #enquiryForm input:focus, #enquiryForm textarea:focus {
+      border-color: #669423;
+      box-shadow: 0 2px 8px rgba(119,173,38,0.18);
+      outline: none;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .close {
+      color: #aaa;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #enquiryForm label {
+      display: block;
+      margin-top: 10px;
+    }
+    #enquiryForm input, #enquiryForm textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #77ad26;;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    #enquiryForm button {
+      margin-top: 15px;
+      background: #77ad26;; /* Example: site accent color */
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 16px;
+      box-shadow: 0 2px 6px #77ad26;
+      transition: background 0.2s;
+    }
+    #enquiryForm button:hover {
+      background: #77ad26;
+    }
+  </style>
+
+  <style>
+    :root {
+      --steady-green: #77AD26;
+      --steady-green-dark: #5e8a1e;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('img/abstract-green-elegant-background-illustration-vector (1).jpg') no-repeat center center fixed;
+      background-size: cover;
+      /* allow scrolling so result panel and footer are reachable */
+      overflow: auto;
+    }
+    
+    .containerverification {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .verification-hero {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 5%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: transform 1s ease, opacity 1s ease;
+    }
+
+    .verificationsection{
+      /* participate in normal document flow so content (result + footer) doesn't overlap */
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 5%;
+      display:flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      transition: transform 1s ease, opacity 1s ease;
+    }
+
+    .verification-hero {
+      background: transparent;
+      color: white;
+      z-index: 2;
+    }
+
+    .verification-hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: rgb(155, 251, 123);
+      margin-bottom: 1rem;
+    }
+
+    .verification-hero p {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #ecf4e1;
+      margin-bottom: 2rem;
+    }
+
+    .verification-hero button {
+      padding: 0.9rem 2rem;
+      width: 10rem ;
+      background-color: var(--steady-green);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .verification-hero button:hover {
+      background-color: var(--steady-green-dark);
+      transform: scale(1.05);
+    }
+
+    .form-section {
+      background:transparent;
+      color: white;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(100%);
+      width: 100%;
+      height: 90%;
+      align-items: center;
+      display: flex;
+      justify-content: space-between; /* or center, flex-start, etc. */
+      
+    }
+
+    .form-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+      z-index: 3;
+    }
+
+    .form-container {
+     
+      padding: 2rem;
+      border-radius: 12px;
+      margin-left: 1 rem;
+      max-width: 400px;
+      margin-left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-left: 0;
+    }
+
+    .form-container label {
+      font-weight: bold;
+    }
+
+    .form-container input,
+    .form-container select {
+      width: 100%;
+      padding: 0.7rem;
+      
+      border: 1px solid #165003;
+      border-radius: 6px;
+      font-size: 1rem;
+      background-color: #fff;
+      color: #000;
+    }
+
+    .form-container button[type="submit"] {
+      padding: 0.6rem 4rem;
+      background-color: var(--steady-green);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .form-container button[type="submit"]:hover {
+      background-color: rgb(247, 247, 247);
+      color: black;
+    }
+
+    .form-container button[type="button"] {
+    
+      color: white;
+      padding: 0.5rem 1rem;
+      background-color: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .form-container button[type="button"]:hover {   
+      color: black;
+    }
+
+   .result-box {
+  flex: 1;
+  max-width: 420px;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  align-self: flex-start;
+  transition: transform 1s ease, opacity 1s ease;
+  /* let the section-level grid/background control appearance; default to transparent here */
+  background-color: transparent;
+}
+
+    @media (max-width: 600px) {
+      .verification-hero h1 {
+        font-size: 2rem;
+      }
+
+      .form-container {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+   <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <img src="img/logo.png" alt="Eduprajna Logo" class="nav-logo-img">
+        </a>
+        
+        <button class="nav-toggle" aria-label="Toggle navigation" type="button">
+          <div class="hamburger"></div>
+        </button>
+
+        <div class="nav-menu">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="index.html" class="nav-link ">Home</a></li>
+            <li class="nav-item"><a href="courses.html" class="nav-link">Courses</a></li>
+            <li class="nav-item"><a href="hire-us.html" class="nav-link">Hire From Us</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="Verification.html" class="nav-link active">Verification</a></li>
+          </ul>
+          <!-- Mobile CTA Button -->
+          <div class="mobile-cta">
+            <button class="cssbuttons-io-button" onclick="location.href='/contact.html'">
+              Get started
+              <div class="icon">
+                <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+                </svg>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="nav-cta">
+          
+          <button class="cssbuttons-io-button" onclick="location.href='/contact.html'">
+            Get started
+            <div class="icon">
+              <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" fill="currentColor"></path>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+    <section class="verification-hero" id="heroSection">
+      <h1>Credential Validation</h1>
+      <p>Instant Certificate Validation—Because Trust Should Be Transparent</p>
+      <button onclick="showForm()">Check One</button>
+    </section>
+
+    <!-- Form Section -->
+    <section class="verificationsection form-section" id="formSection">
+      <div class="form-result-grid">
+        <!-- Left: form -->
+        <div class="form-layout left-align">
+          <h2 class="form-title">Check <span class="accent">Now</span></h2>
+          <form id="validationForm" class="form-container">
+            <label for="certCode">Certificate Code</label>
+            <input type="text" id="certCode" name="certCode" placeholder="certificate code *" required />
+
+            <label for="courseType">Course Type</label>
+            <select id="courseType" name="courseType" required>
+              <option value="">Select Type</option>
+              <option value="Web Development">Web Development</option>
+              <option value="UI/UX Design">UI/UX Design</option>
+              <option value="Digital Marketing">Digital Marketing</option>
+            </select>
+
+            <button type="submit" class="validate-btn">Check</button>
+          </form>
+          <div class="go-back-wrapper">
+            <button type="button" onclick="goBack()" class="go-back-btn">← Go Back</button>
+          </div>
+          <!-- Inline result panel: will appear under the form on submit -->
+        </div>
+
+        <!-- Right: result panel -->
+        <aside id="resultBox" class="result-box invisible" aria-live="polite">
+          <!-- Filled by JS on submit -->
+        </aside>
+      </div>
+
+      <style>
+        /* Two-column grid */
+        .form-result-grid {
+          display: grid;
+          grid-template-columns: 1fr 420px;
+          gap: 40px;
+          align-items: start;
+          width: 100%;
+          max-width: 1100px;
+          margin: 0 auto;
+          box-sizing: border-box;
+          padding: 12px;
+        }
+
+        .form-title { font-size: 2rem; margin: 0 0 18px 0; font-weight: 700; }
+        .form-title .accent { color: #1e90ff; }
+
+        .form-container label { display:block; margin-bottom:8px; font-weight:700; color:#222; }
+        .form-container input,
+        .form-container select {
+          width: 100%;
+          height: 56px;
+          padding: 0 18px;
+          border-radius: 8px;
+          border: 1px solid rgba(0,0,0,0.08);
+          font-size: 1rem;
+          box-shadow: 0 4px 12px rgba(10,10,10,0.04) inset;
+          margin-bottom: 18px;
+          background: #fff;
+        }
+
+        .validate-btn {
+          display:block;
+          width:100%;
+          padding: 14px 20px;
+          background:#2b8cff;
+          color:#fff;
+          border-radius:8px;
+          border:none;
+          font-size:1.15rem;
+          font-weight:700;
+          cursor:pointer;
+          box-shadow: 0 10px 20px rgba(43,140,255,0.14);
+          margin-top: 8px;
+        }
+
+        .go-back-wrapper { margin-top:12px; }
+        .go-back-btn { background:transparent; border:1px solid rgba(0,0,0,0.08); padding:6px 10px; border-radius:6px; }
+
+        /* Result panel */
+        .result-box {
+          background: #fff;
+          color: #111;
+          padding: 20px 22px;
+          border-radius: 8px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+          min-height: 160px;
+        }
+
+        .result-box.invisible { display: none; }
+        .result-box.visible { display: block; }
+
+        .result-box h2 { font-size: 34px; margin: 0 0 18px 0; font-weight:700; }
+        .result-row { margin-bottom: 18px; }
+        .result-label { font-size: 28px; font-weight:700; display:block; margin-bottom:6px; position:relative; padding-bottom:6px; }
+        .result-label::after { content: ''; position:absolute; left:0; bottom:0; height:6px; width:60%; background: #ffecb3; border-radius:3px; }
+        .result-value { font-size:18px; margin: 6px 0 0 0; }
+
+        @media (max-width: 900px) {
+          .form-result-grid { grid-template-columns: 1fr; }
+          .result-box { order: 2; }
+          .left-align { order: 1; }
+        }
+      </style>
+
+    </section>
+
+  </div>
+
+  <script>
+    function showForm() {
+      document.getElementById('heroSection').style.opacity = '0';
+      document.getElementById('formSection').classList.add('visible');
+    }
+
+    function goBack() {
+      document.getElementById('formSection').classList.remove('visible');
+      document.getElementById('heroSection').style.opacity = '1';
+    }
+
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const navToggle = document.querySelector('.nav-toggle');
+      const navMenu = document.querySelector('.nav-menu');
+      const overlay = document.createElement('div');
+      overlay.classList.add('overlay');
+      document.body.appendChild(overlay);
+
+      let isMenuOpen = false;
+
+      function closeMenu() {
+        isMenuOpen = false;
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
+
+      function openMenu() {
+        isMenuOpen = true;
+        navToggle.classList.add('active');
+        navMenu.classList.add('active');
+        overlay.classList.add('active');
+        document.body.classList.add('menu-open');
+      }
+
+      function toggleMenu(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (isMenuOpen) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      }
+
+      // Toggle menu on hamburger click
+      navToggle.addEventListener('click', toggleMenu);
+
+      // Close menu when clicking overlay
+      overlay.addEventListener('click', closeMenu);
+
+      // Close menu when clicking a nav link
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      // Close menu on window resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+          closeMenu();
+        }
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (isMenuOpen && !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+          closeMenu();
+        }
+      });
+
+      // Close menu on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isMenuOpen) {
+          closeMenu();
+        }
+      });
+
+      // Prevent clicks inside menu from closing it
+      navMenu.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    });
+    
+  </script>
+<!--varification script-->
+  <script>
+    // Load certificates from external JSON (`data/certificates.json`) with a fallback
+    let certificates = [];
+
+    async function loadCertificates() {
+      try {
+        const response = await fetch('data/certificates.json', { cache: 'no-cache' });
+        if (!response.ok) throw new Error('fetch failed');
+        const data = await response.json();
+        if (Array.isArray(data)) certificates = data;
+      } catch (err) {
+        console.warn('Unable to load data/certificates.json, falling back to inline sample', err);
+        certificates = [
+          { intern_name: 'Keerthan V', domain: 'Web Development', course_type: 'Web Development', issued_date: '2023-11-24', certificate_code: 'PJN-WD-001' },
+          { intern_name: 'Aishwarya S', domain: 'UI/UX Design', course_type: 'UI/UX Design', issued_date: '2023-11-28', certificate_code: 'PJN-UX-002' }
+        ];
+      }
+    }
+
+    // start loading now
+    loadCertificates();
+
+    document.getElementById('validationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const certCodeInput = document.getElementById('certCode');
+      const courseTypeInput = document.getElementById('courseType');
+      const modal = document.getElementById('verificationModal');
+      const modalBody = document.getElementById('verificationModalBody');
+
+      const certCode = certCodeInput.value.trim();
+      const courseType = courseTypeInput.value;
+
+      const match = certificates.find(cert => cert.certificate_code === certCode && cert.course_type === courseType);
+
+      if (match) {
+        modalBody.innerHTML = `
+          <h2 class="modal-title"><span class="check-icon">✅</span> Intern Verification Details</h2>
+          <div class="result-row"><span class="result-label">Intern Name</span><div class="result-value">${match.intern_name}</div></div>
+          <div class="result-row"><span class="result-label">Domain</span><div class="result-value">${match.domain}</div></div>
+          <div class="result-row"><span class="result-label">Course</span><div class="result-value">${match.course_type}</div></div>
+          <div class="result-row"><span class="result-label">Issued Date</span><div class="result-value">${match.issued_date}</div></div>
+          <div class="result-row"><span class="result-label">Certificate Code</span><div class="result-value">${match.certificate_code}</div></div>
+        `;
+      } else {
+        modalBody.innerHTML = `<p style="color:#d32f2f;font-weight:700;">❌ Data not found. Please check the certificate code and course type.</p>`;
+      }
+
+      modal.classList.add('show');
+      document.body.classList.add('modal-open');
+      document.documentElement.classList.add('modal-open');
+
+      certCodeInput.value = '';
+      courseTypeInput.value = '';
+    });
+  </script>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- Column 1: Logo and Description -->
+      <div class="footer-column">
+        <div class="logo-footer">
+          <span class="logo-icon-footer">⚡</span> EDUPRAJNA
+        </div>
+        <p>Education Opens Up the Mind, & Unlocking Endless Possibilities.</p>
+        <button class="cssbuttons-io-button" onclick="location.href='/contact.html'">
+          Get started
+          <div class="icon">
+            <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                fill="currentColor"></path>
+            </svg>
+          </div>
+        </button>
+      </div>
+      <!-- Column 2: Quick Links -->
+      <div class="footer-column">
+        <h3>Quick links</h3>
+        <ul>
+        <ul>
+          <li><a href="#">Content Creation</a></li>
+          <li><a href="#">Development</a></li>
+          <li><a href="#">Automation</a></li>
+          <li><a href="#">LLM Development</a></li>
+        </ul>
+      </div>
+      <!-- Column 4: Follow Us -->
+      <div class="footer-column">
+        <h3>Follow us</h3>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="line-parent">
+      <div class="line"></div>
+    </div>
+    <div class="footer2">
+      <p>© eduprajna 2025</p>
+    </div>
+</footer>
+
+</body>
+</html>
+
+<!-- Verification result modal -->
+<div id="verificationModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modal-overlay" id="verificationModalOverlay"></div>
+  <div class="modal-content" role="document" aria-labelledby="verificationModalTitle">
+    <button class="modal-close" id="verificationModalClose" aria-label="Close result">✕</button>
+    <div id="verificationModalBody" class="modal-body">
+      <!-- Filled programmatically -->
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Standard centered popup modal */
+  .modal { display: none; position: fixed; inset: 0; z-index: 12000; }
+  .modal.show { display: block; }
+  .modal-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
+
+  /* Centered dialog box */
+  .modal-content {
+    position: relative;
+    width: 92%;
+    max-width: 640px;
+    margin: 6vh auto; /* vertically offset a bit from top */
+    background: #fff;
+    color: #111;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 12001;
+  }
+
+  /* Close button sits in the corner of the dialog */
+  .modal-close { position: absolute; top: 12px; right: 14px; background: transparent; border: none; font-size: 20px; cursor: pointer; z-index: 12002; }
+
+  .modal-title { margin: 0 0 12px 0; font-size: 1.15rem; display:flex; align-items:center; gap:10px; }
+  .modal-title .check-icon { font-size: 1.15rem; }
+
+  .result-row { display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom: 1px solid #f0f0f0; }
+  .result-label { flex: 0 0 140px; font-size: 0.95rem; font-weight:700; color:#333; }
+  .result-value { flex: 1 1 auto; font-size: 0.95rem; color:#222; }
+  .modal-body p { margin:0; font-size:0.98rem; }
+
+  /* when modal is open, prevent body/html scrolling */
+  .modal-open { overflow: hidden !important; height: 100%; }
+
+  /* make modal body scrollable if content exceeds space */
+  .modal-body { overflow: auto; padding-right: 12px; padding-left: 6px; max-height: calc(80vh); }
+
+  @media (max-width: 480px) {
+    .modal-content { width: 96%; margin: 4vh auto; padding: 16px; border-radius: 10px; }
+    .result-label { flex-basis: 110px; font-size: 0.9rem; }
+  }
+</style>
+
+<script>
+  // Modal close behaviour
+  (function(){
+    const modal = document.getElementById('verificationModal');
+    const overlay = document.getElementById('verificationModalOverlay');
+    const closeBtn = document.getElementById('verificationModalClose');
+
+    function closeModal() {
+      modal.classList.remove('show');
+      document.body.classList.remove('modal-open');
+      document.documentElement.classList.remove('modal-open');
+      // restore focus to the certificate input for quick re-checks
+      const input = document.getElementById('certCode');
+      if (input) input.focus();
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('show')) {
+        closeModal();
+      }
+    });
+  })();
+</script>
+
+</html>

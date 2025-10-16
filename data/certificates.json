@@ -1,0 +1,72 @@
+[
+  {
+    "intern_name": "Keerthan V",
+    "domain": "Web Development",
+    "course_type": "Web Development",
+    "issued_date": "2023-11-24",
+    "certificate_code": "PJN-WD-001"
+  },
+  {
+    "intern_name": "Aishwarya S",
+    "domain": "UI/UX Design",
+    "course_type": "UI/UX Design",
+    "issued_date": "2023-11-28",
+    "certificate_code": "PJN-UX-002"
+  },
+  {
+    "intern_name": "Rakesh M",
+    "domain": "Digital Marketing",
+    "course_type": "Digital Marketing",
+    "issued_date": "2023-12-01",
+    "certificate_code": "PJN-DM-003"
+  },
+  {
+    "intern_name": "Sneha K",
+    "domain": "Web Development",
+    "course_type": "Web Development",
+    "issued_date": "2023-12-05",
+    "certificate_code": "PJN-WD-004"
+  },
+  {
+    "intern_name": "Dinesh P",
+    "domain": "UI/UX Design",
+    "course_type": "UI/UX Design",
+    "issued_date": "2023-12-10",
+    "certificate_code": "PJN-UX-005"
+  },
+  {
+    "intern_name": "Priya R",
+    "domain": "Digital Marketing",
+    "course_type": "Digital Marketing",
+    "issued_date": "2023-12-12",
+    "certificate_code": "PJN-DM-006"
+  },
+  {
+    "intern_name": "Karthik N",
+    "domain": "Web Development",
+    "course_type": "Web Development",
+    "issued_date": "2023-12-15",
+    "certificate_code": "PJN-WD-007"
+  },
+  {
+    "intern_name": "Megha T",
+    "domain": "UI/UX Design",
+    "course_type": "UI/UX Design",
+    "issued_date": "2023-12-18",
+    "certificate_code": "PJN-UX-008"
+  },
+  {
+    "intern_name": "Vignesh L",
+    "domain": "Digital Marketing",
+    "course_type": "Digital Marketing",
+    "issued_date": "2023-12-20",
+    "certificate_code": "PJN-DM-009"
+  },
+  {
+    "intern_name": "Anusha B",
+    "domain": "Web Development",
+    "course_type": "Web Development",
+    "issued_date": "2023-12-22",
+    "certificate_code": "PJN-WD-010"
+  }
+]
