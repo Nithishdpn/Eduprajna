@@ -43,6 +43,8 @@
         }
 
   html, body {
+    /* Make full-height so we can use flex layout on body to pin footer */
+    height: 100%;
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
@@ -62,7 +64,7 @@
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    overflow: hidden;
+    /* overflow: hidden; */
   }
   
 
@@ -735,6 +737,8 @@
     width: 100%;
     margin: 0;
     padding: 60px 20px 30px;
+    /* push footer to bottom when body is a column flex container */
+    margin-top: auto;
   }
 
   .footer-container {
@@ -925,14 +929,19 @@
       font-family: 'Segoe UI', sans-serif;
       background: url('img/abstract-green-elegant-background-illustration-vector (1).jpg') no-repeat center center fixed;
       background-size: cover;
+      /* Layout: make body a column flex container so footer can be pinned to bottom when content is short */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
       /* allow scrolling so result panel and footer are reachable */
-      overflow: auto;
+      /* overflow: auto; */
     }
     
     .containerverification {
       position: relative;
       width: 100%;
-      height: 100vh;
+      /* allow content to grow naturally; avoid forcing full viewport height which causes overflow issues */
+      height: auto;
     }
 
     .verification-hero {
@@ -1464,9 +1473,6 @@
     </div>
 </footer>
 
-</body>
-</html>
-
 <!-- Verification result modal -->
 <div id="verificationModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
   <div class="modal-overlay" id="verificationModalOverlay"></div>
@@ -1551,4 +1557,5 @@
   })();
 </script>
 
+</body>
 </html>
