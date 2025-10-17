@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Steady | Credential Validation</title>
+  <title>Verification - Eduprajna</title>
   <link rel="stylesheet" href="styles.css">
+   <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
   <style>
     /* Confetti Birthday Blast Animation */
     .confetti-canvas {
@@ -927,15 +928,79 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: url('img/abstract-green-elegant-background-illustration-vector (1).jpg') no-repeat center center fixed;
-      background-size: cover;
+  background: url('img/abstract-green-elegant-background-illustration-vector (1).jpg') no-repeat center center;
+  background-attachment: scroll;
+  background-size: cover;
       /* Layout: make body a column flex container so footer can be pinned to bottom when content is short */
       display: flex;
       flex-direction: column;
       min-height: 100vh;
       /* allow scrolling so result panel and footer are reachable */
-      /* overflow: auto; */
+      overflow: auto;
     }
+
+    /* Full-screen single-form mode: hide site chrome except footer (keep footer visible) */
+    body.form-view header,
+    body.form-view .nav-container,
+    body.form-view .container,
+    body.form-view .services,
+    body.form-view .features,
+    body.form-view .reviews,
+    body.form-view .msg,
+    body.form-view .nav-cta,
+    body.form-view .mobile-cta {
+      display: none !important;
+    }
+
+    /* Allow page scrolling so footer remains reachable below the hero */
+    body.form-view {
+      height: auto;
+      overflow: auto; /* allow scrolling to footer */
+    }
+
+    body.form-view #heroSection {
+      position: relative;
+      width: 100%;
+      /* make hero tall but leave room for footer below */
+      min-height: calc(100vh - 220px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4vh 6vw;
+      box-sizing: border-box;
+      z-index: 12000;
+      background-position: center center;
+      background-size: cover;
+    }
+
+    /* center the form in the hero when in form-view */
+    body.form-view .form-result-grid {
+      display: block;
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    body.form-view .left-align {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    body.form-view .form-container {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 520px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+      background: rgba(255,255,255,0.98);
+      padding: 24px 22px;
+      border-radius: 10px;
+      color: #111;
+    }
+
+    body.form-view .result-box { display: none; }
     
     .containerverification {
       position: relative;
@@ -945,17 +1010,37 @@
     }
 
     .verification-hero {
-      position: absolute;
+      /* make hero participate in normal flow so it doesn't block scrolling */
+      position: relative;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
-      padding: 5%;
+      padding: 5% 5% 2% 5%;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      transition: transform 1s ease, opacity 1s ease;
+      align-items: center; /* center horizontally */
+      text-align: center; /* center text inside */
+      min-height: 60vh; /* ensure vertical centering space */
+      transition: transform 0.45s ease, opacity 0.45s ease, max-height 0.45s ease;
+    }
+
+    /* space to separate hero/form from footer when in form-view */
+    body.form-view #heroSection { margin-bottom: 48px; }
+
+    /* ensure footer overlays the background cleanly */
+    .footer { background: #fff; z-index: 10; }
+
+    /* helper to visually hide the hero but keep flow so page can scroll */
+    .verification-hero.hidden-hero {
+      opacity: 0;
+      transform: translateY(-8px);
+      max-height: 0;
+      padding: 0 5% 0 5%;
+      margin: 0;
+      overflow: hidden;
+      pointer-events: none;
     }
 
     .verificationsection{
@@ -1008,17 +1093,21 @@
     }
 
     .form-section {
-      background:transparent;
+      background: transparent;
       color: white;
       z-index: 1;
       opacity: 0;
-      transform: translateY(100%);
+      transform: translateY(10px);
       width: 100%;
-      height: 90%;
-      align-items: center;
+      /* make the form section auto height but limitable so it can scroll on small screens */
+      height: auto;
+      max-height: calc(100vh - 160px);
+      box-sizing: border-box;
+      align-items: stretch;
       display: flex;
       justify-content: space-between; /* or center, flex-start, etc. */
-      
+      overflow: visible;
+      padding-bottom: 40px;
     }
 
     .form-section.visible {
@@ -1027,17 +1116,24 @@
       z-index: 3;
     }
 
+    /* inside container that wraps form + result: allow layout to expand and use page scrollbar */
+    .form-result-grid { 
+      overflow: visible; 
+      padding-bottom: 24px;
+      /* center grid content inside available width */
+      justify-content: center;
+      align-items: start;
+    }
+
     .form-container {
      
       padding: 2rem;
       border-radius: 12px;
-      margin-left: 1 rem;
-      max-width: 400px;
-      margin-left: 0;
+      max-width: 420px; /* constrain width for centering */
+      width: 100%;
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      margin-left: 0;
     }
 
     .form-container label {
@@ -1212,6 +1308,7 @@
         }
 
         .form-title { font-size: 2rem; margin: 0 0 18px 0; font-weight: 700; }
+      .form-title { text-align: center; }
         .form-title .accent { color: #1e90ff; }
 
         .form-container label { display:block; margin-bottom:8px; font-weight:700; color:#222; }
@@ -1227,6 +1324,9 @@
           margin-bottom: 18px;
           background: #fff;
         }
+
+        /* center the left column content (the form) inside the grid */
+        .left-align { display: flex; justify-content: center; align-items: flex-start; }
 
         .validate-btn {
           display:block;
@@ -1254,6 +1354,7 @@
           border-radius: 8px;
           box-shadow: 0 10px 30px rgba(0,0,0,0.06);
           min-height: 160px;
+          align-self: center; /* vertically center next to form */
         }
 
         .result-box.invisible { display: none; }
@@ -1278,13 +1379,61 @@
 
   <script>
     function showForm() {
-      document.getElementById('heroSection').style.opacity = '0';
-      document.getElementById('formSection').classList.add('visible');
+      // Move the form into the hero area, hiding hero content
+      const hero = document.getElementById('heroSection');
+      const formSection = document.getElementById('formSection');
+
+      // if we haven't created a placeholder for restoring, create one
+      if (!formSection.__placeholder) {
+        const placeholder = document.createElement('div');
+        placeholder.style.display = 'none';
+        formSection.parentNode.insertBefore(placeholder, formSection);
+        formSection.__placeholder = placeholder;
+      }
+
+      // move the section node into the hero and show it
+  hero.__originalHTML = hero.innerHTML; // save hero content
+  // clear hero and append the formSection node
+  hero.innerHTML = '';
+  hero.appendChild(formSection);
+  // activate single-form view (hide header/footer and focus user on form)
+  document.body.classList.add('form-view');
+      formSection.classList.add('visible');
+
+      // ensure body/html can still scroll (avoid permanent overflow:hidden)
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+
+      // focus first input for accessibility
+      setTimeout(() => {
+        const input = document.getElementById('certCode');
+        if (input) input.focus();
+      }, 100);
     }
 
     function goBack() {
-      document.getElementById('formSection').classList.remove('visible');
-      document.getElementById('heroSection').style.opacity = '1';
+      const hero = document.getElementById('heroSection');
+      const formSection = document.getElementById('formSection');
+
+      // remove visibility and move the form back to its original placeholder
+      formSection.classList.remove('visible');
+      if (formSection.__placeholder && formSection.__placeholder.parentNode) {
+        formSection.__placeholder.parentNode.insertBefore(formSection, formSection.__placeholder);
+        formSection.__placeholder.parentNode.removeChild(formSection.__placeholder);
+        delete formSection.__placeholder;
+      }
+
+      // restore the hero original HTML if it was saved
+      if (hero.__originalHTML !== undefined) {
+        hero.innerHTML = hero.__originalHTML;
+        delete hero.__originalHTML;
+      }
+      // leave single-form view
+      document.body.classList.remove('form-view');
+
+      // restore natural scrolling
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
 
   </script>
