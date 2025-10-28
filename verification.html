@@ -1010,20 +1010,17 @@
     }
 
     .verification-hero {
-      /* make hero participate in normal flow so it doesn't block scrolling */
       position: relative;
-      top: 0;
-      left: 0;
       width: 100%;
-      padding: 5% 5% 2% 5%;
+      padding: 64px 20px 6px 20px; /* tighten to move title slightly up while keeping distance */
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center; /* center horizontally */
-      text-align: center; /* center text inside */
-      min-height: 60vh; /* ensure vertical centering space */
-      transition: transform 0.45s ease, opacity 0.45s ease, max-height 0.45s ease;
+      align-items: center;
+      text-align: center;
+      gap: 6px;
+      min-height: 200px;
     }
 
     /* space to separate hero/form from footer when in form-view */
@@ -1044,7 +1041,7 @@
     }
 
     .verificationsection{
-      /* participate in normal document flow so content (result + footer) doesn't overlap */
+       
       position: relative;
       width: 100%;
       box-sizing: border-box;
@@ -1062,17 +1059,18 @@
     }
 
     .verification-hero h1 {
-      font-size: 3rem;
+      font-size: 2.25rem;
       font-weight: 800;
-      color: rgb(155, 251, 123);
-      margin-bottom: 1rem;
+      color: #ffffff;
+      margin: 12px 0 0 0;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.25);
     }
 
     .verification-hero p {
-      font-size: 1.2rem;
-      font-style: italic;
-      color: #ecf4e1;
-      margin-bottom: 2rem;
+      font-size: 1rem;
+      color: #f0f7e8;
+      margin: 6px 0 0 0;
+      opacity: 0.95;
     }
 
     .verification-hero button {
@@ -1101,7 +1099,7 @@
       width: 100%;
       /* make the form section auto height but limitable so it can scroll on small screens */
       height: auto;
-      max-height: calc(100vh - 160px);
+      max-height: none; /* allow full content height so footer doesn't overlap */
       box-sizing: border-box;
       align-items: stretch;
       display: flex;
@@ -1204,7 +1202,6 @@
       }
     }
   </style>
-</head>
 <body>
    <!-- Header -->
   <header class="header">
@@ -1224,7 +1221,7 @@
             <li class="nav-item"><a href="courses.html" class="nav-link">Courses</a></li>
             <li class="nav-item"><a href="hire-us.html" class="nav-link">Hire From Us</a></li>
             <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-            <li class="nav-item"><a href="Verification.html" class="nav-link active">Verification</a></li>
+            <li class="nav-item"><a href="verification.html" class="nav-link active">Verification</a></li>
           </ul>
           <!-- Mobile CTA Button -->
           <div class="mobile-cta">
@@ -1258,32 +1255,27 @@
     <section class="verification-hero" id="heroSection">
       <h1>Credential Validation</h1>
       <p>Instant Certificate Validation—Because Trust Should Be Transparent</p>
-      <button onclick="showForm()">Check One</button>
     </section>
 
     <!-- Form Section -->
-    <section class="verificationsection form-section" id="formSection">
+    <section class="verificationsection form-section visible" id="formSection">
       <div class="form-result-grid">
         <!-- Left: form -->
         <div class="form-layout left-align">
-          <h2 class="form-title">Check <span class="accent">Now</span></h2>
+          
           <form id="validationForm" class="form-container">
             <label for="certCode">Certificate Code</label>
-            <input type="text" id="certCode" name="certCode" placeholder="certificate code *" required />
+            <input type="text" id="certCode" name="certCode" placeholder="certificate code *" aria-label="Certificate Code" required />
 
-            <label for="courseType">Course Type</label>
-            <select id="courseType" name="courseType" required>
+            <label for="recordType">Type</label>
+            <select id="recordType" name="recordType" aria-label="Type" required>
               <option value="">Select Type</option>
-              <option value="Web Development">Web Development</option>
-              <option value="UI/UX Design">UI/UX Design</option>
-              <option value="Digital Marketing">Digital Marketing</option>
+              <option value="Course">Course</option>
+              <option value="Internship">Internship</option>
             </select>
 
-            <button type="submit" class="validate-btn">Check</button>
+            <button type="submit" class="validate-btn">Verify</button>
           </form>
-          <div class="go-back-wrapper">
-            <button type="button" onclick="goBack()" class="go-back-btn">← Go Back</button>
-          </div>
           <!-- Inline result panel: will appear under the form on submit -->
         </div>
 
@@ -1297,12 +1289,12 @@
         /* Two-column grid */
         .form-result-grid {
           display: grid;
-          grid-template-columns: 1fr 420px;
-          gap: 40px;
+          grid-template-columns: 1fr; /* outer container stays single column */
+          gap: 16px;
           align-items: start;
           width: 100%;
-          max-width: 1100px;
-          margin: 0 auto;
+          max-width: 1600px;
+          margin: 8px auto 0 auto;
           box-sizing: border-box;
           padding: 12px;
         }
@@ -1311,60 +1303,107 @@
       .form-title { text-align: center; }
         .form-title .accent { color: #1e90ff; }
 
-        .form-container label { display:block; margin-bottom:8px; font-weight:700; color:#222; }
-        .form-container input,
+        .form-container label { display:block; margin-bottom:6px; font-weight:600; color:#e8f5e1; font-size: 0.95rem; letter-spacing: 0.2px; }
+         .form-container input,
         .form-container select {
           width: 100%;
           height: 56px;
           padding: 0 18px;
           border-radius: 8px;
-          border: 1px solid rgba(0,0,0,0.08);
+          border: 1px solid rgba(0,0,0,0.12);
           font-size: 1rem;
-          box-shadow: 0 4px 12px rgba(10,10,10,0.04) inset;
-          margin-bottom: 18px;
+          box-shadow: 0 2px 8px rgba(10,10,10,0.04) inset;
+           margin-bottom: 12px;
           background: #fff;
+          text-align: left;
         }
 
         /* center the left column content (the form) inside the grid */
         .left-align { display: flex; justify-content: center; align-items: flex-start; }
+        .form-container { margin: 0 auto; align-items: center; background: transparent; padding: 8px 18px 10px 18px; border-radius: 12px; box-shadow: none; border: none; max-width: 520px; width: 100%; }
+        .form-container label { text-align: left; width: 100%; }
+        /* hide the form panel after verification */
+        .form-layout.hidden { display: none; }
 
         .validate-btn {
           display:block;
           width:100%;
           padding: 14px 20px;
-          background:#2b8cff;
+          background:#77ad26;
           color:#fff;
           border-radius:8px;
           border:none;
           font-size:1.15rem;
           font-weight:700;
           cursor:pointer;
-          box-shadow: 0 10px 20px rgba(43,140,255,0.14);
-          margin-top: 8px;
+          box-shadow: 0 10px 20px rgba(119,173,38,0.22);
+          margin-top: 6px;
+          text-align: center;
         }
+        .validate-btn:hover { background: #5e8a1e; }
 
         .go-back-wrapper { margin-top:12px; }
         .go-back-btn { background:transparent; border:1px solid rgba(0,0,0,0.08); padding:6px 10px; border-radius:6px; }
 
         /* Result panel */
         .result-box {
-          background: #fff;
-          color: #111;
+          background: transparent;
+          color: #f0f7e8;
           padding: 20px 22px;
           border-radius: 8px;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+          box-shadow: none;
           min-height: 160px;
-          align-self: center; /* vertically center next to form */
+          align-self: center;
+          border: none;
+          margin: 8px auto 36px auto;
         }
 
         .result-box.invisible { display: none; }
         .result-box.visible { display: block; }
 
-        .result-box h2 { font-size: 34px; margin: 0 0 18px 0; font-weight:700; }
-        .result-row { margin-bottom: 18px; }
-        .result-label { font-size: 28px; font-weight:700; display:block; margin-bottom:6px; position:relative; padding-bottom:6px; }
-        .result-label::after { content: ''; position:absolute; left:0; bottom:0; height:6px; width:60%; background: #ffecb3; border-radius:3px; }
-        .result-value { font-size:18px; margin: 6px 0 0 0; }
+        .result-box h2 { font-size: 28px; margin: 0 0 12px 0; font-weight:700; text-align: center; color:#fff; }
+        .verify-result-grid { display: grid; grid-template-columns: 3fr 1fr; gap: 16px; align-items: start; }
+        @media (max-width: 900px) { .verify-result-grid { grid-template-columns: 1fr; gap: 12px; } }
+        .cert-frame { width: 100%; max-width: 100%; margin: 0 auto; padding: 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.6); background: rgba(255,255,255,0.06); }
+        /* simple details under certificate */
+        .details-table { width:100%; max-width: 820px; margin: 8px auto 0 auto; border-radius: 8px; background: rgba(255,255,255,0.95); border: 1px solid rgba(0,0,0,0.08); }
+        .details-table .row { display:flex; gap: 12px; padding: 10px 12px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .details-table .row:last-child { border-bottom: 0; }
+        .details-table .label { width: 40%; min-width: 160px; font-weight: 700; color:#222; }
+        .details-table .value { flex:1; font-weight: 600; color:#222; }
+
+        .certificate-image {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
+          border-radius: 8px;
+          border: 1px solid rgba(255,255,255,0.7);
+          margin: 6px auto 10px auto;
+          display: block;
+          background: #ffffff;
+          object-fit: contain;
+        }
+
+        .download-btn {
+          display: inline-block;
+          padding: 10px 14px;
+          background: #77ad26;
+          color: #fff;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          font-weight: 600;
+          margin: 8px auto 0 auto;
+          display: block;
+        }
+        .download-btn:hover { background:#5e8a1e; }
+
+        /* details below certificate */
+        .details-card { max-width: 620px; margin: 0; background: transparent; color:#fff; border-radius: 14px; padding: 18px 20px; box-shadow: none; border: none; }
+        .details-card .row { display:flex; align-items:center; justify-content:space-between; gap:18px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.25); }
+        .details-card .row:last-child { border-bottom: 0; }
+        .details-card .label { font-size: 0.98rem; font-weight:800; color:#ffffff; min-width: 170px; }
+        .details-card .value { font-size:1rem; font-weight:700; color:#ffffff; flex:1; text-align:left; }
 
         @media (max-width: 900px) {
           .form-result-grid { grid-template-columns: 1fr; }
@@ -1375,61 +1414,16 @@
 
     </section>
 
-  </div>
+  
 
   <script>
-    function showForm() {
-      // Move the form into the hero area, hiding hero content
-      const hero = document.getElementById('heroSection');
-      const formSection = document.getElementById('formSection');
-
-      // if we haven't created a placeholder for restoring, create one
-      if (!formSection.__placeholder) {
-        const placeholder = document.createElement('div');
-        placeholder.style.display = 'none';
-        formSection.parentNode.insertBefore(placeholder, formSection);
-        formSection.__placeholder = placeholder;
-      }
-
-      // move the section node into the hero and show it
-  hero.__originalHTML = hero.innerHTML; // save hero content
-  // clear hero and append the formSection node
-  hero.innerHTML = '';
-  hero.appendChild(formSection);
-  // activate single-form view (hide header/footer and focus user on form)
-  document.body.classList.add('form-view');
-      formSection.classList.add('visible');
-
-      // ensure body/html can still scroll (avoid permanent overflow:hidden)
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-
-      // focus first input for accessibility
-      setTimeout(() => {
-        const input = document.getElementById('certCode');
-        if (input) input.focus();
-      }, 100);
-    }
-
     function goBack() {
       const hero = document.getElementById('heroSection');
       const formSection = document.getElementById('formSection');
 
       // remove visibility and move the form back to its original placeholder
       formSection.classList.remove('visible');
-      if (formSection.__placeholder && formSection.__placeholder.parentNode) {
-        formSection.__placeholder.parentNode.insertBefore(formSection, formSection.__placeholder);
-        formSection.__placeholder.parentNode.removeChild(formSection.__placeholder);
-        delete formSection.__placeholder;
-      }
-
-      // restore the hero original HTML if it was saved
-      if (hero.__originalHTML !== undefined) {
-        hero.innerHTML = hero.__originalHTML;
-        delete hero.__originalHTML;
-      }
-      // leave single-form view
-      document.body.classList.remove('form-view');
+      // no-op: form stays in place, keep hero text
 
       // restore natural scrolling
       document.body.style.overflow = '';
@@ -1528,8 +1522,8 @@
       } catch (err) {
         console.warn('Unable to load data/certificates.json, falling back to inline sample', err);
         certificates = [
-          { intern_name: 'Keerthan V', domain: 'Web Development', course_type: 'Web Development', issued_date: '2023-11-24', certificate_code: 'PJN-WD-001' },
-          { intern_name: 'Aishwarya S', domain: 'UI/UX Design', course_type: 'UI/UX Design', issued_date: '2023-11-28', certificate_code: 'PJN-UX-002' }
+          { intern_name: 'Keerthan V', domain: 'Web Development', course_type: 'Web Development', type: 'Internship', issued_date: '2023-11-24', certificate_code: 'PJN-WD-001', certificate_image: 'img/certificate/cert1.png' },
+          { intern_name: 'Aishwarya S', domain: 'UI/UX Design', course_type: 'UI/UX Design', type: 'Course', issued_date: '2023-11-28', certificate_code: 'PJN-UX-002', certificate_image: 'img/certificate/cert2.png' }
         ];
       }
     }
@@ -1540,35 +1534,115 @@
     document.getElementById('validationForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const certCodeInput = document.getElementById('certCode');
-      const courseTypeInput = document.getElementById('courseType');
-      const modal = document.getElementById('verificationModal');
-      const modalBody = document.getElementById('verificationModalBody');
+      const recordTypeInput = document.getElementById('recordType');
+      const resultBox = document.getElementById('resultBox');
 
       const certCode = certCodeInput.value.trim();
-      const courseType = courseTypeInput.value;
+      const recordType = recordTypeInput.value;
 
-      const match = certificates.find(cert => cert.certificate_code === certCode && cert.course_type === courseType);
+      const match = certificates.find(cert => cert.certificate_code === certCode && (cert.type || '').toLowerCase() === recordType.toLowerCase());
 
       if (match) {
-        modalBody.innerHTML = `
-          <h2 class="modal-title"><span class="check-icon">✅</span> Intern Verification Details</h2>
-          <div class="result-row"><span class="result-label">Intern Name</span><div class="result-value">${match.intern_name}</div></div>
-          <div class="result-row"><span class="result-label">Domain</span><div class="result-value">${match.domain}</div></div>
-          <div class="result-row"><span class="result-label">Course</span><div class="result-value">${match.course_type}</div></div>
-          <div class="result-row"><span class="result-label">Issued Date</span><div class="result-value">${match.issued_date}</div></div>
-          <div class="result-row"><span class="result-label">Certificate Code</span><div class="result-value">${match.certificate_code}</div></div>
+        // hide the form area so result appears in its place
+        const formLayout = document.querySelector('.form-layout');
+        if (formLayout) { formLayout.classList.add('hidden'); }
+        const imageHtml = match.certificate_image ? `<img src="${match.certificate_image}" alt="Certificate Image" class="certificate-image" id="certificateImage" onerror="this.style.display='none'">` : '';
+        resultBox.innerHTML = `
+          <div id="resultCard">
+            <h2>Verification Details</h2>
+            <div class="verify-result-grid">
+              <div style="justify-self:start;">
+                <div class="cert-frame">
+                  ${imageHtml}
+                </div>
+                <button type="button" class="download-btn" id="downloadPdfBtn">Download as PDF</button>
+                
+              </div>
+              <div style="justify-self:start;">
+                <div class="details-card">
+                  <div class="row"><div class="label">Candidate Name</div><div class="value">${match.intern_name}</div></div>
+                  <div class="row"><div class="label">Type</div><div class="value">${match.type || ''}</div></div>
+                  <div class="row"><div class="label">Domain</div><div class="value">${match.domain}</div></div>
+                  <div class="row"><div class="label">Course</div><div class="value">${match.course_type}</div></div>
+                  <div class="row"><div class="label">Issued Date</div><div class="value">${match.issued_date}</div></div>
+                  <div class="row"><div class="label">Certificate Code</div><div class="value">${match.certificate_code}</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
         `;
+        resultBox.classList.remove('invisible');
+        resultBox.classList.add('visible');
+
+        // attach PDF download handler
+        setTimeout(() => {
+          const btn = document.getElementById('downloadPdfBtn');
+          if (btn) {
+            btn.addEventListener('click', async () => {
+              const imgEl = document.getElementById('certificateImage');
+              if (!imgEl) return;
+              // ensure libs are loaded
+              await ensurePdfLibs();
+              const canvas = await html2canvas(imgEl, { scale: 2, useCORS: true, backgroundColor: '#ffffff' });
+              const imgData = canvas.toDataURL('image/png');
+              const pdf = new jspdf.jsPDF({ orientation: 'p', unit: 'pt', format: 'a4' });
+              const pageWidth = pdf.internal.pageSize.getWidth();
+              const pageHeight = pdf.internal.pageSize.getHeight();
+              const imgWidth = pageWidth - 48;
+              const imgHeight = (canvas.height * imgWidth) / canvas.width;
+              const x = 24;
+              let y = 24;
+              if (imgHeight <= pageHeight - 48) {
+                pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight, undefined, 'FAST');
+              } else {
+                // paginate if taller than one page
+                let remaining = imgHeight;
+                let position = y;
+                const ratio = imgWidth / canvas.width;
+                const sliceHeight = pageHeight - 48;
+                const pageCanvas = document.createElement('canvas');
+                const ctx = pageCanvas.getContext('2d');
+                pageCanvas.width = canvas.width;
+                pageCanvas.height = Math.floor(sliceHeight / ratio);
+                while (remaining > 0) {
+                  const sy = Math.floor((position - y) / ratio);
+                  ctx.clearRect(0, 0, pageCanvas.width, pageCanvas.height);
+                  ctx.drawImage(canvas, 0, sy, pageCanvas.width, pageCanvas.height, 0, 0, pageCanvas.width, pageCanvas.height);
+                  const pageImg = pageCanvas.toDataURL('image/png');
+                  pdf.addImage(pageImg, 'PNG', x, y, imgWidth, sliceHeight, undefined, 'FAST');
+                  remaining -= sliceHeight;
+                  position += sliceHeight;
+                  if (remaining > 0) pdf.addPage();
+                }
+              }
+              pdf.save(`${match.certificate_code}.pdf`);
+            });
+          }
+        }, 0);
       } else {
-        modalBody.innerHTML = `<p style="color:#d32f2f;font-weight:700;">❌ Data not found. Please check the certificate code and course type.</p>`;
+        resultBox.innerHTML = `<p style="color:#d32f2f;font-weight:700;">❌ Data not found. Please check the certificate code and type.</p>`;
+        resultBox.classList.remove('invisible');
+        resultBox.classList.add('visible');
       }
 
-      modal.classList.add('show');
-      document.body.classList.add('modal-open');
-      document.documentElement.classList.add('modal-open');
-
       certCodeInput.value = '';
-      courseTypeInput.value = '';
+      recordTypeInput.value = '';
     });
+  </script>
+
+  <!-- libs for PDF export -->
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
+  <script>
+    async function ensurePdfLibs(){
+      return new Promise(resolve => {
+        const check = () => {
+          if (window.html2canvas && window.jspdf) resolve();
+          else setTimeout(check, 50);
+        };
+        check();
+      });
+    }
   </script>
 
 
