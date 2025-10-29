@@ -2023,3 +2023,42 @@
 
 </body>
 </html>
+
+<style>
+  /* Responsive overrides to make verification page consistent across mobile devices */
+  @media (max-width: 900px) {
+    /* compact header */
+    .nav-logo-img { height: 44px !important; }
+    .nav-container { padding: 8px 12px !important; }
+
+    /* hero */
+    .verification-hero h1 { font-size: 1.6rem !important; margin: 6px 0; }
+    .verification-hero p { font-size: 0.95rem !important; margin: 4px 0 8px 0; }
+
+    /* form and result layout stack and use full width */
+    .form-result-grid { grid-template-columns: 1fr !important; gap: 14px !important; max-width: 100% !important; padding: 8px !important; }
+    .form-container { padding: 14px !important; max-width: 100% !important; box-shadow: none !important; }
+
+    /* certificate frame and image take full column width */
+    .cert-frame { max-width: 100% !important; min-height: 180px !important; align-items: center !important; justify-content: center !important; }
+    .certificate-image { width: 100% !important; height: auto !important; max-height: 420px !important; }
+    .download-btn { width: 100% !important; margin: 10px 0 0 0 !important; }
+
+    /* result box tighter padding for small screens */
+    .result-box { padding: 12px !important; margin: 8px auto 18px auto !important; }
+
+    /* details card adjust */
+    .details-card .row { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .details-card .label { min-width: 0 !important; width: 100%; }
+    .details-card .value { width: 100%; }
+  }
+
+  @media (max-width: 480px) {
+    .nav-logo-img { height: 40px !important; }
+    .verification-hero h1 { font-size: 1.4rem !important; }
+    .form-container input, .form-container select { height: 48px !important; }
+    .download-btn { padding: 12px 14px !important; font-size: 0.95rem !important; }
+    .certificate-image { max-height: 360px !important; }
+    .verify-result-grid { gap: 12px !important; }
+  }
+</style>
