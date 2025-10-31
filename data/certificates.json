@@ -27,13 +27,13 @@
     "certificate_image": "data/img/ashith.png"
   },
   {
-    "intern_name": "Sneha K",
-    "domain": "Web Development",
-    "course_type": "Web Development",
+    "intern_name": "Anil",
+    "domain": "Digital Marketing",
+    "course_type": "Digital Marketing",
     "type": "Course",
-    "issued_date": "2023-12-05",
-    "certificate_code": "PJN-WD-004",
-    "certificate_image": "data/img/certificate/cert4.png"
+    "issued_date": "2025-10-31",
+    "certificate_code": "2025AD2051",
+    "certificate_image": "data/img/anil_dig.png"
   },
   {
     "intern_name": "Dinesh P",
