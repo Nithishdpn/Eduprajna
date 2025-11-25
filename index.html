@@ -13,6 +13,7 @@
   <link rel="icon" sizes="192x192" href="/eduprajna/img/logo.png" type="image/png">
   <link rel="shortcut icon" href="/eduprajna/img/logo.png" type="image/x-icon">
 
+  <link rel="preload" href="styles.css" as="style">
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -1449,15 +1450,15 @@
           <div style="margin-bottom: 20px;">
             <div style="display: flex; align-items: center; margin-bottom: 12px; font-size: 16px;">
               <span style="color: #77ad26; margin-right: 12px; font-size: 18px;">✓</span>
-              Online + Offline Classes
+              <a href="courses.html" class="hero-inline-link">Online + Offline Classes</a>
             </div>
             <div style="display: flex; align-items: center; margin-bottom: 12px; font-size: 16px;">
               <span style="color: #77ad26; margin-right: 12px; font-size: 18px;">✓</span>
-              3000+ Trusted Hiring Partners
+              <a href="hire-us.html" class="hero-inline-link">3000+ Trusted Hiring Partners</a>
             </div>
             <div style="display: flex; align-items: center; margin-bottom: 12px; font-size: 16px;">
               <span style="color: #77ad26; margin-right: 12px; font-size: 18px;">✓</span>
-              Unlimited interview opportunities
+              <a href="success-stories.html" class="hero-inline-link">Unlimited interview opportunities</a>
             </div>
           </div>
 
@@ -3182,6 +3183,22 @@ Placed In Top Companies</h2>
       // Prevent clicks inside menu from closing it
       navMenu.addEventListener('click', (e) => {
         e.stopPropagation();
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const eagerSelectors = ['.nav-logo-img', '.hero-main-logo img'];
+      document.querySelectorAll('img').forEach((img) => {
+        const isEager = eagerSelectors.some((selector) => img.matches(selector));
+        if (isEager) {
+          img.setAttribute('loading', 'eager');
+          img.setAttribute('fetchpriority', 'high');
+        } else {
+          img.setAttribute('loading', 'lazy');
+          img.setAttribute('decoding', 'async');
+          img.setAttribute('fetchpriority', 'low');
+        }
       });
     });
   </script>

@@ -595,6 +595,19 @@ body {
   color: #666;
 }
 
+.hero-inline-link {
+  color: #1e2b10;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(119, 173, 38, 0.4);
+}
+
+.hero-inline-link:hover,
+.hero-inline-link:focus-visible {
+  color: #77ad26;
+  border-color: #77ad26;
+}
+
 /* Internal Links Section */
 .internal-links {
   padding: 60px 20px;
