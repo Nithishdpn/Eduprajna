@@ -595,6 +595,60 @@ body {
   color: #666;
 }
 
+/* Internal Links Section */
+.internal-links {
+  padding: 60px 20px;
+  background: #f4f8ec;
+}
+
+.internal-links-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.internal-links h2 {
+  font-size: 2rem;
+  color: #1e2b10;
+  margin-bottom: 12px;
+}
+
+.internal-links p {
+  color: #4b5a34;
+  max-width: 720px;
+  margin: 0 auto 24px;
+}
+
+.internal-links-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+.internal-links-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 1px solid #d8e8bf;
+  background: #fff;
+  color: #2f3b1f;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.internal-links-list a:hover,
+.internal-links-list a:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(47, 59, 31, 0.15);
+}
+
 /* Msg Section */
 .msg-section {
   width: 100%;

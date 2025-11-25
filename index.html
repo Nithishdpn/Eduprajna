@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="google-site-verification" content="649vVUoIGz1E-DzIF_2x2IHEJSw-Z7AIXDvnoUKGRL8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://eduprajna.com/" />
+  <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable" />
   <title>Eduprajna</title>
   <link rel="icon" href="/eduprajna/img/logo.png" type="image/x-icon">
   <link rel="icon" sizes="32x32" href="/eduprajna/img/logo.png" type="image/png">
@@ -62,7 +64,7 @@
         "description": "At Eduprajna learn tomorrow technologies today from industry experts. Empowering students with knowledge and skills for the future.",
         "offers": {
           "@type": "Offer",
-          "url": "https://eduprajna.in",
+          "url": "https://eduprajna.com",
           "price": "0",
           "priceCurrency": "INR",
           "itemOffered": {
@@ -98,7 +100,7 @@
   <link rel="icon" href="img/logo.png" />
   <meta name="description"
     content="At Eduprajna learn tomorrow technologies today from industry experts. Empowering students with knowledge and skills for the future." />
-  <meta property="og:url" content="https://eduprajna.in" />
+  <meta property="og:url" content="https://eduprajna.com" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Eduprajna" />
   <meta property="og:description"
@@ -134,7 +136,7 @@
         "description": "At Eduprajna learn tomorrow technologies today from industry experts. Empowering students with knowledge and skills for the future.",
         "offers": {
           "@type": "Offer",
-          "url": "https://eduprajna.in",
+          "url": "https://eduprajna.com",
           "price": "0",
           "priceCurrency": "INR",
           "itemOffered": {
@@ -1916,8 +1918,8 @@ Placed In Top Companies</h2>
   <section class="sec-number">
     <div class="sec-number-main">
       <div class="career-advisors-section">
-        <h1 class="advisors-title">Get Guidance From Our Career Advisors</h1>
-        <h2 class="advisors-subtitle">For Free</h2>
+        <h2 class="advisors-title">Get Guidance From Our Career Advisors</h2>
+        <p class="advisors-subtitle">For Free</p>
         <button class="advisors-button" onclick="window.location.href='contact.html'">
           Speak To Career Advisors
           <span class="phone-icon">📞</span>
@@ -1928,6 +1930,21 @@ Placed In Top Companies</h2>
         <span><p class="stat-number stat-number-text">2000+</p><p class="stat-description">Workshops Conducted</p></span>
         <span><p class="stat-number stat-number-text">100%</p><p class="stat-description">Assured Placement Opportunities</p></span>
       </div>
+    </div>
+  </section>
+
+  <section class="internal-links" aria-labelledby="internal-links-heading">
+    <div class="internal-links-wrapper">
+      <h2 id="internal-links-heading">Explore Eduprajna Resources</h2>
+      <p>Jump straight into detailed curriculum pages, hiring options and alumni proof to help search engines and learners discover more.</p>
+      <ul class="internal-links-list">
+        <li><a href="courses.html">Browse All Programs</a></li>
+        <li><a href="courses/devops/devops.html">DevOps Career Roadmap</a></li>
+        <li><a href="courses/aiml/aiml.html">AI & ML Specialization</a></li>
+        <li><a href="courses/full%20stack%20dev/full%20stack.html">Full Stack Development</a></li>
+        <li><a href="success-stories.html">Placement Success Stories</a></li>
+        <li><a href="hire-us.html">Hire Trained Talent</a></li>
+      </ul>
     </div>
   </section>
 
@@ -1951,9 +1968,7 @@ Placed In Top Companies</h2>
           <div class="card">
             <div class="card-header">
               <h3 class="tip">Experience</h3>
-              <div class="circle">
-                <h1>1</h1>
-              </div>
+              <div class="circle" aria-hidden="true">1</div>
             </div>
             <p class="second-text">Industry Partnerships</p>
             <div class="card-img">
@@ -1971,9 +1986,7 @@ Placed In Top Companies</h2>
           <div class="card">
             <div class="card-header">
               <h3 class="tip">Education</h3>
-              <div class="circle">
-                <h1>2</h1>
-              </div>
+              <div class="circle" aria-hidden="true">2</div>
             </div>
             <p class="second-text">Expert Faculty</p>
             <div class="card-img">
@@ -1990,9 +2003,7 @@ Placed In Top Companies</h2>
           <div class="card">
             <div class="card-header">
               <h3 class="tip">Certification</h3>
-              <div class="circle">
-                <h1>3</h1>
-              </div>
+              <div class="circle" aria-hidden="true">3</div>
             </div>
             <p class="second-text">Career Guidance</p>
             <div class="card-img">
@@ -3174,7 +3185,15 @@ Placed In Top Companies</h2>
       });
     });
   </script>
-</body>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch((error) => {
+          console.error('Service worker registration failed:', error);
+        });
+      });
+    }
+  </script>
   <script>
     // Modal open/close logic
     const modal = document.getElementById('enquiryModal');
@@ -3248,5 +3267,7 @@ Placed In Top Companies</h2>
     window.addEventListener('orientationchange', fixViewportHeight);
     fixViewportHeight();
   </script>
+
+</body>
 
 </html>

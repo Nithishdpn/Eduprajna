@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eduprajna.com/sitemap.xml
+
