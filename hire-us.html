@@ -1121,11 +1121,44 @@
         (function(){
             const modal = document.getElementById('popupEnquiryModal');
             const closeBtn = document.getElementById('popupCloseModal');
-            // Show modal on page load
-            window.addEventListener('load', function() { if (modal) { modal.classList.add('show'); popupConfettiBlast(); popupShowBlast(); } });
+            // helper: check persistent submission state
+            function isPopupSubmitted() { return localStorage.getItem('ep_popup_submitted') === 'true'; }
 
-            if (closeBtn) closeBtn.addEventListener('click', function(){ modal.classList.remove('show'); setTimeout(()=>{ modal.style.display='none'; },400); });
-            window.addEventListener('click', function(event){ if (event.target == modal) { modal.classList.remove('show'); setTimeout(()=>{ modal.style.display='none'; },400); } });
+            // Show modal on page load only if not submitted
+            function showPopupModal() {
+                if (!modal) return;
+                modal.style.display = 'block';
+                modal.classList.add('show');
+                popupConfettiBlast();
+                popupShowBlast();
+            }
+
+            window.addEventListener('load', function() { if (!isPopupSubmitted()) showPopupModal(); });
+
+            // Close button: only allow close if already submitted
+            if (closeBtn) closeBtn.addEventListener('click', function(){
+                if (isPopupSubmitted()) {
+                    modal.classList.remove('show'); setTimeout(()=>{ modal.style.display='none'; },400);
+                } else {
+                    // keep modal visible and focus the name field
+                    const nameField = document.getElementById('popup-name'); if (nameField) nameField.focus();
+                }
+            });
+
+            // disable outside click closing while not submitted
+            window.addEventListener('click', function(event){ if (event.target == modal) { if (isPopupSubmitted()) { modal.classList.remove('show'); setTimeout(()=>{ modal.style.display='none'; },400); } else { const nameField = document.getElementById('popup-name'); if (nameField) nameField.focus(); } } });
+
+            // Block navigation / page interactions while popup not submitted
+            function navigationBlocker(e) {
+                if (isPopupSubmitted()) return;
+                // allow interactions inside the modal
+                if (e.target.closest && (e.target.closest('#popupEnquiryModal') || e.target.closest('.modal-content'))) return;
+                const anchor = e.target.closest && e.target.closest('a[href]');
+                if (anchor) { e.preventDefault(); showPopupModal(); return; }
+                const btn = e.target.closest && e.target.closest('button');
+                if (btn && btn.type !== 'submit') { e.preventDefault(); showPopupModal(); return; }
+            }
+            document.addEventListener('click', navigationBlocker, true);
 
             const form = document.getElementById('popupEnquiryForm');
             const submitBtn = document.getElementById('popupSubmitBtn');
@@ -1141,13 +1174,23 @@
                 if (errorMessage) errorMessage.style.display='none';
                 const formData = new FormData(form);
                 const data = { name: formData.get('name'), phone: formData.get('phone'), message: formData.get('message'), timestamp: new Date().toLocaleString() };
-                try {
-                    const scriptURL = 'https://script.google.com/macros/s/AKfycbx9bDCObSqYnedMiv1uQdI_tzIKb3XIeoRO7KdVD5HkLgarfsHNhtQyLyiu7Zo-0WQ8TA/exec';
-                    await fetch(scriptURL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
-                    if (successMessage) successMessage.style.display='block';
-                    form.reset();
-                } catch (err) { console.error(err); if (errorMessage) errorMessage.style.display='block'; }
-                finally { if (submitBtn) submitBtn.style.display='block'; if (loadingSpinner) loadingSpinner.style.display='none'; }
+                        try {
+                            const scriptURL = 'https://script.google.com/macros/s/AKfycbx9bDCObSqYnedMiv1uQdI_tzIKb3XIeoRO7KdVD5HkLgarfsHNhtQyLyiu7Zo-0WQ8TA/exec';
+                            await fetch(scriptURL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
+                            if (successMessage) successMessage.style.display='block';
+                            // persist successful submission so other pages won't show popup
+                            try { localStorage.setItem('ep_popup_submitted', 'true'); } catch (e) { /* ignore storage errors */ }
+                            // auto-close modal after a short delay so user sees the success message
+                            setTimeout(() => {
+                                modal.classList.remove('show');
+                                modal.style.display = 'none';
+                                form.reset();
+                            }, 2000);
+                        } catch (err) {
+                            console.error(err); if (errorMessage) errorMessage.style.display='block';
+                        } finally {
+                            if (submitBtn) submitBtn.style.display='block'; if (loadingSpinner) loadingSpinner.style.display='none';
+                        }
             });
 
             // iOS viewport fix

@@ -1385,7 +1385,7 @@
             const canvas = document.getElementById('popupConfettiCanvas');
 
             function showModal() { if (modal) { modal.classList.add('show'); modal.setAttribute('aria-hidden','false'); runConfetti(); } }
-            function hideModal() { if (modal) { modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); } }
+            function hideModal() { if (modal) { modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); setTimeout(() => { modal.style.display = 'none'; }, 400); } }
 
             // Simple confetti (lightweight)
             function runConfetti() {
@@ -1401,21 +1401,39 @@
                 anim();
             }
 
-            // Show on page load (after load to ensure layout ready)
-            window.addEventListener('load', function(){ setTimeout(showModal, 300); });
+            // Show on page load (after load to ensure layout ready) only if not already submitted
+            function isPopupSubmitted() { return localStorage.getItem('ep_popup_submitted') === 'true'; }
+            function showPopupModal() { if (modal) { modal.classList.add('show'); modal.style.display = 'block'; runConfetti(); popupShowBlast(); } }
+            window.addEventListener('load', function(){ if (!isPopupSubmitted()) setTimeout(showPopupModal, 300); });
 
-            if (closeBtn) closeBtn.addEventListener('click', hideModal);
-            window.addEventListener('click', function(e){ if (e.target === modal) hideModal(); });
+            // Only allow closing modal after form submission
+            if (closeBtn) closeBtn.addEventListener('click', function(){ if (isPopupSubmitted()) hideModal(); else { const f = document.getElementById('popupEnquiryForm'); if (f) f.querySelector('input, textarea')?.focus(); } });
+            window.addEventListener('click', function(e){ if (e.target === modal) { if (isPopupSubmitted()) hideModal(); else { const f = document.getElementById('popupEnquiryForm'); if (f) f.querySelector('input, textarea')?.focus(); } } });
+
+            // Block navigation/clicks while popup not submitted
+            function navigationBlocker(e) {
+                if (isPopupSubmitted()) return;
+                if (e.target.closest && (e.target.closest('#popupEnquiryModal') || e.target.closest('.popup-content'))) return;
+                const anchor = e.target.closest && e.target.closest('a[href]');
+                if (anchor) { e.preventDefault(); showPopupModal(); return; }
+                const btn = e.target.closest && e.target.closest('button');
+                if (btn && btn.type !== 'submit') { e.preventDefault(); showPopupModal(); return; }
+            }
+            document.addEventListener('click', navigationBlocker, true);
 
             if (form) form.addEventListener('submit', async function(e){
                 e.preventDefault();
                 submitBtn.style.display='none'; loading.style.display='inline-block'; success.style.display='none'; error.style.display='none';
                 const fd = new FormData(form);
                 const data = { name: fd.get('name'), phone: fd.get('phone'), message: fd.get('message'), timestamp: new Date().toLocaleString() };
-                try{
+                    try{
                     const scriptURL = 'https://script.google.com/macros/s/AKfycbx9bDCObSqYnedMiv1uQdI_tzIKb3XIeoRO7KdVD5HkLgarfsHNhtQyLyiu7Zo-0WQ8TA/exec';
                     await fetch(scriptURL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
-                    success.style.display='block'; form.reset();
+                    success.style.display='block';
+                    form.reset();
+                    try { localStorage.setItem('ep_popup_submitted','true'); } catch (err) {}
+                    // auto-close modal after short delay so user sees success message
+                    setTimeout(() => { hideModal(); }, 2000);
                 }catch(err){ console.error(err); error.style.display='block'; }
                 finally{ submitBtn.style.display='inline-block'; loading.style.display='none'; }
             });

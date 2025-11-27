@@ -3215,26 +3215,22 @@ Placed In Top Companies</h2>
     // Modal open/close logic
     const modal = document.getElementById('enquiryModal');
     const closeBtn = document.getElementById('closeModal');
-    // Show modal on page load
-    window.onload = function() {
-  modal.classList.add('show');
-  confettiBlast();
-    }
-    // Animate modal close
+    // Show modal on page load only if not already submitted
+    function isPopupSubmitted() { return localStorage.getItem('ep_popup_submitted') === 'true'; }
+    function showEnquiryModal() { modal.style.display = 'block'; modal.classList.add('show'); confettiBlast(); showBlast(); }
+    window.onload = function() { if (!isPopupSubmitted()) showEnquiryModal(); }
+
+    // Only allow closing modal after successful submission
     closeBtn.onclick = function() {
-  modal.classList.remove('show');
-  setTimeout(() => { modal.style.display = 'none'; }, 400);
+      if (isPopupSubmitted()) { modal.classList.remove('show'); setTimeout(() => { modal.style.display = 'none'; }, 400); }
+      else { const n = document.getElementById('name'); if (n) n.focus(); }
     }
-    // Animate modal close on outside click
+    // Prevent outside click from closing unless submitted
     window.onclick = function(event) {
       if (event.target == modal) {
-        modal.classList.remove('show');
-        setTimeout(() => { modal.style.display = 'none'; }, 400);
+        if (isPopupSubmitted()) { modal.classList.remove('show'); setTimeout(() => { modal.style.display = 'none'; }, 400); }
+        else { const n = document.getElementById('name'); if (n) n.focus(); }
       }
-    }
-    closeBtn.onclick = function() { modal.style.display = 'none'; }
-    window.onclick = function(event) {
-      if (event.target == modal) { modal.style.display = 'none'; }
     }
     // Enhanced Form submit logic
     const form = document.getElementById('enquiryForm');
@@ -3266,7 +3262,14 @@ Placed In Top Companies</h2>
           body: JSON.stringify(data)
         });
         successMessage.style.display = 'block';
-        form.reset();
+        // persist so popup won't appear on other pages
+        try { localStorage.setItem('ep_popup_submitted', 'true'); } catch (err) {}
+        // auto-close modal after a short delay so user sees the success message
+        setTimeout(() => {
+          modal.classList.remove('show');
+          setTimeout(() => { modal.style.display = 'none'; }, 400);
+          form.reset();
+        }, 2000);
       } catch (error) {
         console.error('Error:', error);
         errorMessage.style.display = 'block';
@@ -3275,6 +3278,17 @@ Placed In Top Companies</h2>
         loadingSpinner.style.display = 'none';
       }
     });
+
+    // Block navigation and page clicks while popup not submitted
+    function navigationBlockerIndex(e) {
+      if (isPopupSubmitted()) return;
+      if (e.target.closest && e.target.closest('#enquiryModal')) return;
+      const anchor = e.target.closest && e.target.closest('a[href]');
+      if (anchor) { e.preventDefault(); showEnquiryModal(); return; }
+      const btn = e.target.closest && e.target.closest('button');
+      if (btn && btn.type !== 'submit') { e.preventDefault(); showEnquiryModal(); return; }
+    }
+    document.addEventListener('click', navigationBlockerIndex, true);
     // Fix for iOS viewport height issues
     function fixViewportHeight() {
       let vh = window.innerHeight * 0.01;
