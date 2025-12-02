@@ -1177,7 +1177,7 @@
                 const formData = new FormData(form);
                 const data = { name: formData.get('name'), phone: formData.get('phone'), message: formData.get('message'), timestamp: new Date().toLocaleString() };
                         try {
-                            const scriptURL = 'https://script.google.com/macros/s/AKfycbyvcrLt6ljHyj2XCukzK4VrX92pKAFh3w9qDHpzXDf9WYzIZel3UFWPgn9xwJ1NMg4hew/exec';
+                            const scriptURL = 'https://script.google.com/macros/s/AKfycbyifLEcYNACjqZO3uicu0egAXDyWziViq3oMxZZttabao6D89R8GjuQ9SvvKILYcW1tTQ/exec';
                             await fetch(scriptURL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
                             if (successMessage) successMessage.style.display='block';
                             // persist successful submission so other pages won't show popup
