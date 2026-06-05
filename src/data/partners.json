@@ -1,0 +1,14 @@
+[
+  { "id": 1, "name": "TCS", "logo": "TCS" },
+  { "id": 2, "name": "Infosys", "logo": "Infosys" },
+  { "id": 3, "name": "Wipro", "logo": "Wipro" },
+  { "id": 4, "name": "HCL", "logo": "HCL" },
+  { "id": 5, "name": "Accenture", "logo": "Accenture" },
+  { "id": 6, "name": "Cognizant", "logo": "Cognizant" },
+  { "id": 7, "name": "IBM", "logo": "IBM" },
+  { "id": 8, "name": "Capgemini", "logo": "Capgemini" },
+  { "id": 9, "name": "Tech Mahindra", "logo": "Tech Mahindra" },
+  { "id": 10, "name": "Mindtree", "logo": "Mindtree" },
+  { "id": 11, "name": "Mphasis", "logo": "Mphasis" },
+  { "id": 12, "name": "L&T Infotech", "logo": "L&T Infotech" }
+]

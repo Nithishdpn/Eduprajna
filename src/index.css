@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { font-family: 'Outfit', sans-serif; background: #fff; color: #0f172a; }
+  h1,h2,h3,h4,h5 { font-family: 'Syne', sans-serif; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-brand-600 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 hover:bg-brand-700 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 bg-white text-brand-700 border border-brand-200 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 hover:border-brand-400 hover:shadow-card hover:-translate-y-0.5;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 text-brand-600 font-semibold text-sm transition-all duration-200 hover:gap-3;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-card border border-gray-100/80 transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1;
+  }
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/60;
+  }
+  .section {
+    @apply py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto;
+  }
+  .section-tag {
+    @apply inline-flex items-center gap-2 bg-brand-50 text-brand-600 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-wider mb-4;
+  }
+  .section-title {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-gray-900 leading-tight;
+  }
+  .section-sub {
+    @apply text-gray-500 text-lg max-w-2xl;
+  }
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent transition-all duration-200 bg-gray-50/50;
+  }
+}
+
+/* Swiper overrides */
+.swiper-pagination-bullet-active { background: #2563eb !important; }
+.swiper-button-next, .swiper-button-prev { color: #2563eb !important; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+/* Animations */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.opacity-0-start { opacity: 0; }

@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "Priya Sharma",
+    "role": "Data Analyst at TCS",
+    "course": "Data Science",
+    "avatar": "PS",
+    "avatarColor": "#2563EB",
+    "rating": 5,
+    "text": "EduPrajna completely transformed my career. I was a fresh BE graduate with zero industry experience. After completing the Data Science program, I landed a Data Analyst role at TCS within 2 months. The placement support was outstanding.",
+    "location": "Bangalore"
+  },
+  {
+    "id": 2,
+    "name": "Rahul Verma",
+    "role": "Cloud Engineer at Wipro",
+    "course": "AWS Cloud",
+    "avatar": "RV",
+    "avatarColor": "#059669",
+    "rating": 5,
+    "text": "I was working as a manual tester for 3 years feeling stuck. The AWS course here is absolutely world-class. Hands-on labs, real projects, interview prep — everything. Got AWS certified and switched to cloud in just 4 months.",
+    "location": "Hyderabad"
+  },
+  {
+    "id": 3,
+    "name": "Sneha Patel",
+    "role": "ML Engineer at Infosys",
+    "course": "Machine Learning",
+    "avatar": "SP",
+    "avatarColor": "#7C3AED",
+    "rating": 5,
+    "text": "The AI/ML program is incredibly well-structured. From Python basics to building production models — the curriculum covers everything. My trainer was exceptional. Placed in 6 weeks after course completion!",
+    "location": "Pune"
+  },
+  {
+    "id": 4,
+    "name": "Karthik Nair",
+    "role": "Full Stack Developer at Capgemini",
+    "course": "Full Stack Development",
+    "avatar": "KN",
+    "avatarColor": "#DC2626",
+    "rating": 5,
+    "text": "As a final year student, I joined Full Stack program. The live project experience was real — not just theory. Built 3 full apps during training. Got hired before graduation. Best investment of my life.",
+    "location": "Chennai"
+  },
+  {
+    "id": 5,
+    "name": "Anjali Singh",
+    "role": "DevOps Engineer at HCL",
+    "course": "DevOps",
+    "avatar": "AS",
+    "avatarColor": "#D97706",
+    "rating": 5,
+    "text": "Switched from a 2-year gap to DevOps role. The trainers here don't just teach — they mentor. Docker, K8s, CI/CD — everything clicked. The mock interviews were tough but prepared me perfectly for real ones.",
+    "location": "Delhi"
+  },
+  {
+    "id": 6,
+    "name": "Mohammed Irfan",
+    "role": "Cyber Security Analyst at IBM",
+    "course": "Cyber Security (CEH)",
+    "avatar": "MI",
+    "avatarColor": "#0891B2",
+    "rating": 5,
+    "text": "The CEH program here is the most comprehensive I've found anywhere in Bangalore. Cleared my CEH v12 on first attempt. The lab environment and practical sessions are unmatched. Landed at IBM with 40% salary hike.",
+    "location": "Bangalore"
+  }
+]
