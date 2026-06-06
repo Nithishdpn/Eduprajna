@@ -1,34 +1,50 @@
 import { Link } from 'react-router-dom';
-import { FiLinkedin, FiTwitter, FiInstagram, FiYoutube, FiFacebook } from 'react-icons/fi';
+import { FiLinkedin, FiTwitter, FiInstagram, FiYoutube, FiFacebook, FiPhone, FiMail, FiMapPin } from 'react-icons/fi';
+
+
+
+const companyLinks = [
+  { label: 'About Us',       to: '/about' },
+  { label: 'Our Courses',    to: '/courses' },
+  { label: 'Hire From Us',   to: '/hire' },
+  { label: 'Blog',           to: '/blog' },
+  { label: 'Contact Us',     to: '/contact' },
+  { label: 'Privacy Policy', to: '/privacy' },
+  { label: 'Terms of Service', to: '/terms' },
+];
+
+const social = [
+  { icon: <FiLinkedin />, href: '#', label: 'LinkedIn' },
+  { icon: <FiTwitter />,  href: '#', label: 'Twitter' },
+  { icon: <FiInstagram />,href: '#', label: 'Instagram' },
+  { icon: <FiYoutube />,  href: '#', label: 'YouTube' },
+  { icon: <FiFacebook />, href: '#', label: 'Facebook' },
+];
 
 export default function Footer() {
   return (
     <footer className="bg-slate-900 text-slate-400">
+
+
+      {/* ── Main footer grid ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          {/* Col 1 */}
+
+          {/* Brand col */}
           <div>
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-sm font-['Sora']">EP</span>
-              </div>
-              <span className="font-bold text-xl text-white font-['Sora']">EduPrajna</span>
-            </div>
+            <Link to="/" className="flex items-center mb-5">
+              <img src="/logo-dark.png" alt="EduPrajna" className="h-24 w-auto object-contain" />
+            </Link>
             <p className="text-sm leading-relaxed text-slate-400 mb-5">
-              Industry-focused tech education platform. We build job-ready professionals through practical training, real projects, and career support.
+              India's fastest-growing EdTech platform. We build job-ready tech professionals through practical training, real projects, and dedicated career support.
             </p>
-            <div className="flex items-center gap-3">
-              {[
-                { icon: <FiLinkedin />, href: '#' },
-                { icon: <FiTwitter />, href: '#' },
-                { icon: <FiInstagram />, href: '#' },
-                { icon: <FiYoutube />, href: '#' },
-                { icon: <FiFacebook />, href: '#' },
-              ].map((s, i) => (
+            <div className="flex items-center gap-2.5">
+              {social.map((s, i) => (
                 <a
                   key={i}
                   href={s.href}
-                  className="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all"
+                  aria-label={s.label}
+                  className="w-9 h-9 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-600 hover:text-white transition-all duration-200"
                 >
                   {s.icon}
                 </a>
@@ -36,20 +52,13 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 2 */}
+          {/* Company col */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4 font-['Sora']">Company</h4>
+            <h4 className="text-white font-semibold text-sm mb-4 font-display">Company</h4>
             <ul className="space-y-2.5">
-              {[
-                { label: 'About Us', to: '/about' },
-                { label: 'Hire From Us', to: '/hire' },
-                { label: 'Blog', to: '/blog' },
-                { label: 'Contact', to: '/contact' },
-                { label: 'Privacy Policy', to: '/privacy' },
-                { label: 'Terms of Service', to: '/terms' },
-              ].map((l) => (
+              {companyLinks.map((l) => (
                 <li key={l.label}>
-                  <Link to={l.to} className="text-sm hover:text-white transition-colors">
+                  <Link to={l.to} className="text-sm hover:text-brand-500 transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -57,59 +66,62 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3 */}
+          {/* Courses col */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4 font-['Sora']">Popular Courses</h4>
+            <h4 className="text-white font-semibold text-sm mb-4 font-display">Courses</h4>
             <ul className="space-y-2.5">
-              {[
-                { label: 'Artificial Intelligence', to: '/courses/artificial-intelligence' },
-                { label: 'Python Programming', to: '/courses/python' },
-                { label: 'Full Stack Development', to: '/courses/full-stack' },
-                { label: 'AWS Cloud', to: '/courses/aws' },
-                { label: 'DevOps Engineering', to: '/courses/devops' },
-                { label: 'Data Science', to: '/courses/data-science' },
-                { label: 'Cyber Security', to: '/courses/cyber-security' },
-              ].map((l) => (
-                <li key={l.label}>
-                  <Link to={l.to} className="text-sm hover:text-white transition-colors">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link to="/courses" className="text-sm hover:text-brand-500 transition-colors">
+                  Courses
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Col 4 */}
+          {/* Contact col */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4 font-['Sora']">Contact Us</h4>
-            <ul className="space-y-3">
-              <li className="text-sm">
-                <span className="block text-slate-500 text-xs mb-0.5">Phone</span>
-                <a href="tel:+919876543210" className="hover:text-white transition-colors">+91 98765 43210</a>
+            <h4 className="text-white font-semibold text-sm mb-4 font-display">Get In Touch</h4>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <FiPhone className="w-4 h-4 text-brand-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-xs font-semibold text-white">Phone</p>
+                  <a href="tel:+918197719297" className="text-sm hover:text-brand-500 transition-colors text-slate-300">
+                    +91 81977 19297
+                  </a>
+                </div>
               </li>
-              <li className="text-sm">
-                <span className="block text-slate-500 text-xs mb-0.5">Email</span>
-                <a href="mailto:info@eduprajna.com" className="hover:text-white transition-colors">info@eduprajna.com</a>
+              <li className="flex items-start gap-3">
+                <FiMail className="w-4 h-4 text-brand-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-xs font-semibold text-white">Mail</p>
+                  <a href="mailto:support@eduprajna.com" className="text-sm hover:text-brand-500 transition-colors text-slate-300">
+                    support@eduprajna.com
+                  </a>
+                </div>
               </li>
-              <li className="text-sm">
-                <span className="block text-slate-500 text-xs mb-0.5">Address</span>
-                <span>2nd Floor, Tech Hub, Koramangala, Bangalore – 560034</span>
-              </li>
-              <li className="text-sm">
-                <span className="block text-slate-500 text-xs mb-0.5">Hours</span>
-                <span>Mon–Sat: 9 AM – 7 PM</span>
+              <li className="flex items-start gap-3">
+                <FiMapPin className="w-4 h-4 text-brand-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-xs font-semibold text-white">Office</p>
+                  <span className="text-sm text-slate-300">
+                    2nd Floor, Eduprajna 1433/A, Nehru Rd, above Ramdev Hi Fashion, Kullappa Circle, Subbayianiah Palyam, Kammanahalli, Bengaluru, Karnataka 560084.
+                  </span>
+                </div>
               </li>
             </ul>
           </div>
         </div>
 
+        {/* ── Bottom bar ── */}
         <div className="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-slate-500">
-            © {new Date().getFullYear()} EduPrajna. All rights reserved.
+            © {new Date().getFullYear()} EduPrajna. All rights reserved. Built with passion in Bangalore.
           </p>
           <div className="flex items-center gap-4 text-xs">
-            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link to="/privacy" className="hover:text-brand-500 transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-brand-500 transition-colors">Terms of Service</Link>
+            <Link to="/sitemap" className="hover:text-brand-500 transition-colors">Sitemap</Link>
           </div>
         </div>
       </div>

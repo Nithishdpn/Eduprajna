@@ -1,68 +1,102 @@
 [
   {
     "id": 1,
-    "name": "Priya Sharma",
-    "role": "Data Analyst at TCS",
-    "course": "Data Science",
-    "avatar": "PS",
-    "avatarColor": "#2563EB",
-    "rating": 5,
-    "text": "EduPrajna completely transformed my career. I was a fresh BE graduate with zero industry experience. After completing the Data Science program, I landed a Data Analyst role at TCS within 2 months. The placement support was outstanding.",
-    "location": "Bangalore"
+    "name": "Vinodh",
+    "role": "Cloud Engineer",
+    "course": "Cloud Engineering",
+    "company": "HCL",
+    "package": "12 LPA",
+    "avatar": "/avatars/student_vinodh.png",
+    "text": "The hands-on cloud labs and direct mentoring from senior engineers at EduPrajna completely transformed my skill set. I gained deep experience in AWS, Kubernetes, and Terraform, which gave me the confidence to ace my interviews at HCL and secure an amazing 12 LPA package."
   },
   {
     "id": 2,
-    "name": "Rahul Verma",
-    "role": "Cloud Engineer at Wipro",
-    "course": "AWS Cloud",
-    "avatar": "RV",
-    "avatarColor": "#059669",
-    "rating": 5,
-    "text": "I was working as a manual tester for 3 years feeling stuck. The AWS course here is absolutely world-class. Hands-on labs, real projects, interview prep — everything. Got AWS certified and switched to cloud in just 4 months.",
-    "location": "Hyderabad"
+    "name": "Prathibha",
+    "role": "VMware Cloud Engineer",
+    "course": "VMware & Cloud Engineering",
+    "company": "TCS",
+    "package": "8 LPA",
+    "avatar": "/avatars/student_prathibha.png",
+    "text": "EduPrajna's structured VMware curriculum and mock interview sessions were invaluable. The mentors helped me understand virtualization from the ground up and build real-world deployment projects, leading to my successful placement at TCS as a VMware Cloud Engineer with an 8 LPA package."
   },
   {
     "id": 3,
-    "name": "Sneha Patel",
-    "role": "ML Engineer at Infosys",
-    "course": "Machine Learning",
-    "avatar": "SP",
-    "avatarColor": "#7C3AED",
-    "rating": 5,
-    "text": "The AI/ML program is incredibly well-structured. From Python basics to building production models — the curriculum covers everything. My trainer was exceptional. Placed in 6 weeks after course completion!",
-    "location": "Pune"
+    "name": "Keerthana",
+    "role": "Fullstack Developer",
+    "course": "Python Fullstack Development",
+    "company": "Klaus",
+    "package": "3.8 LPA",
+    "avatar": "/avatars/student_keerthana.png",
+    "text": "Coming from a non-programming background, Python Fullstack was a challenge, but the mentors supported me at every step. Building complete web applications during the course helped me clear the technical rounds at Klaus easily, landing my first role as a Fullstack Developer at 3.8 LPA."
   },
   {
     "id": 4,
-    "name": "Karthik Nair",
-    "role": "Full Stack Developer at Capgemini",
-    "course": "Full Stack Development",
-    "avatar": "KN",
-    "avatarColor": "#DC2626",
-    "rating": 5,
-    "text": "As a final year student, I joined Full Stack program. The live project experience was real — not just theory. Built 3 full apps during training. Got hired before graduation. Best investment of my life.",
-    "location": "Chennai"
+    "name": "Jithin",
+    "role": "Cloud Engineer",
+    "course": "Cloud Engineering",
+    "company": "HCL",
+    "package": "5 LPA",
+    "avatar": "/avatars/student_jithin.png",
+    "text": "I am extremely grateful to the placement team at EduPrajna. The intensive projects on cloud computing and CI/CD pipelines matched exactly what companies look for. I secured a Cloud Engineer role at HCL with a 5 LPA package right after completing my training."
   },
   {
     "id": 5,
-    "name": "Anjali Singh",
-    "role": "DevOps Engineer at HCL",
-    "course": "DevOps",
-    "avatar": "AS",
-    "avatarColor": "#D97706",
-    "rating": 5,
-    "text": "Switched from a 2-year gap to DevOps role. The trainers here don't just teach — they mentor. Docker, K8s, CI/CD — everything clicked. The mock interviews were tough but prepared me perfectly for real ones.",
-    "location": "Delhi"
+    "name": "Prashanth",
+    "role": "Cyber Security Analyst",
+    "course": "Cyber Security Analysis",
+    "company": "TCS",
+    "package": "6 LPA",
+    "avatar": "/avatars/student_prashanth.png",
+    "text": "The cyber security training here is top-notch. We worked on actual penetration testing labs and security audits. The practical exposure made it easy for me to demonstrate my skills to the hiring managers at TCS, landing a role as a Cyber Security Analyst with a 6 LPA package."
   },
   {
     "id": 6,
-    "name": "Mohammed Irfan",
-    "role": "Cyber Security Analyst at IBM",
-    "course": "Cyber Security (CEH)",
-    "avatar": "MI",
-    "avatarColor": "#0891B2",
-    "rating": 5,
-    "text": "The CEH program here is the most comprehensive I've found anywhere in Bangalore. Cleared my CEH v12 on first attempt. The lab environment and practical sessions are unmatched. Landed at IBM with 40% salary hike.",
-    "location": "Bangalore"
+    "name": "Janani",
+    "role": "AWS Cloud Architect",
+    "course": "AWS Cloud Computing",
+    "company": "Wipro",
+    "package": "4.8 LPA",
+    "avatar": "/avatars/student_janani.png",
+    "text": "Mastering AWS architecture at EduPrajna was a turning point. The focus on architecture design patterns and DevOps practices prepared me for real-world projects. I cleared the interviews at Wipro for the AWS Cloud Architect role with a 4.8 LPA package."
+  },
+  {
+    "id": 7,
+    "name": "Harish",
+    "role": "DevOps Engineer",
+    "course": "DevOps Engineering",
+    "company": "Accenture",
+    "package": "7.5 LPA",
+    "avatar": "/avatars/student_harish.png",
+    "text": "The DevOps program is intensive and highly relevant. Building automated CI/CD pipelines and working with Docker and Ansible prepared me for real corporate challenges. I successfully joined Accenture as a DevOps Engineer with a solid 7.5 LPA package."
+  },
+  {
+    "id": 8,
+    "name": "Divya",
+    "role": "AI Engineer",
+    "course": "AI & Machine Learning",
+    "company": "Infosys",
+    "package": "9.2 LPA",
+    "avatar": "/avatars/student_divya.png",
+    "text": "EduPrajna provided me with solid foundations in AI and Machine Learning. The capstone project on neural networks was highly appreciated by the interviewers at Infosys. I landed my dream job as an AI Engineer with a great package of 9.2 LPA."
+  },
+  {
+    "id": 9,
+    "name": "Sandhya",
+    "role": "UI/UX Designer",
+    "course": "UI/UX Design",
+    "company": "Capgemini",
+    "package": "5.5 LPA",
+    "avatar": "/avatars/student_sandhya.png",
+    "text": "The UI/UX design course was extremely practical. We learned user research, wireframing, and interactive prototyping. Building a polished portfolio of real client projects was key to landing my role as a UI/UX Designer at Capgemini with a 5.5 LPA package."
+  },
+  {
+    "id": 10,
+    "name": "Manoj",
+    "role": "Data Scientist",
+    "course": "Data Science",
+    "company": "Tech Mahindra",
+    "package": "6.8 LPA",
+    "avatar": "/avatars/student_manoj.png",
+    "text": "Mastering statistics, Python, and data modeling at EduPrajna gave me a strong edge. The mentors are industry practitioners who share real project insights, which helped me clear the data science rounds at Tech Mahindra and join them as a Data Scientist at 6.8 LPA."
   }
 ]

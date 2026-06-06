@@ -1,11 +1,11 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { FiArrowRight } from 'react-icons/fi';
+import { FiArrowRight, FiVideo, FiMonitor, FiSettings, FiCpu } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 const services = [
   {
-    icon: '🎬',
+    icon: <FiVideo className="w-5 h-5 text-pink-600" />,
     title: 'Content Creation',
     desc: 'Professional video production, editing, and multimedia content for education and marketing.',
     tags: ['Video', 'Animation', 'Script'],
@@ -13,7 +13,7 @@ const services = [
     border: 'border-pink-100',
   },
   {
-    icon: '💻',
+    icon: <FiMonitor className="w-5 h-5 text-blue-600" />,
     title: 'Software Development',
     desc: 'Full-stack web and mobile app development tailored to your business requirements.',
     tags: ['React', 'Node.js', 'Mobile'],
@@ -21,7 +21,7 @@ const services = [
     border: 'border-blue-100',
   },
   {
-    icon: '⚙️',
+    icon: <FiSettings className="w-5 h-5 text-amber-600" />,
     title: 'Process Automation',
     desc: 'Automate repetitive workflows, data pipelines, and business processes with smart scripts.',
     tags: ['Python', 'RPA', 'APIs'],
@@ -29,7 +29,7 @@ const services = [
     border: 'border-amber-100',
   },
   {
-    icon: '🤖',
+    icon: <FiCpu className="w-5 h-5 text-violet-600" />,
     title: 'LLM & AI Integration',
     desc: 'Custom AI solutions, LLM-powered apps, chatbots, and intelligent automation systems.',
     tags: ['GPT', 'LangChain', 'RAG'],
@@ -50,9 +50,6 @@ export default function ServicesSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           className="text-center mb-14"
         >
-          <span className="inline-block text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full mb-3 uppercase tracking-wider">
-            Services
-          </span>
           <h2 className="font-['Sora'] font-bold text-4xl text-slate-900 mb-4">
             Beyond Education — We Build Solutions
           </h2>
@@ -70,7 +67,7 @@ export default function ServicesSection() {
               transition={{ duration: 0.4, delay: i * 0.09 }}
               className={`group relative bg-gradient-to-br ${s.color} border ${s.border} rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer`}
             >
-              <div className="text-4xl mb-4">{s.icon}</div>
+
               <h3 className="font-['Sora'] font-bold text-slate-900 text-lg mb-2">{s.title}</h3>
               <p className="text-slate-500 text-sm leading-relaxed mb-5">{s.desc}</p>
               <div className="flex flex-wrap gap-2 mb-5">

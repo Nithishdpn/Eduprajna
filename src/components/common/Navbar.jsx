@@ -1,49 +1,50 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX, FiChevronDown } from 'react-icons/fi';
+import { FiMenu, FiX, FiChevronDown, FiCpu, FiCode, FiCloud, FiShield, FiSliders, FiBarChart2, FiPhone, FiArrowRight } from 'react-icons/fi';
 import courses from '../../data/courses.json';
+import { getCourseIconData } from '../../utils/courseIcons';
 
 const courseCategories = [
   {
     id: 'ai-data',
     label: 'AI & Data Science',
-    icon: '🤖',
+    icon: FiCpu,
     color: 'blue',
     courses: courses.filter(c => c.category === 'ai-data'),
   },
   {
     id: 'programming',
     label: 'Software Development',
-    icon: '💻',
+    icon: FiCode,
     color: 'indigo',
     courses: courses.filter(c => c.category === 'programming'),
   },
   {
     id: 'cloud',
     label: 'Cloud & DevOps',
-    icon: '☁️',
+    icon: FiCloud,
     color: 'cyan',
     courses: courses.filter(c => c.category === 'cloud'),
   },
   {
     id: 'cybersecurity',
     label: 'Cyber Security',
-    icon: '🔒',
+    icon: FiShield,
     color: 'red',
     courses: courses.filter(c => c.category === 'cybersecurity'),
   },
   {
     id: 'embedded',
     label: 'Hardware & Embedded',
-    icon: '🔧',
+    icon: FiSliders,
     color: 'orange',
     courses: courses.filter(c => c.category === 'embedded'),
   },
   {
     id: 'business',
     label: 'Business Skills',
-    icon: '📊',
+    icon: FiBarChart2,
     color: 'green',
     courses: courses.filter(c => c.category === 'business'),
   },
@@ -81,6 +82,7 @@ export default function Navbar({ onEnrollClick }) {
   const navLinks = [
     { label: 'Home', to: '/' },
     { label: 'Courses', to: '/courses', hasMega: true },
+    { label: 'Gallery', to: '/gallery' },
     { label: 'Hire From Us', to: '/hire' },
     { label: 'Blog', to: '/blog' },
     { label: 'About', to: '/about' },
@@ -91,39 +93,38 @@ export default function Navbar({ onEnrollClick }) {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-md'
+          scrolled ? 'nav-scrolled' : 'nav-glass'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-18">
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-2.5 flex-shrink-0">
-              <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center shadow-sm">
-                <span className="text-white font-bold text-sm font-['Sora']">EP</span>
-              </div>
-              <span className="font-bold text-xl text-slate-900 font-['Sora'] tracking-tight">
-                EduPrajna
-              </span>
+            <Link to="/" className="flex items-center flex-shrink-0">
+              <img src="/logo.png" alt="EduPrajna" className="h-14 lg:h-16 w-auto" />
             </Link>
 
             {/* Desktop Nav */}
             <div className="hidden lg:flex items-center gap-1" ref={megaRef}>
               {navLinks.map((link) =>
                 link.hasMega ? (
-                  <div key={link.label} className="relative">
-                    <button
-                      onClick={() => setMegaOpen(!megaOpen)}
+                  <div
+                    key={link.label}
+                    className="relative"
+                    onMouseEnter={() => setMegaOpen(true)}
+                    onMouseLeave={() => setMegaOpen(false)}
+                  >
+                    <Link
+                      to={link.to}
                       className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                         location.pathname.startsWith('/courses')
-                          ? 'text-blue-600 bg-blue-50'
-                          : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                          ? 'text-brand-600 bg-brand-50'
+                          : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
                       }`}
                     >
                       {link.label}
                       <FiChevronDown
                         className={`w-3.5 h-3.5 transition-transform ${megaOpen ? 'rotate-180' : ''}`}
                       />
-                    </button>
+                    </Link>
                   </div>
                 ) : (
                   <Link
@@ -131,8 +132,8 @@ export default function Navbar({ onEnrollClick }) {
                     to={link.to}
                     className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                       location.pathname === link.to
-                        ? 'text-blue-600 bg-blue-50'
-                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                        ? 'text-brand-600 bg-brand-50'
+                        : 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100'
                     }`}
                   >
                     {link.label}
@@ -143,18 +144,24 @@ export default function Navbar({ onEnrollClick }) {
 
             {/* CTA */}
             <div className="hidden lg:flex items-center gap-3">
+              <a
+                href="tel:+918197719297"
+                className="text-sm text-neutral-600 hover:text-neutral-900 font-medium transition-colors flex items-center gap-1.5"
+              >
+                <FiPhone className="w-3.5 h-3.5 text-brand-500" /> +91 81977 19297
+              </a>
               <button
                 onClick={onEnrollClick}
-                className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md active:scale-95"
+                className="btn-primary"
               >
-                Enroll Now
+                Free Counseling
               </button>
             </div>
 
             {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100"
+              className="lg:hidden p-2 rounded-lg text-neutral-600 hover:bg-neutral-100"
             >
               {mobileOpen ? <FiX className="w-5 h-5" /> : <FiMenu className="w-5 h-5" />}
             </button>
@@ -169,12 +176,14 @@ export default function Navbar({ onEnrollClick }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.18 }}
-              className="absolute top-full left-0 right-0 bg-white border-t border-slate-100 shadow-2xl z-50"
+              className="absolute top-full left-0 right-0 bg-white border-t border-neutral-100 shadow-2xl z-50"
+              onMouseEnter={() => setMegaOpen(true)}
+              onMouseLeave={() => setMegaOpen(false)}
             >
               <div className="max-w-7xl mx-auto px-6 py-6 flex gap-6">
                 {/* Category list */}
                 <div className="w-64 flex-shrink-0 space-y-1">
-                  <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3 px-3">
+                  <p className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-3 px-3">
                     Categories
                   </p>
                   {courseCategories.map((cat) => (
@@ -186,25 +195,25 @@ export default function Navbar({ onEnrollClick }) {
                       }}
                       className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all text-left ${
                         activeCategory.id === cat.id
-                          ? 'bg-blue-50 text-blue-700'
-                          : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                          ? 'bg-brand-50 text-brand-700'
+                          : 'text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900'
                       }`}
                     >
-                      <span className="text-lg">{cat.icon}</span>
                       {cat.label}
                     </button>
                   ))}
                   <Link
                     to="/courses"
-                    className="flex items-center gap-2 px-3 py-2.5 mt-2 text-sm font-semibold text-blue-600 hover:underline"
+                    onClick={() => setMegaOpen(false)}
+                    className="flex items-center gap-2 px-3 py-2.5 mt-2 text-sm font-semibold text-brand-600 hover:underline"
                   >
-                    View All Courses →
+                    View All Courses <FiArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
 
                 {/* Course cards for active category */}
                 <div className="flex-1">
-                  <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
+                  <p className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-3">
                     {activeCategory.label}
                   </p>
                   <div className="grid grid-cols-2 gap-3">
@@ -213,14 +222,13 @@ export default function Navbar({ onEnrollClick }) {
                         key={course.id}
                         to={`/courses/${course.slug}`}
                         onClick={() => setMegaOpen(false)}
-                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-slate-50 group transition-colors"
+                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-neutral-50 group transition-colors"
                       >
-                        <span className="text-2xl">{course.icon}</span>
                         <div>
-                          <p className="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
+                          <p className="text-sm font-semibold text-neutral-800 group-hover:text-brand-600 transition-colors">
                             {course.title}
                           </p>
-                          <p className="text-xs text-slate-500 mt-0.5">{course.duration} • {course.level}</p>
+                          <p className="text-xs text-neutral-500 mt-0.5">{course.duration} • {course.level}</p>
                         </div>
                       </Link>
                     ))}
@@ -229,14 +237,14 @@ export default function Navbar({ onEnrollClick }) {
 
                 {/* CTA card */}
                 <div className="w-56 flex-shrink-0">
-                  <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-5 text-white h-full flex flex-col justify-between">
+                  <div className="bg-gradient-to-br from-brand-500 to-brand-700 rounded-2xl p-5 text-white h-full flex flex-col justify-between">
                     <div>
-                      <p className="font-bold text-lg font-['Sora'] leading-tight">Start Your Tech Career Today</p>
-                      <p className="text-blue-100 text-xs mt-2">Free counseling session with our experts</p>
+                      <p className="font-bold text-lg font-display leading-tight">Start Your Tech Career Today</p>
+                      <p className="text-brand-100 text-xs mt-2">Free counseling session with our experts</p>
                     </div>
                     <button
                       onClick={() => { setMegaOpen(false); onEnrollClick(); }}
-                      className="mt-4 bg-white text-blue-600 text-sm font-bold py-2 px-4 rounded-lg hover:bg-blue-50 transition-colors"
+                      className="mt-4 bg-white text-brand-600 text-sm font-bold py-2 px-4 rounded-lg hover:bg-brand-50 transition-colors"
                     >
                       Request Callback
                     </button>
@@ -263,7 +271,7 @@ export default function Navbar({ onEnrollClick }) {
                 <Link
                   key={link.label}
                   to={link.to}
-                  className="block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-slate-50"
+                  className="block px-4 py-3 rounded-xl text-base font-medium text-neutral-700 hover:bg-neutral-50"
                 >
                   {link.label}
                 </Link>
@@ -271,7 +279,7 @@ export default function Navbar({ onEnrollClick }) {
               <div className="pt-4">
                 <button
                   onClick={() => { setMobileOpen(false); onEnrollClick(); }}
-                  className="w-full bg-blue-600 text-white font-bold py-3.5 rounded-xl text-base"
+                  className="w-full btn-primary text-base py-3.5"
                 >
                   Enroll Now
                 </button>

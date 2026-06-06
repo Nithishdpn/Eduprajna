@@ -8,7 +8,7 @@ const faqs = [
   { q: 'Will I get placement support after the course?', a: 'Absolutely. EduPrajna provides dedicated placement assistance including resume building, mock interviews, and direct referrals to our 1000+ hiring partner network.' },
   { q: 'What certifications will I receive?', a: 'You\'ll receive an EduPrajna industry certification upon completion. For cloud/security courses, we also prepare you for official vendor certifications (AWS, Azure, CEH, etc.).' },
   { q: 'What are the batch timings?', a: 'We offer weekday (morning/evening) and weekend batches to accommodate both students and working professionals. Contact us for current batch schedules.' },
-  { q: 'Is there an EMI or installment payment option?', a: 'Yes! We offer flexible EMI options through our banking partners. You can pay in 3 to 12 monthly installments with zero-cost EMI on select programs.' },
+  { q: 'How does course package customisation work?', a: 'You can select specific modules across different technologies, choose your learning format (online/offline), and set a flexible pace that fits your schedule. Our advisors will work with you to construct a tailored package that aligns with your specific career goals.' },
   { q: 'Can companies hire trained candidates from EduPrajna?', a: 'Yes. Companies can register on our Hire From Us page. We provide pre-screened, technically trained candidates tailored to your job requirements — free of charge for hiring partners.' },
 ];
 
@@ -56,13 +56,11 @@ export default function FAQSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           className="text-center mb-12"
         >
-          <span className="inline-block text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full mb-3 uppercase tracking-wider">
-            FAQ
-          </span>
-          <h2 className="font-['Sora'] font-bold text-4xl text-slate-900 mb-3">
+
+          <h2 className="section-title mb-3">
             Frequently Asked Questions
           </h2>
-          <p className="text-slate-500">Everything you need to know before enrolling.</p>
+          <p className="text-slate-500">Everything you need to know about our customised programs.</p>
         </motion.div>
 
         <motion.div

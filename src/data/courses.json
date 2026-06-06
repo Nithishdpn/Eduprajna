@@ -2,7 +2,7 @@
   {
     "id": "artificial-intelligence",
     "slug": "artificial-intelligence",
-    "title": "Artificial Intelligence",
+    "title": "Artificial Intelligence & Cognitive Computing",
     "category": "ai-data",
     "categoryLabel": "AI & Data Technologies",
     "badge": "Trending",
@@ -16,25 +16,71 @@
     "price": 35000,
     "originalPrice": 55000,
     "overview": "Master AI fundamentals, neural networks, deep learning, NLP, and computer vision. Build real-world AI projects and get job-ready.",
-    "skills": ["Python", "TensorFlow", "PyTorch", "Neural Networks", "NLP", "Computer Vision", "Deep Learning", "Model Deployment"],
-    "tools": ["Python", "TensorFlow", "PyTorch", "Keras", "Jupyter", "Google Colab", "HuggingFace"],
-    "projects": ["Sentiment Analysis App", "Image Classifier", "Chatbot with GPT", "Recommendation System"],
-    "curriculum": [
-      { "module": 1, "title": "Python for AI", "lessons": 12 },
-      { "module": 2, "title": "Machine Learning Fundamentals", "lessons": 15 },
-      { "module": 3, "title": "Deep Learning & Neural Networks", "lessons": 18 },
-      { "module": 4, "title": "NLP & Text Processing", "lessons": 14 },
-      { "module": 5, "title": "Computer Vision", "lessons": 12 },
-      { "module": 6, "title": "Model Deployment & MLOps", "lessons": 10 }
+    "skills": [
+      "Python",
+      "TensorFlow",
+      "PyTorch",
+      "Neural Networks",
+      "NLP",
+      "Computer Vision",
+      "Deep Learning",
+      "Model Deployment"
     ],
-    "upcomingBatch": "July 15, 2025",
+    "tools": [
+      "Python",
+      "TensorFlow",
+      "PyTorch",
+      "Keras",
+      "Jupyter",
+      "Google Colab",
+      "HuggingFace"
+    ],
+    "projects": [
+      "Sentiment Analysis App",
+      "Image Classifier",
+      "Chatbot with GPT",
+      "Recommendation System"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "Python for AI",
+        "lessons": 12
+      },
+      {
+        "module": 2,
+        "title": "Machine Learning Fundamentals",
+        "lessons": 15
+      },
+      {
+        "module": 3,
+        "title": "Deep Learning & Neural Networks",
+        "lessons": 18
+      },
+      {
+        "module": 4,
+        "title": "NLP & Text Processing",
+        "lessons": 14
+      },
+      {
+        "module": 5,
+        "title": "Computer Vision",
+        "lessons": 12
+      },
+      {
+        "module": 6,
+        "title": "Model Deployment & MLOps",
+        "lessons": 10
+      }
+    ],
+    "upcomingBatch": "Available Soon",
     "image": "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80",
-    "icon": "🤖"
+    "icon": ""
   },
   {
     "id": "machine-learning",
     "slug": "machine-learning",
-    "title": "Machine Learning",
+    "title": "Machine Learning & Autonomous Systems",
     "category": "ai-data",
     "categoryLabel": "AI & Data Technologies",
     "badge": "Popular",
@@ -48,23 +94,56 @@
     "price": 28000,
     "originalPrice": 45000,
     "overview": "Learn supervised, unsupervised, and reinforcement learning. Build predictive models and deploy them in production.",
-    "skills": ["Python", "Scikit-learn", "Pandas", "NumPy", "Feature Engineering", "Model Evaluation"],
-    "tools": ["Python", "Scikit-learn", "XGBoost", "MLflow", "Jupyter"],
-    "projects": ["Sales Predictor", "Customer Churn Model", "Fraud Detection System"],
-    "curriculum": [
-      { "module": 1, "title": "Python & Data Science Stack", "lessons": 10 },
-      { "module": 2, "title": "Supervised Learning", "lessons": 14 },
-      { "module": 3, "title": "Unsupervised Learning", "lessons": 12 },
-      { "module": 4, "title": "Advanced ML & Production", "lessons": 10 }
+    "skills": [
+      "Python",
+      "Scikit-learn",
+      "Pandas",
+      "NumPy",
+      "Feature Engineering",
+      "Model Evaluation"
     ],
-    "upcomingBatch": "July 20, 2025",
+    "tools": [
+      "Python",
+      "Scikit-learn",
+      "XGBoost",
+      "MLflow",
+      "Jupyter"
+    ],
+    "projects": [
+      "Sales Predictor",
+      "Customer Churn Model",
+      "Fraud Detection System"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "Python & Data Science Stack",
+        "lessons": 10
+      },
+      {
+        "module": 2,
+        "title": "Supervised Learning",
+        "lessons": 14
+      },
+      {
+        "module": 3,
+        "title": "Unsupervised Learning",
+        "lessons": 12
+      },
+      {
+        "module": 4,
+        "title": "Advanced ML & Production",
+        "lessons": 10
+      }
+    ],
+    "upcomingBatch": "Available Soon",
     "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=80",
-    "icon": "🧠"
+    "icon": ""
   },
   {
     "id": "data-science",
     "slug": "data-science",
-    "title": "Data Science",
+    "title": "Data Science & Predictive AI",
     "category": "ai-data",
     "categoryLabel": "AI & Data Technologies",
     "badge": "Hot",
@@ -78,24 +157,62 @@
     "price": 30000,
     "originalPrice": 50000,
     "overview": "From data collection to visualization and ML-powered insights. Master the full data science lifecycle.",
-    "skills": ["Python", "SQL", "Statistics", "Tableau", "Power BI", "Machine Learning"],
-    "tools": ["Python", "Pandas", "Matplotlib", "Tableau", "Power BI", "SQL"],
-    "projects": ["EDA Dashboard", "Sales Forecast", "Customer Segmentation"],
-    "curriculum": [
-      { "module": 1, "title": "Statistics & Math for DS", "lessons": 10 },
-      { "module": 2, "title": "Python & Data Manipulation", "lessons": 12 },
-      { "module": 3, "title": "Data Visualization", "lessons": 10 },
-      { "module": 4, "title": "SQL & Databases", "lessons": 8 },
-      { "module": 5, "title": "Machine Learning for DS", "lessons": 12 }
+    "skills": [
+      "Python",
+      "SQL",
+      "Statistics",
+      "Tableau",
+      "Power BI",
+      "Machine Learning"
     ],
-    "upcomingBatch": "August 1, 2025",
+    "tools": [
+      "Python",
+      "Pandas",
+      "Matplotlib",
+      "Tableau",
+      "Power BI",
+      "SQL"
+    ],
+    "projects": [
+      "EDA Dashboard",
+      "Sales Forecast",
+      "Customer Segmentation"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "Statistics & Math for DS",
+        "lessons": 10
+      },
+      {
+        "module": 2,
+        "title": "Python & Data Manipulation",
+        "lessons": 12
+      },
+      {
+        "module": 3,
+        "title": "Data Visualization",
+        "lessons": 10
+      },
+      {
+        "module": 4,
+        "title": "SQL & Databases",
+        "lessons": 8
+      },
+      {
+        "module": 5,
+        "title": "Machine Learning for DS",
+        "lessons": 12
+      }
+    ],
+    "upcomingBatch": "Available Soon",
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
-    "icon": "📊"
+    "icon": ""
   },
   {
     "id": "python",
     "slug": "python",
-    "title": "Python Programming",
+    "title": "Python with AI & Automation",
     "category": "programming",
     "categoryLabel": "Programming",
     "badge": "Bestseller",
@@ -109,23 +226,56 @@
     "price": 18000,
     "originalPrice": 30000,
     "overview": "Complete Python from basics to advanced. OOP, file handling, APIs, automation, and project-based learning.",
-    "skills": ["Python Basics", "OOP", "File I/O", "Web Scraping", "APIs", "Automation"],
-    "tools": ["Python", "PyCharm", "Jupyter", "VS Code", "Git"],
-    "projects": ["Web Scraper", "Task Automation Bot", "REST API Client"],
-    "curriculum": [
-      { "module": 1, "title": "Python Fundamentals", "lessons": 12 },
-      { "module": 2, "title": "OOP & Advanced Concepts", "lessons": 10 },
-      { "module": 3, "title": "File Handling & Databases", "lessons": 8 },
-      { "module": 4, "title": "APIs & Automation", "lessons": 10 }
+    "skills": [
+      "Python Basics",
+      "OOP",
+      "File I/O",
+      "Web Scraping",
+      "APIs",
+      "Automation"
     ],
-    "upcomingBatch": "July 10, 2025",
+    "tools": [
+      "Python",
+      "PyCharm",
+      "Jupyter",
+      "VS Code",
+      "Git"
+    ],
+    "projects": [
+      "Web Scraper",
+      "Task Automation Bot",
+      "REST API Client"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "Python Fundamentals",
+        "lessons": 12
+      },
+      {
+        "module": 2,
+        "title": "OOP & Advanced Concepts",
+        "lessons": 10
+      },
+      {
+        "module": 3,
+        "title": "File Handling & Databases",
+        "lessons": 8
+      },
+      {
+        "module": 4,
+        "title": "APIs & Automation",
+        "lessons": 10
+      }
+    ],
+    "upcomingBatch": "Available Soon",
     "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&q=80",
-    "icon": "🐍"
+    "icon": ""
   },
   {
     "id": "full-stack",
     "slug": "full-stack",
-    "title": "Full Stack Development",
+    "title": "Full Stack Development & Generative AI",
     "category": "programming",
     "categoryLabel": "Programming",
     "badge": "Trending",
@@ -139,24 +289,65 @@
     "price": 40000,
     "originalPrice": 65000,
     "overview": "Build complete web applications using React, Node.js, Express, MongoDB. Deploy on AWS. Job-ready in 6 months.",
-    "skills": ["HTML/CSS", "JavaScript", "React", "Node.js", "Express", "MongoDB", "REST APIs", "AWS"],
-    "tools": ["VS Code", "React", "Node.js", "MongoDB", "Git", "AWS", "Postman"],
-    "projects": ["E-commerce Platform", "Social Media App", "Real-time Chat App"],
-    "curriculum": [
-      { "module": 1, "title": "HTML, CSS & JavaScript", "lessons": 14 },
-      { "module": 2, "title": "React.js", "lessons": 16 },
-      { "module": 3, "title": "Node.js & Express", "lessons": 14 },
-      { "module": 4, "title": "MongoDB & APIs", "lessons": 10 },
-      { "module": 5, "title": "Deployment & DevOps Basics", "lessons": 8 }
+    "skills": [
+      "HTML/CSS",
+      "JavaScript",
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "REST APIs",
+      "AWS"
     ],
-    "upcomingBatch": "July 25, 2025",
+    "tools": [
+      "VS Code",
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Git",
+      "AWS",
+      "Postman"
+    ],
+    "projects": [
+      "E-commerce Platform",
+      "Social Media App",
+      "Real-time Chat App"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "HTML, CSS & JavaScript",
+        "lessons": 14
+      },
+      {
+        "module": 2,
+        "title": "React.js",
+        "lessons": 16
+      },
+      {
+        "module": 3,
+        "title": "Node.js & Express",
+        "lessons": 14
+      },
+      {
+        "module": 4,
+        "title": "MongoDB & APIs",
+        "lessons": 10
+      },
+      {
+        "module": 5,
+        "title": "Deployment & DevOps Basics",
+        "lessons": 8
+      }
+    ],
+    "upcomingBatch": "Available Soon",
     "image": "https://images.unsplash.com/photo-1593720213428-28a5b9e94613?w=600&q=80",
-    "icon": "💻"
+    "icon": ""
   },
   {
     "id": "aws",
     "slug": "aws",
-    "title": "AWS Cloud Practitioner",
+    "title": "AWS Cloud & Cloud AI Architectures",
     "category": "cloud",
     "categoryLabel": "Cloud & DevOps",
     "badge": "Certified",
@@ -170,23 +361,57 @@
     "price": 25000,
     "originalPrice": 40000,
     "overview": "AWS certification preparation + hands-on labs. EC2, S3, Lambda, RDS, VPC, and more. Pass AWS exams with confidence.",
-    "skills": ["EC2", "S3", "Lambda", "RDS", "VPC", "IAM", "CloudFormation", "Route 53"],
-    "tools": ["AWS Console", "AWS CLI", "Terraform", "CloudWatch"],
-    "projects": ["Deploy 3-Tier Web App", "Serverless API", "Auto-scaling Infrastructure"],
-    "curriculum": [
-      { "module": 1, "title": "Cloud Fundamentals", "lessons": 8 },
-      { "module": 2, "title": "AWS Core Services", "lessons": 14 },
-      { "module": 3, "title": "Security & Networking", "lessons": 10 },
-      { "module": 4, "title": "Serverless & DevOps", "lessons": 10 }
+    "skills": [
+      "EC2",
+      "S3",
+      "Lambda",
+      "RDS",
+      "VPC",
+      "IAM",
+      "CloudFormation",
+      "Route 53"
     ],
-    "upcomingBatch": "August 5, 2025",
+    "tools": [
+      "AWS Console",
+      "AWS CLI",
+      "Terraform",
+      "CloudWatch"
+    ],
+    "projects": [
+      "Deploy 3-Tier Web App",
+      "Serverless API",
+      "Auto-scaling Infrastructure"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "Cloud Fundamentals",
+        "lessons": 8
+      },
+      {
+        "module": 2,
+        "title": "AWS Core Services",
+        "lessons": 14
+      },
+      {
+        "module": 3,
+        "title": "Security & Networking",
+        "lessons": 10
+      },
+      {
+        "module": 4,
+        "title": "Serverless & DevOps",
+        "lessons": 10
+      }
+    ],
+    "upcomingBatch": "Available Soon",
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80",
-    "icon": "☁️"
+    "icon": ""
   },
   {
     "id": "devops",
     "slug": "devops",
-    "title": "DevOps Engineering",
+    "title": "DevOps Engineering & MLOps Automation",
     "category": "cloud",
     "categoryLabel": "Cloud & DevOps",
     "badge": "Advanced",
@@ -200,23 +425,61 @@
     "price": 32000,
     "originalPrice": 52000,
     "overview": "CI/CD pipelines, Docker, Kubernetes, Jenkins, Ansible, Terraform. Become a production-ready DevOps engineer.",
-    "skills": ["Linux", "Docker", "Kubernetes", "Jenkins", "Ansible", "Terraform", "Git", "Monitoring"],
-    "tools": ["Docker", "Kubernetes", "Jenkins", "Git", "Ansible", "Terraform", "Prometheus", "Grafana"],
-    "projects": ["CI/CD Pipeline Setup", "K8s Cluster Deployment", "Infrastructure as Code"],
-    "curriculum": [
-      { "module": 1, "title": "Linux & Shell Scripting", "lessons": 10 },
-      { "module": 2, "title": "Docker & Containers", "lessons": 12 },
-      { "module": 3, "title": "Kubernetes", "lessons": 14 },
-      { "module": 4, "title": "CI/CD & Automation", "lessons": 12 }
+    "skills": [
+      "Linux",
+      "Docker",
+      "Kubernetes",
+      "Jenkins",
+      "Ansible",
+      "Terraform",
+      "Git",
+      "Monitoring"
     ],
-    "upcomingBatch": "August 10, 2025",
+    "tools": [
+      "Docker",
+      "Kubernetes",
+      "Jenkins",
+      "Git",
+      "Ansible",
+      "Terraform",
+      "Prometheus",
+      "Grafana"
+    ],
+    "projects": [
+      "CI/CD Pipeline Setup",
+      "K8s Cluster Deployment",
+      "Infrastructure as Code"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "Linux & Shell Scripting",
+        "lessons": 10
+      },
+      {
+        "module": 2,
+        "title": "Docker & Containers",
+        "lessons": 12
+      },
+      {
+        "module": 3,
+        "title": "Kubernetes",
+        "lessons": 14
+      },
+      {
+        "module": 4,
+        "title": "CI/CD & Automation",
+        "lessons": 12
+      }
+    ],
+    "upcomingBatch": "Available Soon",
     "image": "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=600&q=80",
-    "icon": "⚙️"
+    "icon": ""
   },
   {
     "id": "cyber-security",
     "slug": "cyber-security",
-    "title": "Cyber Security (CEH)",
+    "title": "Cyber Security & AI Threat Intelligence",
     "category": "cybersecurity",
     "categoryLabel": "Cyber Security",
     "badge": "Certified",
@@ -230,23 +493,56 @@
     "price": 35000,
     "originalPrice": 55000,
     "overview": "Ethical hacking, penetration testing, network security, VAPT. Prepare for CEH v12 certification.",
-    "skills": ["Ethical Hacking", "Penetration Testing", "Network Security", "VAPT", "Malware Analysis", "Forensics"],
-    "tools": ["Kali Linux", "Metasploit", "Wireshark", "Nmap", "Burp Suite"],
-    "projects": ["Pen Test Lab", "Network Vulnerability Assessment", "Web App Security Audit"],
-    "curriculum": [
-      { "module": 1, "title": "Network Security Basics", "lessons": 10 },
-      { "module": 2, "title": "Ethical Hacking Techniques", "lessons": 14 },
-      { "module": 3, "title": "Penetration Testing", "lessons": 12 },
-      { "module": 4, "title": "Forensics & Incident Response", "lessons": 10 }
+    "skills": [
+      "Ethical Hacking",
+      "Penetration Testing",
+      "Network Security",
+      "VAPT",
+      "Malware Analysis",
+      "Forensics"
     ],
-    "upcomingBatch": "August 15, 2025",
+    "tools": [
+      "Kali Linux",
+      "Metasploit",
+      "Wireshark",
+      "Nmap",
+      "Burp Suite"
+    ],
+    "projects": [
+      "Pen Test Lab",
+      "Network Vulnerability Assessment",
+      "Web App Security Audit"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "Network Security Basics",
+        "lessons": 10
+      },
+      {
+        "module": 2,
+        "title": "Ethical Hacking Techniques",
+        "lessons": 14
+      },
+      {
+        "module": 3,
+        "title": "Penetration Testing",
+        "lessons": 12
+      },
+      {
+        "module": 4,
+        "title": "Forensics & Incident Response",
+        "lessons": 10
+      }
+    ],
+    "upcomingBatch": "Available Soon",
     "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80",
-    "icon": "🔒"
+    "icon": ""
   },
   {
     "id": "java",
     "slug": "java",
-    "title": "Advanced Java",
+    "title": "Advanced Java & Enterprise AI Systems",
     "category": "programming",
     "categoryLabel": "Programming",
     "badge": null,
@@ -260,23 +556,56 @@
     "price": 22000,
     "originalPrice": 36000,
     "overview": "Core Java, Spring Boot, Hibernate, Microservices, REST APIs. Build enterprise-grade backend applications.",
-    "skills": ["Java OOP", "Spring Boot", "Hibernate", "REST APIs", "Microservices", "JUnit"],
-    "tools": ["IntelliJ IDEA", "Maven", "Spring", "MySQL", "Postman"],
-    "projects": ["Employee Management System", "Spring Boot REST API", "Microservices App"],
-    "curriculum": [
-      { "module": 1, "title": "Java Fundamentals & OOP", "lessons": 12 },
-      { "module": 2, "title": "Spring Framework & Spring Boot", "lessons": 14 },
-      { "module": 3, "title": "Database & Hibernate", "lessons": 10 },
-      { "module": 4, "title": "Microservices & REST APIs", "lessons": 12 }
+    "skills": [
+      "Java OOP",
+      "Spring Boot",
+      "Hibernate",
+      "REST APIs",
+      "Microservices",
+      "JUnit"
     ],
-    "upcomingBatch": "July 28, 2025",
+    "tools": [
+      "IntelliJ IDEA",
+      "Maven",
+      "Spring",
+      "MySQL",
+      "Postman"
+    ],
+    "projects": [
+      "Employee Management System",
+      "Spring Boot REST API",
+      "Microservices App"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "Java Fundamentals & OOP",
+        "lessons": 12
+      },
+      {
+        "module": 2,
+        "title": "Spring Framework & Spring Boot",
+        "lessons": 14
+      },
+      {
+        "module": 3,
+        "title": "Database & Hibernate",
+        "lessons": 10
+      },
+      {
+        "module": 4,
+        "title": "Microservices & REST APIs",
+        "lessons": 12
+      }
+    ],
+    "upcomingBatch": "Available Soon",
     "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80",
-    "icon": "☕"
+    "icon": ""
   },
   {
     "id": "digital-marketing",
     "slug": "digital-marketing",
-    "title": "Digital Marketing",
+    "title": "Digital Marketing & AI Growth Hacking",
     "category": "business",
     "categoryLabel": "Business Skills",
     "badge": "New",
@@ -290,22 +619,51 @@
     "price": 15000,
     "originalPrice": 25000,
     "overview": "SEO, SEM, Social Media Marketing, Google Ads, Content Strategy. Get certified and job-ready.",
-    "skills": ["SEO", "Google Ads", "Social Media Marketing", "Content Strategy", "Email Marketing", "Analytics"],
-    "tools": ["Google Analytics", "SEMrush", "Canva", "Meta Ads", "Mailchimp"],
-    "projects": ["Full Campaign for Mock Brand", "SEO Audit Report", "Social Media Strategy"],
-    "curriculum": [
-      { "module": 1, "title": "SEO & Content Marketing", "lessons": 10 },
-      { "module": 2, "title": "Paid Advertising", "lessons": 10 },
-      { "module": 3, "title": "Social Media & Analytics", "lessons": 8 }
+    "skills": [
+      "SEO",
+      "Google Ads",
+      "Social Media Marketing",
+      "Content Strategy",
+      "Email Marketing",
+      "Analytics"
     ],
-    "upcomingBatch": "July 12, 2025",
+    "tools": [
+      "Google Analytics",
+      "SEMrush",
+      "Canva",
+      "Meta Ads",
+      "Mailchimp"
+    ],
+    "projects": [
+      "Full Campaign for Mock Brand",
+      "SEO Audit Report",
+      "Social Media Strategy"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "SEO & Content Marketing",
+        "lessons": 10
+      },
+      {
+        "module": 2,
+        "title": "Paid Advertising",
+        "lessons": 10
+      },
+      {
+        "module": 3,
+        "title": "Social Media & Analytics",
+        "lessons": 8
+      }
+    ],
+    "upcomingBatch": "Available Soon",
     "image": "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&q=80",
-    "icon": "📱"
+    "icon": ""
   },
   {
     "id": "embedded-systems",
     "slug": "embedded-systems",
-    "title": "Embedded Systems",
+    "title": "Embedded Systems & Smart IoT",
     "category": "embedded",
     "categoryLabel": "Hardware & Embedded",
     "badge": null,
@@ -319,23 +677,56 @@
     "price": 28000,
     "originalPrice": 45000,
     "overview": "Microcontrollers, RTOS, ARM Cortex, sensor interfacing, IoT protocols. Build real embedded projects.",
-    "skills": ["C/C++", "ARM Cortex", "RTOS", "SPI/I2C/UART", "IoT", "PCB Design Basics"],
-    "tools": ["Keil", "Arduino", "STM32", "Raspberry Pi", "Proteus"],
-    "projects": ["Smart Home Controller", "Industrial Sensor Module", "IoT Weather Station"],
-    "curriculum": [
-      { "module": 1, "title": "C for Embedded", "lessons": 10 },
-      { "module": 2, "title": "Microcontrollers & Peripherals", "lessons": 14 },
-      { "module": 3, "title": "RTOS & ARM Cortex", "lessons": 12 },
-      { "module": 4, "title": "IoT & Connectivity", "lessons": 10 }
+    "skills": [
+      "C/C++",
+      "ARM Cortex",
+      "RTOS",
+      "SPI/I2C/UART",
+      "IoT",
+      "PCB Design Basics"
     ],
-    "upcomingBatch": "August 20, 2025",
+    "tools": [
+      "Keil",
+      "Arduino",
+      "STM32",
+      "Raspberry Pi",
+      "Proteus"
+    ],
+    "projects": [
+      "Smart Home Controller",
+      "Industrial Sensor Module",
+      "IoT Weather Station"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "C for Embedded",
+        "lessons": 10
+      },
+      {
+        "module": 2,
+        "title": "Microcontrollers & Peripherals",
+        "lessons": 14
+      },
+      {
+        "module": 3,
+        "title": "RTOS & ARM Cortex",
+        "lessons": 12
+      },
+      {
+        "module": 4,
+        "title": "IoT & Connectivity",
+        "lessons": 10
+      }
+    ],
+    "upcomingBatch": "Available Soon",
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80",
-    "icon": "🔧"
+    "icon": ""
   },
   {
     "id": "r-programming",
     "slug": "r-programming",
-    "title": "R Programming",
+    "title": "R Programming & Cognitive Data Analysis",
     "category": "ai-data",
     "categoryLabel": "AI & Data Technologies",
     "badge": null,
@@ -349,16 +740,43 @@
     "price": 16000,
     "originalPrice": 26000,
     "overview": "Statistical computing, data analysis, visualization, and ML with R. Ideal for data analysts and researchers.",
-    "skills": ["R Basics", "ggplot2", "dplyr", "tidyverse", "Statistical Analysis", "ML with R"],
-    "tools": ["RStudio", "R", "ggplot2", "Shiny"],
-    "projects": ["Statistical Report Dashboard", "Predictive Model in R"],
-    "curriculum": [
-      { "module": 1, "title": "R Fundamentals", "lessons": 8 },
-      { "module": 2, "title": "Data Wrangling with tidyverse", "lessons": 10 },
-      { "module": 3, "title": "Visualization & Reporting", "lessons": 8 }
+    "skills": [
+      "R Basics",
+      "ggplot2",
+      "dplyr",
+      "tidyverse",
+      "Statistical Analysis",
+      "ML with R"
     ],
-    "upcomingBatch": "August 8, 2025",
+    "tools": [
+      "RStudio",
+      "R",
+      "ggplot2",
+      "Shiny"
+    ],
+    "projects": [
+      "Statistical Report Dashboard",
+      "Predictive Model in R"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "R Fundamentals",
+        "lessons": 8
+      },
+      {
+        "module": 2,
+        "title": "Data Wrangling with tidyverse",
+        "lessons": 10
+      },
+      {
+        "module": 3,
+        "title": "Visualization & Reporting",
+        "lessons": 8
+      }
+    ],
+    "upcomingBatch": "Available Soon",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
-    "icon": "📈"
+    "icon": ""
   }
 ]

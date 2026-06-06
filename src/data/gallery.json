@@ -1,0 +1,184 @@
+[
+  {
+    "id": 1,
+    "title": "Main Campus Entrance",
+    "category": "campus",
+    "image": "/assets/images/gallery/campus/campus-exterior.webp",
+    "description": "Our state-of-the-art campus exterior welcoming students daily."
+  },
+  {
+    "id": 2,
+    "title": "Interactive Smart Classroom",
+    "category": "campus",
+    "image": "/assets/images/gallery/campus/campus-classroom.webp",
+    "description": "Equipped with interactive screens and ergonomic layouts."
+  },
+  {
+    "id": 3,
+    "title": "Advanced Computer Labs",
+    "category": "campus",
+    "image": "/assets/images/gallery/campus/campus-labs.webp",
+    "description": "High-performance systems for real-world software training."
+  },
+  {
+    "id": 4,
+    "title": "Collaborative Library Space",
+    "category": "campus",
+    "image": "/assets/images/gallery/campus/campus-environment.webp",
+    "description": "A quiet place for research, study groups, and resource access."
+  },
+  {
+    "id": 5,
+    "title": "Live Interactive Lectures",
+    "category": "training",
+    "image": "/assets/images/gallery/training/training-livesession.webp",
+    "description": "Dynamic daily lectures led by experienced IT mentors."
+  },
+  {
+    "id": 6,
+    "title": "Hands-on Coding Sessions",
+    "category": "training",
+    "image": "/assets/images/gallery/training/training-coding.webp",
+    "description": "Students writing production-grade code under professional guidance."
+  },
+  {
+    "id": 7,
+    "title": "Tech Workshop 2026",
+    "category": "training",
+    "image": "/assets/images/gallery/training/training-workshop.webp",
+    "description": "Collaborative exercises building end-to-end full stack projects."
+  },
+  {
+    "id": 8,
+    "title": "Project Discussions & Architecture",
+    "category": "training",
+    "image": "/assets/images/gallery/training/training-discussion.webp",
+    "description": "Brainstorming session on software system design and database layouts."
+  },
+  {
+    "id": 13,
+    "title": "Career Orientation Seminars",
+    "category": "events",
+    "image": "/assets/images/gallery/events/event-seminar.webp",
+    "description": "Orientations mapping out career paths in cloud, AI, and development."
+  },
+  {
+    "id": 14,
+    "title": "Weekly Tech Talks",
+    "category": "events",
+    "image": "/assets/images/gallery/events/event-techtalk.webp",
+    "description": "Guest lectures from industry professionals on hot technology trends."
+  },
+  {
+    "id": 15,
+    "title": "Extracurricular Student Activities",
+    "category": "events",
+    "image": "/assets/images/gallery/events/event-activity.webp",
+    "description": "Fostering teamwork, communication, and creative thinking outside coding."
+  },
+  {
+    "id": 16,
+    "title": "Graduation Certificate Handover",
+    "category": "achievements",
+    "image": "/assets/images/gallery/achievements/achievement-certificate.webp",
+    "description": "Handing over course completion certificates to our successful graduates."
+  },
+  {
+    "id": 17,
+    "title": "Annual Academic Awards",
+    "category": "achievements",
+    "image": "/assets/images/gallery/achievements/achievement-award.webp",
+    "description": "Honoring outstanding performance, projects, and hackathon wins."
+  },
+  {
+    "id": 18,
+    "title": "Innovative Student Capstones",
+    "category": "achievements",
+    "image": "/assets/images/gallery/achievements/achievement-project.webp",
+    "description": "Showcasing student-designed analytics dashboard interfaces."
+  },
+  {
+    "id": 19,
+    "title": "Hiring Partner Engagements",
+    "category": "corporate",
+    "image": "/assets/images/gallery/corporate/corporate-drive.webp",
+    "description": "Strengthening partnerships with top global recruiters."
+  },
+  {
+    "id": 20,
+    "title": "MNC Recruiter Panel Interaction",
+    "category": "corporate",
+    "image": "/assets/images/gallery/corporate/corporate-interaction.webp",
+    "description": "Aligning our curriculums with the hiring needs of the industry."
+  },
+  {
+    "id": 21,
+    "title": "Vinodh - Placed at HCL",
+    "category": "placements",
+    "image": "/avatars/student_vinodh.png",
+    "description": "Placed as Cloud Engineer with 12 LPA package."
+  },
+  {
+    "id": 22,
+    "title": "Prathibha - Placed at TCS",
+    "category": "placements",
+    "image": "/avatars/student_prathibha.png",
+    "description": "Placed as VMware Cloud Engineer with 8 LPA package."
+  },
+  {
+    "id": 23,
+    "title": "Keerthana - Placed at Klaus",
+    "category": "placements",
+    "image": "/avatars/student_keerthana.png",
+    "description": "Placed as Fullstack Developer with 3.8 LPA package."
+  },
+  {
+    "id": 24,
+    "title": "Jithin - Placed at HCL",
+    "category": "placements",
+    "image": "/avatars/student_jithin.png",
+    "description": "Placed as Cloud Engineer with 5 LPA package."
+  },
+  {
+    "id": 25,
+    "title": "Prashanth - Placed at TCS",
+    "category": "placements",
+    "image": "/avatars/student_prashanth.png",
+    "description": "Placed as Cyber Security Analyst with 6 LPA package."
+  },
+  {
+    "id": 26,
+    "title": "Janani - Placed at Wipro",
+    "category": "placements",
+    "image": "/avatars/student_janani.png",
+    "description": "Placed as AWS Cloud Architect with 4.8 LPA package."
+  },
+  {
+    "id": 27,
+    "title": "Harish - Placed at Accenture",
+    "category": "placements",
+    "image": "/avatars/student_harish.png",
+    "description": "Placed as DevOps Engineer with 7.5 LPA package."
+  },
+  {
+    "id": 28,
+    "title": "Divya - Placed at Infosys",
+    "category": "placements",
+    "image": "/avatars/student_divya.png",
+    "description": "Placed as AI Engineer with 9.2 LPA package."
+  },
+  {
+    "id": 29,
+    "title": "Sandhya - Placed at Capgemini",
+    "category": "placements",
+    "image": "/avatars/student_sandhya.png",
+    "description": "Placed as UI/UX Designer with 5.5 LPA package."
+  },
+  {
+    "id": 30,
+    "title": "Manoj - Placed at Tech Mahindra",
+    "category": "placements",
+    "image": "/avatars/student_manoj.png",
+    "description": "Placed as Data Scientist with 6.8 LPA package."
+  }
+]

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 85" fill="none">
+  <defs>
+    <linearGradient id="leafGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7CB342"/>
+      <stop offset="100%" stop-color="#558B2F"/>
+    </linearGradient>
+  </defs>
+  <!-- Leaf icon -->
+  <g transform="translate(122, 6) scale(0.65)">
+    <path d="M27 2C27 2 15 18 15 35C15 45 20 52 27 55C34 52 39 45 39 35C39 18 27 2 27 2Z" fill="url(#leafGrad)"/>
+    <path d="M27 20V55" stroke="#4a7729" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M27 28L21 22" stroke="#4a7729" stroke-width="1" stroke-linecap="round"/>
+    <path d="M27 35L33 29" stroke="#4a7729" stroke-width="1" stroke-linecap="round"/>
+    <path d="M27 42L21 36" stroke="#4a7729" stroke-width="1" stroke-linecap="round"/>
+  </g>
+  <!-- EDUPRAJNA text -->
+  <text x="140" y="70" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="25" letter-spacing="6" fill="#7CB342" font-weight="700">EDUPRAJNA</text>
+</svg>

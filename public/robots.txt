@@ -1,0 +1,44 @@
+User-agent: *
+Allow: /
+
+# Important pages
+Allow: /courses
+Allow: /blog
+Allow: /hire
+Allow: /about
+Allow: /contact
+
+# Course pages
+Allow: /courses/*
+
+# Blog posts
+Allow: /blog/*
+
+# Static assets
+Allow: /assets/*
+Allow: /images/*
+Allow: *.css
+Allow: *.js
+Allow: *.png
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.gif
+Allow: *.svg
+Allow: *.webp
+Allow: *.ico
+
+# Disallow admin areas (if any)
+Disallow: /admin
+Disallow: /private
+Disallow: /.env
+Disallow: /config
+
+# Crawl-delay (optional - helps reduce server load)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://eduprajna.com/sitemap.xml
+
+# Additional sitemaps (if created later)
+# Sitemap: https://eduprajna.com/sitemap-courses.xml
+# Sitemap: https://eduprajna.com/sitemap-blog.xml

@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = '919876543210'; // Replace with actual number
+const WHATSAPP_NUMBER = '918197719297';
 
 export const openWhatsApp = (message = '') => {
   const defaultMsg = message || 'Hi! I\'m interested in your courses at EduPrajna. Please share more details.';

@@ -1,0 +1,35 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7CB342;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#558B2F;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="1000" cy="100" r="80" fill="white" opacity="0.1"/>
+  <circle cx="200" cy="500" r="60" fill="white" opacity="0.1"/>
+  
+  <!-- Logo area -->
+  <rect x="80" y="80" width="80" height="80" rx="20" fill="white" opacity="0.9"/>
+  <text x="120" y="135" text-anchor="middle" fill="#7CB342" font-family="system-ui" font-weight="bold" font-size="24">EP</text>
+  
+  <!-- Main text -->
+  <text x="80" y="220" fill="white" font-family="system-ui" font-weight="bold" font-size="48">EduPrajna</text>
+  <text x="80" y="270" fill="white" font-family="system-ui" font-weight="400" font-size="32">Premier Software Training Institute</text>
+  
+  <!-- Subtext -->
+  <text x="80" y="350" fill="white" font-family="system-ui" font-weight="400" font-size="24" opacity="0.9">Transform Your Career with Industry-Ready Tech Skills</text>
+  
+  <!-- Features -->
+  <text x="80" y="420" fill="white" font-family="system-ui" font-weight="500" font-size="20">✓ 5000+ Students Placed</text>
+  <text x="80" y="450" fill="white" font-family="system-ui" font-weight="500" font-size="20">✓ Industry Expert Trainers</text>
+  <text x="80" y="480" fill="white" font-family="system-ui" font-weight="500" font-size="20">✓ Guaranteed Placement Support</text>
+  
+  <!-- CTA -->
+  <rect x="80" y="520" width="200" height="50" rx="25" fill="white"/>
+  <text x="180" y="550" text-anchor="middle" fill="#7CB342" font-family="system-ui" font-weight="bold" font-size="18">Start Learning Today</text>
+</svg>
