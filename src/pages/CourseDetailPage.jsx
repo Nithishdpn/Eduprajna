@@ -26,6 +26,7 @@ export default function CourseDetailPage({ onEnrollClick }) {
   const course = courses.find((c) => c.slug === slug);
   const [openModule, setOpenModule] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
+  const [activeFaq, setActiveFaq] = useState(null);
 
   if (!course) {
     return (
@@ -41,6 +42,10 @@ export default function CourseDetailPage({ onEnrollClick }) {
 
   const schedule = batchSchedule[course.slug] || batchSchedule.default;
   const tabs = ['overview', 'modules'];
+
+  const relatedCourses = courses
+    .filter((c) => c.slug !== course.slug)
+    .slice(0, 3);
 
   return (
     <>
@@ -147,8 +152,8 @@ export default function CourseDetailPage({ onEnrollClick }) {
         </div>
       </div>
 
-      {/* ── Tab Content ── */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-14">
+      {/* ── Tab Content & Additional Sections ── */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-16">
 
         {/* Overview tab */}
         {activeTab === 'overview' && (
@@ -255,7 +260,165 @@ export default function CourseDetailPage({ onEnrollClick }) {
           </motion.div>
         )}
 
+        {/* Certificate Showcase Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-br from-slate-50 to-blue-50 border border-blue-100 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-8"
+        >
+          <div className="flex-1 space-y-4">
+            <span className="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider font-['Sora']">
+              Earn Credentials
+            </span>
+            <h2 className="font-['Sora'] font-bold text-3xl text-slate-900 leading-tight">
+              Get Certified Upon Completion
+            </h2>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              Showcase your skills with an industry-recognized certificate from EduPrajna. Our training and certification processes are fully audited and ISO 9001:2015 & ISO 29990:2010 certified, ensuring you receive world-class education standards.
+            </p>
+            <ul className="space-y-2.5">
+              {[
+                'Verifiable Certificate ID & URL',
+                'Shareable directly on LinkedIn and Resume',
+                'Recognized by 1000+ Hiring Partners',
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-2.5 text-sm text-slate-700">
+                  <FiCheck className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="w-full md:w-80 max-w-sm flex-shrink-0 bg-white border border-slate-200 rounded-2xl p-5 shadow-lg relative overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-xl pointer-events-none" />
+            <div className="border-2 border-double border-slate-300 rounded-xl p-6 text-center space-y-4 relative">
+              <div className="flex justify-between items-center text-[10px] text-slate-400 font-mono">
+                <span>CERTIFICATE ID: EP-{course.id.toUpperCase().substring(0,6)}</span>
+                <span>ISO 9001:2015</span>
+              </div>
+              <div className="space-y-1">
+                <p className="font-['Syne'] font-extrabold text-lg text-slate-900 tracking-wide">EDUPRAJNA</p>
+                <p className="text-[8px] text-slate-400 font-semibold tracking-widest uppercase">Technologies Pvt Ltd</p>
+              </div>
+              <p className="text-[10px] text-slate-400 italic">This is to certify that</p>
+              <div className="border-b border-slate-200 pb-1">
+                <p className="font-['Sora'] font-bold text-slate-800 text-base">Your Name Here</p>
+              </div>
+              <p className="text-[10px] text-slate-500 leading-normal">
+                has successfully completed the professional training program in
+                <span className="font-semibold text-slate-800 block mt-0.5">{course.title}</span>
+              </p>
+              <div className="flex justify-between items-end pt-4 text-[9px] text-slate-400 font-mono">
+                <div className="text-left">
+                  <p className="border-t border-slate-200 pt-1">HEAD OF ACADEMICS</p>
+                </div>
+                <div className="text-right">
+                  <p className="border-t border-slate-200 pt-1">DIRECTOR</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
+        {/* Related Programs Section */}
+        <div className="space-y-6">
+          <h2 className="font-['Sora'] font-bold text-2xl text-slate-900">Other Popular Programs</h2>
+          <div className="grid sm:grid-cols-3 gap-5">
+            {relatedCourses.map((rel) => (
+              <Link
+                key={rel.id}
+                to={`/courses/${rel.slug}`}
+                className="group bg-white border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+              >
+                <div className="aspect-[16/10] overflow-hidden bg-slate-100 relative">
+                  <img
+                    src={rel.image}
+                    alt={rel.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent" />
+                </div>
+                <div className="p-4 flex flex-col flex-1">
+                  <span className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mb-1">
+                    {rel.categoryLabel}
+                  </span>
+                  <h4 className="font-['Sora'] font-bold text-slate-800 text-sm leading-tight mb-2 group-hover:text-blue-600 transition-colors duration-200 line-clamp-1">
+                    {rel.title}
+                  </h4>
+                  <p className="text-slate-500 text-[11px] line-clamp-2 mb-3 flex-1">
+                    {rel.overview}
+                  </p>
+                  <div className="flex items-center justify-between text-[11px] text-slate-400 pt-3 border-t border-slate-50">
+                    <span className="flex items-center gap-1"><FiClock className="w-3 h-3" />{rel.duration}</span>
+                    <span className="flex items-center gap-0.5 text-amber-500 font-bold">
+                      <FiStar className="w-3 h-3 fill-current" /> {rel.rating}
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Course-Specific FAQ Section */}
+        <div className="space-y-6">
+          <h2 className="font-['Sora'] font-bold text-2xl text-slate-900">Frequently Asked Questions</h2>
+          <div className="space-y-3">
+            {[
+              {
+                q: `Who is this ${course.title} course designed for?`,
+                a: `This course is designed for both beginners wishing to enter the tech sector and professionals seeking to upgrade their skills. Our curriculum starts with foundational concepts and advances to complex real-world projects.`
+              },
+              {
+                q: 'What are the batch timings and schedules?',
+                a: 'We offer flexible learning schedules, including weekday morning batches, weekday evening batches for working professionals, and comprehensive weekend batches. You can customize your timeline during enrollment.'
+              },
+              {
+                q: 'Does this program include hands-on project experience?',
+                a: 'Yes, every module features mandatory practical exercises. You will build actual industry-level projects (listed in the course details) that you can showcase in your professional portfolio.'
+              },
+              {
+                q: 'How does the placement support system work?',
+                a: 'Upon completing 80% of the course, you gain access to our placement support: mock interviews, resume review sessions, LinkedIn profile audit, and direct referrals to our network of 1000+ hiring partners.'
+              },
+              {
+                q: 'Can I attend the classes both online and offline?',
+                a: 'Yes, we support a hybrid structure. You can attend live online lectures or join our physical classrooms and lab facilities. Recorded sessions are also archived for review.'
+              }
+            ].map((faq, i) => {
+              const isOpen = activeFaq === i;
+              return (
+                <div key={i} className="border border-slate-100 rounded-2xl overflow-hidden bg-white">
+                  <button
+                    onClick={() => setActiveFaq(isOpen ? null : i)}
+                    className="w-full flex items-center justify-between px-6 py-4.5 text-left hover:bg-slate-50 transition-colors"
+                  >
+                    <span className="font-semibold text-slate-800 text-sm pr-4">{faq.q}</span>
+                    <span className="flex-shrink-0 w-7 h-7 bg-slate-50 rounded-lg flex items-center justify-center text-slate-500 border border-slate-100">
+                      {isOpen ? <FiChevronUp className="w-4 h-4" /> : <FiChevronDown className="w-4 h-4" />}
+                    </span>
+                  </button>
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        <p className="px-6 pb-4.5 text-slate-500 text-sm leading-relaxed border-t border-slate-50 pt-3.5">
+                          {faq.a}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+        </div>
 
         {/* Bottom CTA */}
         <motion.div
