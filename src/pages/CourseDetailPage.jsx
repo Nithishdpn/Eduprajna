@@ -71,13 +71,50 @@ export default function CourseDetailPage({ onEnrollClick }) {
                 <h1 className="font-['Sora'] font-extrabold text-4xl sm:text-5xl mb-4 leading-tight">{course.title}</h1>
                 <p className="text-blue-100 text-lg mb-6 leading-relaxed max-w-2xl">{course.overview}</p>
 
-                <div className="flex flex-wrap gap-5 text-sm">
+                <div className="flex flex-wrap gap-5 text-sm mb-8">
                   <span className="flex items-center gap-2 text-slate-300"><FiClock className="w-4 h-4" />{course.duration}</span>
                   <span className="flex items-center gap-2 text-slate-300"><FiUsers className="w-4 h-4" />{course.enrolled.toLocaleString()}+ enrolled</span>
                   <span className="flex items-center gap-2 text-amber-400 font-semibold">
                     <FiStar className="w-4 h-4 fill-current" />{course.rating} ({course.reviews} reviews)
                   </span>
                   <span className="flex items-center gap-2 text-slate-300"><FiMonitor className="w-4 h-4" />{course.mode}</span>
+                </div>
+
+                {/* Key Projects and Highlights grid to fill the vertical space */}
+                <div className="grid sm:grid-cols-2 gap-6 border-t border-white/10 pt-6 max-w-2xl">
+                  <div>
+                    <h3 className="font-['Sora'] font-bold text-sm text-white mb-2.5 flex items-center gap-2">
+                      <FiTerminal className="w-4 h-4 text-brand-400" />
+                      Key Projects You'll Build
+                    </h3>
+                    <ul className="space-y-1.5">
+                      {course.projects.map((proj) => (
+                        <li key={proj} className="flex items-center gap-2 text-xs text-blue-100">
+                          <span className="w-1.5 h-1.5 rounded-full bg-brand-400 flex-shrink-0" />
+                          <span>{proj}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="font-['Sora'] font-bold text-sm text-white mb-2.5 flex items-center gap-2">
+                      <FiAward className="w-4 h-4 text-brand-400" />
+                      Program Highlights
+                    </h3>
+                    <ul className="space-y-1.5">
+                      {[
+                        'Audited ISO 9001 & 29990 Quality Standards',
+                        'Real-time lab exercises & projects',
+                        'Live mentoring & doubt clearing sessions',
+                        'Direct referral channel for placements',
+                      ].map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-xs text-blue-100">
+                          <FiCheck className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </motion.div>
             </div>
