@@ -1,4 +1,4 @@
-﻿<html lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="649vVUoIGz1E-DzIF_2x2IHEJSw-Z7AIXDvnoUKGRL8" />
@@ -1413,23 +1413,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             // Show on page load (after load to ensure layout ready) only if not already submitted
             function isPopupSubmitted() { return localStorage.getItem('ep_popup_submitted') === 'true'; }
-            function showPopupModal() { if (modal) { modal.classList.add('show'); modal.style.display = 'block'; runConfetti(); popupShowBlast(); } }
+            function showPopupModal() { if (modal) { modal.classList.add('show'); modal.style.display = 'block'; runConfetti(); } }
             window.addEventListener('load', function(){ if (!isPopupSubmitted()) setTimeout(showPopupModal, 300); });
 
-            // Only allow closing modal after form submission
-            if (closeBtn) closeBtn.addEventListener('click', function(){ if (isPopupSubmitted()) hideModal(); else { const f = document.getElementById('popupEnquiryForm'); if (f) f.querySelector('input, textarea')?.focus(); } });
-            window.addEventListener('click', function(e){ if (e.target === modal) { if (isPopupSubmitted()) hideModal(); else { const f = document.getElementById('popupEnquiryForm'); if (f) f.querySelector('input, textarea')?.focus(); } } });
-
-            // Block navigation/clicks while popup not submitted
-            function navigationBlocker(e) {
-                if (isPopupSubmitted()) return;
-                if (e.target.closest && (e.target.closest('#popupEnquiryModal') || e.target.closest('.popup-content'))) return;
-                const anchor = e.target.closest && e.target.closest('a[href]');
-                if (anchor) { e.preventDefault(); showPopupModal(); return; }
-                const btn = e.target.closest && e.target.closest('button');
-                if (btn && btn.type !== 'submit') { e.preventDefault(); showPopupModal(); return; }
-            }
-            document.addEventListener('click', navigationBlocker, true);
+            // Allow closing modal at any time
+            if (closeBtn) closeBtn.addEventListener('click', function(){ hideModal(); });
+            window.addEventListener('click', function(e){ if (e.target === modal) { hideModal(); } });
 
             if (form) form.addEventListener('submit', async function(e){
                 e.preventDefault();

@@ -1156,30 +1156,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             window.addEventListener('load', function() { if (!isPopupSubmitted()) showPopupModal(); });
 
-            // Close button: only allow close if already submitted
-            if (closeBtn) closeBtn.addEventListener('click', function(){
-                if (isPopupSubmitted()) {
-                    modal.classList.remove('show'); setTimeout(()=>{ modal.style.display='none'; },400);
-                } else {
-                    // keep modal visible and focus the name field
-                    const nameField = document.getElementById('popup-name'); if (nameField) nameField.focus();
+            function hideModal() {
+                if (modal) {
+                    modal.classList.remove('show');
+                    setTimeout(() => { modal.style.display = 'none'; }, 400);
                 }
-            });
-
-            // disable outside click closing while not submitted
-            window.addEventListener('click', function(event){ if (event.target == modal) { if (isPopupSubmitted()) { modal.classList.remove('show'); setTimeout(()=>{ modal.style.display='none'; },400); } else { const nameField = document.getElementById('popup-name'); if (nameField) nameField.focus(); } } });
-
-            // Block navigation / page interactions while popup not submitted
-            function navigationBlocker(e) {
-                if (isPopupSubmitted()) return;
-                // allow interactions inside the modal
-                if (e.target.closest && (e.target.closest('#popupEnquiryModal') || e.target.closest('.modal-content'))) return;
-                const anchor = e.target.closest && e.target.closest('a[href]');
-                if (anchor) { e.preventDefault(); showPopupModal(); return; }
-                const btn = e.target.closest && e.target.closest('button');
-                if (btn && btn.type !== 'submit') { e.preventDefault(); showPopupModal(); return; }
             }
-            document.addEventListener('click', navigationBlocker, true);
+
+            // Close button: allow close at any time
+            if (closeBtn) closeBtn.addEventListener('click', hideModal);
+
+            // Close on clicking outside modal
+            window.addEventListener('click', function(event){ if (event.target == modal) { hideModal(); } });
 
             const form = document.getElementById('popupEnquiryForm');
             const submitBtn = document.getElementById('popupSubmitBtn');
