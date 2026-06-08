@@ -83,11 +83,11 @@ export default function WhyChooseUs() {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
-        setRadius(230); // Mobile
+        setRadius(250); // Mobile
       } else if (window.innerWidth < 768) {
-        setRadius(280); // Tablet Portrait
+        setRadius(300); // Tablet Portrait
       } else {
-        setRadius(350); // Desktop
+        setRadius(380); // Desktop
       }
     };
     handleResize();
@@ -207,7 +207,7 @@ export default function WhyChooseUs() {
           style={{
             perspective: '1300px',
             perspectiveOrigin: '50% 32%',
-            height: '480px',
+            height: '520px',
             cursor: isDragging ? 'grabbing' : 'grab',
           }}
           onMouseDown={handleDragStart}
@@ -242,18 +242,19 @@ export default function WhyChooseUs() {
               return (
                 <div
                   key={i}
-                  className="absolute w-[250px] sm:w-[290px] h-[330px] sm:h-[350px] rounded-[1.75rem] p-3 border transition-all duration-300 flex flex-col justify-between bg-white"
+                  className="absolute w-[280px] sm:w-[325px] h-[360px] sm:h-[390px] rounded-[2rem] p-4 border transition-all duration-300 flex flex-col justify-between"
                   style={{
                     left: '50%',
                     top: '50%',
                     transform: `translate(-50%, -50%) rotateY(${i * 60}deg) translateZ(${radius}px)`,
-                    borderColor: isCenter ? 'rgba(124, 179, 66, 0.5)' : 'rgba(226, 232, 240, 0.8)',
+                    background: isCenter ? 'linear-gradient(to bottom right, #ffffff, #e5f3e0)' : '#ffffff',
+                    borderColor: isCenter ? 'rgba(124, 179, 66, 0.65)' : 'rgba(226, 232, 240, 0.8)',
                     opacity: opacity,
                     filter: `brightness(${brightness})`,
                     zIndex: zIndex,
                     pointerEvents: pointerEvents,
                     boxShadow: isCenter
-                      ? '0 25px 50px -12px rgba(124, 179, 66, 0.15), 0 0 15px rgba(124, 179, 66, 0.05)'
+                      ? '0 25px 50px -12px rgba(124, 179, 66, 0.18), 0 0 15px rgba(124, 179, 66, 0.08)'
                       : '0 10px 30px -15px rgba(0,0,0,0.06)',
                     WebkitBoxReflect: 'below 12px linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, transparent 60%)',
                   }}

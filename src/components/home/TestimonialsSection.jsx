@@ -66,7 +66,7 @@ export default function TestimonialsSection() {
         </div>
 
         {/* 3D Stacked Card Deck Viewport */}
-        <div className="relative w-full h-[360px] sm:h-[320px] flex items-center justify-center overflow-visible">
+        <div className="relative w-full h-[400px] sm:h-[350px] flex items-center justify-center overflow-visible">
           {testimonials.map((t, i) => {
             // Calculate relative index from activeIdx
             let rel = i - activeIdx;
@@ -119,6 +119,8 @@ export default function TestimonialsSection() {
                   willChange: 'transform',
                   backfaceVisibility: 'hidden',
                   WebkitBackfaceVisibility: 'hidden',
+                  background: isFront ? 'linear-gradient(to bottom right, #ffffff, #e5f3e0)' : '#ffffff',
+                  borderColor: isFront ? 'rgba(124, 179, 66, 0.45)' : 'rgba(226, 232, 240, 0.8)',
                 }}
                 animate={{
                   scale,
@@ -144,7 +146,7 @@ export default function TestimonialsSection() {
                     handlePrevClick();
                   }
                 }}
-                className={`absolute w-[310px] sm:w-[460px] h-[300px] sm:h-[250px] bg-white rounded-[32px] p-5 shadow-[0_15px_35px_rgba(0,0,0,0.06)] border border-slate-200/50 flex flex-col justify-between overflow-hidden cursor-grab active:cursor-grabbing`}
+                className={`absolute w-[340px] sm:w-[500px] h-[330px] sm:h-[280px] rounded-[32px] p-6.5 shadow-[0_15px_35px_rgba(0,0,0,0.06)] border flex flex-col justify-between overflow-hidden cursor-grab active:cursor-grabbing`}
               >
                 {/* Decorative subtle grid background inside the card */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:1rem_1rem] opacity-30 pointer-events-none" />

@@ -36,10 +36,10 @@
       "HuggingFace"
     ],
     "projects": [
-      "Sentiment Analysis App",
-      "Image Classifier",
-      "Chatbot with GPT",
-      "Recommendation System"
+      "Real-time Social Media Sentiment Analyzer using NLP",
+      "Medical Image Classifier utilizing Deep Neural Networks",
+      "Intelligent Customer Support Chatbot powered by GPT",
+      "Personalized Product Recommendation Engine with Collaborative Filtering"
     ],
     "curriculum": [
       {
@@ -110,9 +110,9 @@
       "Jupyter"
     ],
     "projects": [
-      "Sales Predictor",
-      "Customer Churn Model",
-      "Fraud Detection System"
+      "Predictive Sales & Revenue Forecast Modeling",
+      "Telecom Customer Churn Predictor using Ensemble Learning",
+      "Credit Card Fraud & Anomaly Detection System"
     ],
     "curriculum": [
       {
@@ -174,9 +174,9 @@
       "SQL"
     ],
     "projects": [
-      "EDA Dashboard",
-      "Sales Forecast",
-      "Customer Segmentation"
+      "Interactive Exploratory Data Analysis (EDA) Dashboard",
+      "Multi-Store Sales Forecasting & Inventory Optimization",
+      "Customer Lifetime Value Segmentation & Clustering"
     ],
     "curriculum": [
       {
@@ -242,9 +242,9 @@
       "Git"
     ],
     "projects": [
-      "Web Scraper",
-      "Task Automation Bot",
-      "REST API Client"
+      "Scalable Web Scraper with Concurrent Requests",
+      "Automated System Health & Database Backup Monitor",
+      "Secure REST API Client with Token Authentication"
     ],
     "curriculum": [
       {
@@ -309,9 +309,9 @@
       "Postman"
     ],
     "projects": [
-      "E-commerce Platform",
-      "Social Media App",
-      "Real-time Chat App"
+      "Responsive E-commerce Platform with Stripe Payment Gateway",
+      "Feature-Rich Social Media Platform with Real-time Feeds",
+      "Instant Messaging Chat Application using WebSockets"
     ],
     "curriculum": [
       {
@@ -378,9 +378,9 @@
       "CloudWatch"
     ],
     "projects": [
-      "Deploy 3-Tier Web App",
-      "Serverless API",
-      "Auto-scaling Infrastructure"
+      "High-Availability 3-Tier Enterprise Web Architecture",
+      "Serverless Microservices API with AWS Lambda & DynamoDB",
+      "Auto-scaling Cloud Infrastructure with Terraform"
     ],
     "curriculum": [
       {
@@ -446,9 +446,9 @@
       "Grafana"
     ],
     "projects": [
-      "CI/CD Pipeline Setup",
-      "K8s Cluster Deployment",
-      "Infrastructure as Code"
+      "Automated CI/CD Pipeline with GitHub Actions & Docker",
+      "Production Kubernetes Cluster Deployment on EKS",
+      "Infrastructure-as-Code Setup using Terraform & Ansible"
     ],
     "curriculum": [
       {
@@ -509,9 +509,9 @@
       "Burp Suite"
     ],
     "projects": [
-      "Pen Test Lab",
-      "Network Vulnerability Assessment",
-      "Web App Security Audit"
+      "Simulated Penetration Testing & Vulnerability Audit Lab",
+      "Enterprise Network Vulnerability Scan & Reporting",
+      "OWASP Top 10 Web Application Security Audit"
     ],
     "curriculum": [
       {
@@ -572,9 +572,9 @@
       "Postman"
     ],
     "projects": [
-      "Employee Management System",
-      "Spring Boot REST API",
-      "Microservices App"
+      "Enterprise Resource Planning & Employee Management System",
+      "Secure Spring Boot REST API with JWT Security",
+      "Distributed Microservices Architecture using Spring Cloud"
     ],
     "curriculum": [
       {
@@ -635,9 +635,9 @@
       "Mailchimp"
     ],
     "projects": [
-      "Full Campaign for Mock Brand",
-      "SEO Audit Report",
-      "Social Media Strategy"
+      "End-to-End Brand Campaign Launch & ROI Analysis",
+      "Technical SEO Audit & Search Visibility Optimization",
+      "Data-Driven Social Media Growth & Lead Generation Strategy"
     ],
     "curriculum": [
       {
@@ -693,9 +693,9 @@
       "Proteus"
     ],
     "projects": [
-      "Smart Home Controller",
-      "Industrial Sensor Module",
-      "IoT Weather Station"
+      "Voice-Controlled Smart Home Automation Controller",
+      "Industrial Sensor Monitoring Node with RTOS",
+      "Low-Power IoT Weather Station with Solar Harvesting"
     ],
     "curriculum": [
       {
@@ -755,8 +755,8 @@
       "Shiny"
     ],
     "projects": [
-      "Statistical Report Dashboard",
-      "Predictive Model in R"
+      "Clinical Trial Data Statistical Report Dashboard",
+      "Predictive Logistic Regression Modeling in R"
     ],
     "curriculum": [
       {
