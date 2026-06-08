@@ -151,7 +151,10 @@ export default function TestimonialsSection() {
                 {/* Decorative subtle grid background inside the card */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:1rem_1rem] opacity-30 pointer-events-none" />
 
-                <div className="relative z-10 flex flex-col h-full justify-between">
+                <div 
+                  className="relative z-10 flex flex-col h-full justify-between transition-opacity duration-300"
+                  style={{ opacity: isFront ? 1 : 0 }}
+                >
                   {/* Top Header Row: Image & Details */}
                   <div className="flex gap-4 items-start">
                     {/* Uniform Portrait Image (No border, clean rounded edges) */}
@@ -173,21 +176,21 @@ export default function TestimonialsSection() {
                     {/* Student Info */}
                     <div className="space-y-0.5 min-w-0 flex-1">
                       <div className="flex items-baseline justify-between gap-2">
-                        <h4 className="font-['Sora'] font-extrabold text-sm sm:text-base text-slate-900 truncate">
+                        <h4 className="font-['Sora'] font-extrabold text-base sm:text-[18px] text-slate-900 truncate">
                           {t.name}
                         </h4>
-                        <span className="font-sans font-extrabold text-amber-500 text-xs sm:text-sm shrink-0">
+                        <span className="font-sans font-extrabold text-amber-500 text-sm sm:text-base shrink-0">
                           {t.package}
                         </span>
                       </div>
-                      <p className="text-slate-500 text-[10px] sm:text-xs font-semibold truncate">
+                      <p className="text-slate-500 text-xs sm:text-sm font-semibold truncate">
                         {t.role}
                       </p>
-                      <p className="text-slate-400 text-[9px] sm:text-[10px] truncate">
+                      <p className="text-slate-400 text-[10px] sm:text-xs truncate">
                         {t.course}
                       </p>
                       <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
-                        <span className="inline-block font-sans font-bold text-[#1b75bb] bg-blue-50 px-2 py-0.5 rounded-full text-[8px] sm:text-[9px] tracking-wider uppercase border border-blue-100/80">
+                        <span className="inline-block font-sans font-bold text-[#1b75bb] bg-blue-50 px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] tracking-wider uppercase border border-blue-100/80">
                           {t.company}
                         </span>
                       </div>
@@ -195,8 +198,8 @@ export default function TestimonialsSection() {
                   </div>
 
                   {/* Testimony Quote with divider line */}
-                  <div className="relative mt-2.5 pt-2 border-t border-slate-100/80 flex-1 flex items-start">
-                    <p className="text-slate-500 text-[11px] sm:text-xs leading-relaxed italic font-sans font-medium line-clamp-4 flex-1">
+                  <div className="relative mt-4 pt-3 border-t border-slate-200/60 flex-1 flex flex-col justify-center">
+                    <p className="text-slate-600 text-xs sm:text-[14.5px] leading-relaxed italic font-sans font-medium line-clamp-4 text-left">
                       "{t.text}"
                     </p>
                   </div>
