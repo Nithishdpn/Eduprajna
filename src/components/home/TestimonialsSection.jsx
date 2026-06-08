@@ -146,7 +146,7 @@ export default function TestimonialsSection() {
                     handlePrevClick();
                   }
                 }}
-                className={`absolute w-[340px] sm:w-[500px] h-[330px] sm:h-[280px] rounded-[32px] p-6.5 shadow-[0_15px_35px_rgba(0,0,0,0.06)] border flex flex-col justify-between overflow-hidden cursor-grab active:cursor-grabbing`}
+                className={`absolute w-[340px] sm:w-[500px] h-[330px] sm:h-[280px] rounded-[32px] p-6 shadow-[0_15px_35px_rgba(0,0,0,0.06)] border flex flex-col justify-between overflow-hidden cursor-grab active:cursor-grabbing`}
               >
                 {/* Decorative subtle grid background inside the card */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:1rem_1rem] opacity-30 pointer-events-none" />
