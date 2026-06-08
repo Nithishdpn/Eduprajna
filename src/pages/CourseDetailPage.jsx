@@ -123,7 +123,7 @@ export default function CourseDetailPage({ onEnrollClick }) {
             <motion.div initial={{ opacity: 0, x: 22 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}>
               <div className="bg-white text-slate-900 rounded-2xl p-6 shadow-2xl ring-1 ring-slate-200">
                 <div className="aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-slate-100">
-                  <img src={course.image} alt={course.title} className="w-full h-full object-cover" />
+                  <img src={course.image} alt={course.title} className="w-full h-full object-cover object-top" />
                 </div>
 
                 <div className="flex items-center gap-2 bg-brand-50 border border-brand-100 rounded-xl p-3 mb-4">
@@ -372,7 +372,7 @@ export default function CourseDetailPage({ onEnrollClick }) {
                   <img
                     src={rel.image}
                     alt={rel.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent" />
                 </div>

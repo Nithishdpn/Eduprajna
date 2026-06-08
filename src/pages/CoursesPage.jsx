@@ -1,6 +1,6 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FiSearch, FiClock, FiUsers, FiStar, FiArrowRight, FiCalendar, FiFilter, FiBookOpen, FiCpu, FiCode, FiCloud, FiShield, FiSliders, FiBarChart2 } from 'react-icons/fi';
 import SEOHead from '../components/common/SEOHead';
 import { generatePageSEO } from '../utils/seo';
@@ -27,8 +27,15 @@ const badgeColors = {
 };
 
 export default function CoursesPage({ onEnrollClick }) {
+  const location = useLocation();
   const [active, setActive] = useState('all');
   const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    if (location.state?.category) {
+      setActive(location.state.category);
+    }
+  }, [location.state]);
   
   const seoData = generatePageSEO('courses');
 
@@ -125,7 +132,7 @@ export default function CoursesPage({ onEnrollClick }) {
                   <img
                     src={course.image}
                     alt={course.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
                   {course.badge && (

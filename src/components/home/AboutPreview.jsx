@@ -40,7 +40,7 @@ export default function AboutPreview() {
               <img
                 src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80"
                 alt="EduPrajna training center"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
             </div>
 

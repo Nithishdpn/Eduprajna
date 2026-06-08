@@ -67,7 +67,7 @@ export default function BlogPage() {
                 <img
                   src={featured.image}
                   alt={`${featured.title} - Expert tech career advice and programming insights from EduPrajna`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-600"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-600"
                 />
               </div>
               <div className="p-8 lg:p-10 flex flex-col justify-center bg-gradient-to-br from-blue-50/50 to-indigo-50/50">
@@ -152,7 +152,7 @@ export default function BlogPage() {
                   <img
                     src={blog.image}
                     alt={`${blog.title} - Technology career insights and programming tutorials from EduPrajna experts`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent" />
                 </div>

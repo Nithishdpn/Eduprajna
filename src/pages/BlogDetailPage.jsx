@@ -41,7 +41,7 @@ export default function BlogDetailPage() {
       {/* Cover image */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="rounded-2xl overflow-hidden aspect-[21/9] bg-slate-100 shadow-xl">
-          <img src={blog.image} alt={`${blog.title} - In-depth tech career guidance and programming insights from EduPrajna`} className="w-full h-full object-cover" />
+          <img src={blog.image} alt={`${blog.title} - In-depth tech career guidance and programming insights from EduPrajna`} className="w-full h-full object-cover object-top" />
         </div>
       </div>
 
@@ -97,7 +97,7 @@ export default function BlogDetailPage() {
               {related.map(r => (
                 <Link key={r.id} to={`/blog/${r.slug}`} className="group bg-slate-50 border border-slate-100 rounded-xl overflow-hidden hover:shadow-md transition-all">
                   <div className="aspect-[16/9] overflow-hidden">
-                    <img src={r.image} alt={r.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={r.image} alt={r.title} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <div className="p-3">
                     <p className="font-semibold text-slate-800 text-sm line-clamp-2 group-hover:text-blue-600 transition-colors">{r.title}</p>

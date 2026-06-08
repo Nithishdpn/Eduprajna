@@ -269,7 +269,7 @@ export default function WhyChooseUs() {
                       <img
                         src={r.bgImage}
                         alt={r.title}
-                        className="w-full h-full object-cover transition-transform duration-500 pointer-events-none"
+                        className="w-full h-full object-cover object-top transition-transform duration-500 pointer-events-none"
                       />
                     </div>
                   </div>

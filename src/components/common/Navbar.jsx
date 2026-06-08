@@ -56,6 +56,7 @@ export default function Navbar({ onEnrollClick }) {
   const [megaOpen, setMegaOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState(courseCategories[0]);
   const megaRef = useRef(null);
+  const megaMenuRef = useRef(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -71,9 +72,13 @@ export default function Navbar({ onEnrollClick }) {
 
   useEffect(() => {
     const handleClick = (e) => {
-      if (megaRef.current && !megaRef.current.contains(e.target)) {
-        setMegaOpen(false);
+      if (
+        (megaRef.current && megaRef.current.contains(e.target)) ||
+        (megaMenuRef.current && megaMenuRef.current.contains(e.target))
+      ) {
+        return;
       }
+      setMegaOpen(false);
     };
     document.addEventListener('mousedown', handleClick);
     return () => document.removeEventListener('mousedown', handleClick);
@@ -172,6 +177,7 @@ export default function Navbar({ onEnrollClick }) {
         <AnimatePresence>
           {megaOpen && (
             <motion.div
+              ref={megaMenuRef}
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
@@ -187,8 +193,10 @@ export default function Navbar({ onEnrollClick }) {
                     Categories
                   </p>
                   {courseCategories.map((cat) => (
-                    <button
+                    <Link
                       key={cat.id}
+                      to="/courses"
+                      state={{ category: cat.id }}
                       onMouseEnter={() => setActiveCategory(cat)}
                       onClick={() => {
                         setMegaOpen(false);
@@ -200,7 +208,7 @@ export default function Navbar({ onEnrollClick }) {
                       }`}
                     >
                       {cat.label}
-                    </button>
+                    </Link>
                   ))}
                   <Link
                     to="/courses"
