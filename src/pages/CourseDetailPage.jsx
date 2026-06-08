@@ -116,6 +116,28 @@ export default function CourseDetailPage({ onEnrollClick }) {
                     </ul>
                   </div>
                 </div>
+
+                {/* Additional Info Block to Fill Space */}
+                <div className="border-t border-white/10 pt-5 mt-5 grid sm:grid-cols-2 gap-6 max-w-2xl">
+                  <div>
+                    <h3 className="font-['Sora'] font-bold text-sm text-white mb-2 flex items-center gap-2">
+                      <FiUsers className="w-4 h-4 text-brand-400" />
+                      Who is this course for?
+                    </h3>
+                    <p className="text-xs text-blue-100/80 leading-relaxed">
+                      Designed for college students, fresh graduates, and working professionals looking to transition into top-tier tech roles.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="font-['Sora'] font-bold text-sm text-white mb-2 flex items-center gap-2">
+                      <FiCheck className="w-4 h-4 text-brand-400" />
+                      Course Prerequisites
+                    </h3>
+                    <p className="text-xs text-blue-100/80 leading-relaxed">
+                      No prior coding knowledge needed. We cover everything from programming fundamentals to production-ready deployments.
+                    </p>
+                  </div>
+                </div>
               </motion.div>
             </div>
 
@@ -134,34 +156,26 @@ export default function CourseDetailPage({ onEnrollClick }) {
                   </div>
                 </div>
 
-                <div className="space-y-2.5">
+                <div className="space-y-3">
                   <button
                     onClick={onEnrollClick}
-                    className="w-full bg-gradient-to-r from-brand-400 to-brand-600 hover:from-brand-500 hover:to-brand-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg hover:shadow-xl active:scale-[0.98] text-sm"
+                    className="btn-primary w-full py-3 text-sm justify-center shadow-lg"
                   >
                     Customise Course Package
                   </button>
                   <button
                     onClick={() => openWhatsAppForCourse(course.title)}
-                    className="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 rounded-xl transition-all text-sm"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-green-600 text-white font-bold py-3 rounded-xl transition-all hover:from-emerald-600 hover:to-green-700 hover:shadow-lift active:scale-[0.97] text-sm shadow-md"
                   >
                     <FaWhatsapp className="w-5 h-5" /> Chat on WhatsApp
                   </button>
                   <button
                     onClick={onEnrollClick}
-                    className="w-full border border-slate-200 text-slate-700 font-semibold py-3 rounded-xl hover:bg-slate-50 transition-all text-sm"
+                    className="btn-secondary w-full py-3 text-sm justify-center"
                   >
                     Request Callback
                   </button>
                 </div>
-
-                <ul className="mt-4 space-y-1.5">
-                  {['Free career counseling', 'Placement support', 'Flexible schedules', 'Certificate on completion'].map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-xs text-slate-600">
-                      <span className="w-1 h-1 rounded-full bg-brand-500 flex-shrink-0" />{item}
-                    </li>
-                  ))}
-                </ul>
               </div>
             </motion.div>
           </div>
@@ -178,7 +192,7 @@ export default function CourseDetailPage({ onEnrollClick }) {
                 onClick={() => setActiveTab(tab)}
                 className={`px-5 py-4 text-sm font-semibold border-b-2 transition-all capitalize whitespace-nowrap ${
                   activeTab === tab
-                    ? 'border-blue-600 text-blue-600'
+                    ? 'border-brand-600 text-brand-600'
                     : 'border-transparent text-slate-500 hover:text-slate-800'
                 }`}
               >
@@ -252,17 +266,17 @@ export default function CourseDetailPage({ onEnrollClick }) {
                 return (
                   <div key={i} className="relative group">
                     {/* Timeline bullet */}
-                    <div className="absolute -left-[35px] sm:-left-[51px] top-1.5 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white border-2 border-slate-300 text-slate-600 flex items-center justify-center text-xs sm:text-sm font-bold font-['Sora'] group-hover:bg-blue-600 group-hover:border-blue-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                    <div className="absolute -left-[35px] sm:-left-[51px] top-1.5 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white border-2 border-slate-300 text-slate-600 flex items-center justify-center text-xs sm:text-sm font-bold font-['Sora'] group-hover:bg-brand-600 group-hover:border-brand-600 group-hover:text-white transition-all duration-300 shadow-sm">
                       {mod.module}
                     </div>
 
                     {/* Content card */}
-                    <div className="bg-slate-50/50 border border-slate-100 rounded-2xl p-6 sm:p-7 hover:bg-white hover:border-blue-500/30 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 relative overflow-hidden">
+                    <div className="bg-slate-50/50 border border-slate-100 rounded-2xl p-6 sm:p-7 hover:bg-white hover:border-brand-500/30 hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300 relative overflow-hidden">
                       {/* Subtle tech background highlight */}
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl pointer-events-none group-hover:bg-blue-500/10 transition-colors duration-300" />
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-brand-500/5 rounded-full blur-2xl pointer-events-none group-hover:bg-brand-500/10 transition-colors duration-300" />
                       
                       <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-                        <span className="bg-blue-50 text-blue-600 text-xs font-bold px-3 py-1.5 rounded-lg border border-blue-100 font-['Sora'] tracking-wide">
+                        <span className="bg-brand-50 text-brand-700 text-xs font-bold px-3 py-1.5 rounded-lg border border-brand-100 font-['Sora'] tracking-wide">
                           MODULE {mod.module}
                         </span>
                         <span className="text-slate-400 text-xs font-semibold">
@@ -270,7 +284,7 @@ export default function CourseDetailPage({ onEnrollClick }) {
                         </span>
                       </div>
 
-                      <h3 className="font-['Sora'] font-bold text-slate-800 text-lg sm:text-xl mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                      <h3 className="font-['Sora'] font-bold text-slate-800 text-lg sm:text-xl mb-4 group-hover:text-brand-600 transition-colors duration-300">
                         {mod.title}
                       </h3>
 
@@ -282,7 +296,7 @@ export default function CourseDetailPage({ onEnrollClick }) {
                           <div className="grid sm:grid-cols-2 gap-3">
                             {topics.map((topic, idx) => (
                               <div key={idx} className="flex items-start gap-2">
-                                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-2 flex-shrink-0" />
                                 <span className="text-slate-600 text-sm leading-relaxed">{topic}</span>
                               </div>
                             ))}

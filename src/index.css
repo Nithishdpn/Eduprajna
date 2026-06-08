@@ -125,3 +125,47 @@ img { transition: opacity 0.3s ease; }
 .prose h2 { font-family: 'Syne', sans-serif; font-weight: 700; color: #0f172a; margin-top: 2rem; margin-bottom: 1rem; }
 .prose p  { color: #475569; line-height: 1.8; margin-bottom: 1.25rem; }
 .prose ul li { color: #475569; margin-bottom: 0.5rem; }
+
+/* Glassmorphism Dropdowns & Selects (Liquid Glass Effect) */
+.dropdown-glass {
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(20px) saturate(160%) contrast(95%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(160%) contrast(95%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 
+    0 20px 40px -15px rgba(15, 23, 42, 0.1),
+    0 0 0 1px rgba(15, 23, 42, 0.03),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e") !important;
+  background-position: right 0.75rem center !important;
+  background-size: 1.25em 1.25em !important;
+  background-repeat: no-repeat !important;
+  padding-right: 2.5rem !important;
+  background-color: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(16px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(150%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.02), 
+    inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  border-radius: 12px !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+select:focus {
+  border-color: rgba(124, 179, 66, 0.5) !important;
+  box-shadow: 
+    0 4px 15px rgba(124, 179, 66, 0.08), 
+    0 0 0 3px rgba(124, 179, 66, 0.18) !important;
+}
+
+select option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}

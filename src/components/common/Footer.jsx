@@ -13,6 +13,15 @@ const companyLinks = [
   { label: 'Terms of Service', to: '/terms' },
 ];
 
+const footerCourses = [
+  { label: 'Full Stack Development', to: '/courses/full-stack' },
+  { label: 'Data Science & AI', to: '/courses/data-science' },
+  { label: 'Python with AI & Automation', to: '/courses/python' },
+  { label: 'DevOps Engineering', to: '/courses/devops' },
+  { label: 'AWS Cloud Architecture', to: '/courses/aws' },
+  { label: 'Artificial Intelligence', to: '/courses/artificial-intelligence' },
+];
+
 const social = [
   { icon: <FiLinkedin />, href: '#', label: 'LinkedIn' },
   { icon: <FiTwitter />,  href: '#', label: 'Twitter' },
@@ -68,11 +77,18 @@ export default function Footer() {
 
           {/* Courses col */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4 font-display">Courses</h4>
+            <h4 className="text-white font-semibold text-sm mb-4 font-display">Popular Courses</h4>
             <ul className="space-y-2.5">
-              <li>
-                <Link to="/courses" className="text-sm hover:text-brand-500 transition-colors">
-                  Courses
+              {footerCourses.map((c) => (
+                <li key={c.label}>
+                  <Link to={c.to} className="text-sm hover:text-brand-500 transition-colors">
+                    {c.label}
+                  </Link>
+                </li>
+              ))}
+              <li className="pt-2 border-t border-slate-800">
+                <Link to="/courses" className="text-sm text-brand-400 hover:text-brand-500 transition-colors font-semibold flex items-center gap-1">
+                  View All Courses →
                 </Link>
               </li>
             </ul>

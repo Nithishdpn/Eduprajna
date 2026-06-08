@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX, FiChevronDown, FiCpu, FiCode, FiCloud, FiShield, FiSliders, FiBarChart2, FiPhone, FiArrowRight } from 'react-icons/fi';
+import { FiMenu, FiX, FiChevronDown, FiCpu, FiCode, FiCloud, FiShield, FiSliders, FiBarChart2, FiPhone, FiArrowRight, FiCheck } from 'react-icons/fi';
 import courses from '../../data/courses.json';
 import { getCourseIconData } from '../../utils/courseIcons';
 
@@ -182,7 +182,7 @@ export default function Navbar({ onEnrollClick }) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.18 }}
-              className="absolute top-full left-0 right-0 bg-white border-t border-neutral-100 shadow-2xl z-50"
+              className="absolute top-full left-0 right-0 dropdown-glass border-t border-white/20 z-50"
               onMouseEnter={() => setMegaOpen(true)}
               onMouseLeave={() => setMegaOpen(false)}
             >
@@ -250,9 +250,29 @@ export default function Navbar({ onEnrollClick }) {
                       <p className="font-bold text-lg font-display leading-tight">Start Your Tech Career Today</p>
                       <p className="text-brand-100 text-xs mt-2">Free counseling session with our experts</p>
                     </div>
+
+                    <div className="my-3 space-y-2.5">
+                      <div className="flex items-center gap-2 text-xs text-brand-100/90 font-medium">
+                        <FiCheck className="w-4 h-4 text-brand-500 bg-white rounded-full p-0.5 shrink-0" />
+                        <span>5,000+ Placements</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-brand-100/90 font-medium">
+                        <FiCheck className="w-4 h-4 text-brand-500 bg-white rounded-full p-0.5 shrink-0" />
+                        <span>1-on-1 Mentorship</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-brand-100/90 font-medium">
+                        <FiCheck className="w-4 h-4 text-brand-500 bg-white rounded-full p-0.5 shrink-0" />
+                        <span>Real-world Projects</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-xs text-brand-100/90 font-medium">
+                        <FiCheck className="w-4 h-4 text-brand-500 bg-white rounded-full p-0.5 shrink-0" />
+                        <span>100% Referral Support</span>
+                      </div>
+                    </div>
+
                     <button
                       onClick={() => { setMegaOpen(false); onEnrollClick(); }}
-                      className="mt-4 bg-white text-brand-600 text-sm font-bold py-2 px-4 rounded-lg hover:bg-brand-50 transition-colors"
+                      className="bg-white text-brand-600 text-sm font-bold py-2.5 px-4 rounded-lg hover:bg-brand-50 transition-colors w-full"
                     >
                       Request Callback
                     </button>
@@ -272,7 +292,7 @@ export default function Navbar({ onEnrollClick }) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-40 bg-white pt-16 overflow-y-auto lg:hidden"
+            className="fixed inset-0 z-40 dropdown-glass pt-16 overflow-y-auto lg:hidden"
           >
             <div className="px-4 py-6 space-y-2">
               {navLinks.map((link) => (
