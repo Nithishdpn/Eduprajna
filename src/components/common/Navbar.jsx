@@ -188,7 +188,7 @@ export default function Navbar({ onEnrollClick }) {
             >
               <div className="max-w-7xl mx-auto px-6 py-6 flex gap-6">
                 {/* Category list */}
-                <div className="w-64 flex-shrink-0 space-y-1">
+                <div className="w-64 flex-shrink-0 space-y-1 border-r border-slate-200/30 pr-6">
                   <p className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-3 px-3">
                     Categories
                   </p>
@@ -201,10 +201,10 @@ export default function Navbar({ onEnrollClick }) {
                       onClick={() => {
                         setMegaOpen(false);
                       }}
-                      className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all text-left ${
+                      className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all text-left border ${
                         activeCategory.id === cat.id
-                          ? 'bg-brand-50 text-brand-700'
-                          : 'text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900'
+                          ? 'bg-brand-500/10 border-brand-500/25 text-brand-800 font-semibold shadow-xs'
+                          : 'text-neutral-600 border-transparent hover:bg-white/40 hover:border-white/20'
                       }`}
                     >
                       {cat.label}
@@ -230,7 +230,7 @@ export default function Navbar({ onEnrollClick }) {
                         key={course.id}
                         to={`/courses/${course.slug}`}
                         onClick={() => setMegaOpen(false)}
-                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-neutral-50 group transition-colors"
+                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/45 hover:border-white/30 hover:shadow-xs border border-transparent transition-all duration-200 group"
                       >
                         <div>
                           <p className="text-sm font-semibold text-neutral-800 group-hover:text-brand-600 transition-colors">
@@ -283,6 +283,19 @@ export default function Navbar({ onEnrollClick }) {
           )}
         </AnimatePresence>
       </nav>
+
+      {/* Backdrop overlay for mega menu */}
+      <AnimatePresence>
+        {megaOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 bg-slate-900/25 backdrop-blur-md z-40 pointer-events-none mt-16 lg:mt-18"
+          />
+        )}
+      </AnimatePresence>
 
       {/* Mobile Menu */}
       <AnimatePresence>
