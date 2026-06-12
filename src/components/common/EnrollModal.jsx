@@ -11,13 +11,14 @@ export default function EnrollModal({ isOpen, onClose, defaultCourse = '' }) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      setForm((prev) => ({ ...prev, course: defaultCourse }));
     } else {
       document.body.style.overflow = '';
     }
     return () => {
       document.body.style.overflow = '';
     };
-  }, [isOpen]);
+  }, [isOpen, defaultCourse]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

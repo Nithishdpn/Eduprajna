@@ -186,7 +186,7 @@ export default function Navbar({ onEnrollClick }) {
               onMouseEnter={() => setMegaOpen(true)}
               onMouseLeave={() => setMegaOpen(false)}
             >
-              <div className="max-w-7xl mx-auto px-6 py-6 flex gap-6">
+              <div className="max-w-7xl mx-auto px-6 py-6 flex gap-6 h-[340px]">
                 {/* Category list */}
                 <div className="w-64 flex-shrink-0 space-y-1 border-r border-slate-200/30 pr-6">
                   <p className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-3 px-3">
@@ -220,26 +220,37 @@ export default function Navbar({ onEnrollClick }) {
                 </div>
 
                 {/* Course cards for active category */}
-                <div className="flex-1">
-                  <p className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-3">
-                    {activeCategory.label}
-                  </p>
-                  <div className="grid grid-cols-2 gap-3">
-                    {activeCategory.courses.map((course) => (
-                      <Link
-                        key={course.id}
-                        to={`/courses/${course.slug}`}
-                        onClick={() => setMegaOpen(false)}
-                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/45 hover:border-white/30 hover:shadow-xs border border-transparent transition-all duration-200 group"
+                <div className="flex-1 flex flex-col justify-between">
+                  <div>
+                    <p className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-3">
+                      {activeCategory.label}
+                    </p>
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={activeCategory.id}
+                        initial={{ opacity: 0, y: 6 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -6 }}
+                        transition={{ duration: 0.15 }}
+                        className="grid grid-cols-2 gap-3"
                       >
-                        <div>
-                          <p className="text-sm font-semibold text-neutral-800 group-hover:text-brand-600 transition-colors">
-                            {course.title}
-                          </p>
-                          <p className="text-xs text-neutral-500 mt-0.5">{course.duration} • {course.level}</p>
-                        </div>
-                      </Link>
-                    ))}
+                        {activeCategory.courses.map((course) => (
+                          <Link
+                            key={course.id}
+                            to={`/courses/${course.slug}`}
+                            onClick={() => setMegaOpen(false)}
+                            className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/45 hover:border-white/30 hover:shadow-xs border border-transparent transition-all duration-200 group"
+                          >
+                            <div>
+                              <p className="text-sm font-semibold text-neutral-800 group-hover:text-brand-600 transition-colors">
+                                {course.title}
+                              </p>
+                              <p className="text-xs text-neutral-500 mt-0.5">{course.duration} • {course.level}</p>
+                            </div>
+                          </Link>
+                        ))}
+                      </motion.div>
+                    </AnimatePresence>
                   </div>
                 </div>
 

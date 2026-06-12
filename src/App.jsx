@@ -49,17 +49,23 @@ function AppRoutes({ onEnrollClick, onCallbackClick }) {
 export default function App() {
   const [enrollOpen, setEnrollOpen] = useState(false);
   const [callbackOpen, setCallbackOpen] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState('');
+
+  const handleEnrollClick = (courseTitle = '') => {
+    setSelectedCourse(courseTitle);
+    setEnrollOpen(true);
+  };
 
   return (
     <HelmetProvider>
       <BrowserRouter>
         <ScrollToTop />
         <div className="min-h-screen flex flex-col">
-          <Navbar onEnrollClick={() => setEnrollOpen(true)} />
+          <Navbar onEnrollClick={() => handleEnrollClick()} />
           <div className="flex-1 flex flex-col">
             <div className="flex-1">
               <AppRoutes
-                onEnrollClick={() => setEnrollOpen(true)}
+                onEnrollClick={handleEnrollClick}
                 onCallbackClick={() => setCallbackOpen(true)}
               />
             </div>
@@ -67,7 +73,7 @@ export default function App() {
           </div>
           <Footer />
           <FloatingWidgets onCallbackClick={() => setCallbackOpen(true)} />
-          <EnrollModal isOpen={enrollOpen} onClose={() => setEnrollOpen(false)} />
+          <EnrollModal isOpen={enrollOpen} onClose={() => setEnrollOpen(false)} defaultCourse={selectedCourse} />
           <WelcomePopup />
         </div>
       </BrowserRouter>
