@@ -1,5 +1,5 @@
 import SEOHead from '../components/common/SEOHead';
-import { generatePageSEO, generateOrganizationSchema } from '../utils/seo';
+import { generatePageSEO, generateOrganizationSchema, generateSiteNavigationSchema } from '../utils/seo';
 import HeroSection from '../components/home/HeroSection';
 import PartnersSection from '../components/home/PartnersSection';
 import WhyChooseUs from '../components/home/WhyChooseUs';
@@ -12,6 +12,7 @@ import CTASection from '../components/home/CTASection';
 export default function HomePage({ onEnrollClick, onCallbackClick }) {
   const seoData = generatePageSEO('home');
   const organizationSchema = generateOrganizationSchema();
+  const siteNavigationSchema = generateSiteNavigationSchema();
 
   return (
     <>
@@ -20,7 +21,7 @@ export default function HomePage({ onEnrollClick, onCallbackClick }) {
         description={seoData.description}
         keywords={seoData.keywords}
         url={seoData.url}
-        structuredData={organizationSchema}
+        structuredData={[organizationSchema, siteNavigationSchema]}
       />
       <main>
         <HeroSection onEnrollClick={onEnrollClick} />

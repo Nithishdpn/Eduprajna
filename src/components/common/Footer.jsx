@@ -4,13 +4,13 @@ import { FiLinkedin, FiTwitter, FiInstagram, FiYoutube, FiFacebook, FiPhone, FiM
 
 
 const companyLinks = [
-  { label: 'About Us',       to: '/about' },
-  { label: 'Our Courses',    to: '/courses' },
-  { label: 'Hire From Us',   to: '/hire' },
+  { label: 'Courses',        to: '/courses' },
+  { label: 'Gallery',        to: '/gallery' },
+  { label: 'Hire from Us',   to: '/hire' },
   { label: 'Blog',           to: '/blog' },
+  { label: 'About Us',       to: '/about' },
+  { label: 'Free Counseling',to: '/free-counseling' },
   { label: 'Contact Us',     to: '/contact' },
-  { label: 'Privacy Policy', to: '/privacy' },
-  { label: 'Terms of Service', to: '/terms' },
 ];
 
 const footerCourses = [

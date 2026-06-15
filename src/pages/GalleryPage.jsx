@@ -70,9 +70,9 @@ export default function GalleryPage() {
   return (
     <>
       <SEOHead 
-        title="EduPrajna Gallery | Campus Life & Success Stories"
-        description="Explore EduPrajna campus, training programs, student achievements, events, and placement moments."
-        keywords="EduPrajna gallery, campus life, tech training, placement drives, classroom events, computer lab, student achievements"
+        title="Gallery | EduPrajna Life, Events & Campus"
+        description="Explore the vibrant student life, campus events, and tech community at EduPrajna. See our classrooms, hackathons, and placement celebrations."
+        keywords="EduPrajna gallery, student life, tech campus, classroom photos, Bangalore training center"
       />
       
       <main className="bg-[#fafbfc] min-h-screen">

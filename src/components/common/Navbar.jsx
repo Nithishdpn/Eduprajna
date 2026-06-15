@@ -85,13 +85,12 @@ export default function Navbar({ onEnrollClick }) {
   }, []);
 
   const navLinks = [
-    { label: 'Home', to: '/' },
     { label: 'Courses', to: '/courses', hasMega: true },
     { label: 'Gallery', to: '/gallery' },
-    { label: 'Hire From Us', to: '/hire' },
+    { label: 'Hire from Us', to: '/hire' },
     { label: 'Blog', to: '/blog' },
-    { label: 'About', to: '/about' },
-    { label: 'Contact', to: '/contact' },
+    { label: 'About Us', to: '/about' },
+    { label: 'Free Counseling', to: '/free-counseling' },
   ];
 
   return (

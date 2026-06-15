@@ -52,7 +52,7 @@ export const generatePageSEO = (pageType, data = {}) => {
     case 'courses':
       return {
         ...baseConfig,
-        title: "IT Courses & Professional Technology Training Programs | EduPrajna",
+        title: "Courses | Professional IT Training & Certifications | EduPrajna",
         description: "Explore career-focused technology courses including Python Programming, Full Stack Development, Artificial Intelligence, Machine Learning, AWS Cloud, DevOps, Cyber Security and Data Science with expert trainers and placement support.",
         keywords: "IT courses, technology training programs, Python course, Java training, Full Stack developer course, AI course, Machine Learning training, AWS certification, DevOps course, Cyber Security training, Data Science course, programming courses, software courses",
         url: `${siteConfig.siteUrl}/courses`
@@ -72,10 +72,19 @@ export const generatePageSEO = (pageType, data = {}) => {
         type: "article"
       };
 
+    case 'gallery':
+      return {
+        ...baseConfig,
+        title: "Gallery | EduPrajna Life, Events & Campus",
+        description: "Explore the vibrant student life, campus events, and tech community at EduPrajna. See our classrooms, hackathons, and placement celebrations.",
+        keywords: "EduPrajna gallery, student life, tech campus, classroom photos, Bangalore training center",
+        url: `${siteConfig.siteUrl}/gallery`
+      };
+
     case 'blog':
       return {
         ...baseConfig,
-        title: "Tech Career Blog - Programming Tips, Industry Insights & Career Advice | EduPrajna", 
+        title: "Blog | Tech Career Insights & Programming Tips | EduPrajna", 
         description: "Stay updated with latest technology trends, programming tutorials, career advice, interview preparation tips and industry insights. Expert guidance for software developers and tech professionals.",
         keywords: "tech blog, programming blog, career advice, software development tips, technology trends, coding tutorials, interview preparation, tech careers, software jobs, developer resources",
         url: `${siteConfig.siteUrl}/blog`
@@ -98,7 +107,7 @@ export const generatePageSEO = (pageType, data = {}) => {
     case 'hire':
       return {
         ...baseConfig,
-        title: "Hire Skilled Developers & Tech Professionals | Corporate Training | EduPrajna",
+        title: "Hire from Us | Skilled Developers & Tech Professionals | EduPrajna",
         description: "Partner with EduPrajna to hire job-ready software developers, AI/ML engineers, Full Stack developers, DevOps engineers and Data Scientists. Corporate training solutions and talent acquisition services.",
         keywords: "hire developers, recruit software engineers, corporate training, talent acquisition, skilled programmers, AI ML engineers, Full Stack developers, DevOps professionals, Data Scientists, tech recruitment",
         url: `${siteConfig.siteUrl}/hire`
@@ -107,7 +116,7 @@ export const generatePageSEO = (pageType, data = {}) => {
     case 'about':
       return {
         ...baseConfig,
-        title: "About EduPrajna - India's Leading Software Training Institute & EdTech Platform",
+        title: "About Us | EduPrajna Software Training Institute",
         description: "Founded in 2020, EduPrajna has transformed 5000+ careers through industry-focused technology training. Learn about our mission, expert trainers, placement success stories and commitment to quality education.",
         keywords: "about EduPrajna, software training institute, EdTech company, technology education, placement success, expert trainers, company story, educational mission",
         url: `${siteConfig.siteUrl}/about`
@@ -116,7 +125,7 @@ export const generatePageSEO = (pageType, data = {}) => {
     case 'contact':
       return {
         ...baseConfig,
-        title: "Contact EduPrajna - Enroll in Best Software Training Courses | Get Free Counseling",
+        title: "Contact Us | EduPrajna Software Training",
         description: "Get in touch with EduPrajna for course enrollment, free counseling session, corporate training inquiries. Located in Bangalore. Call +91 81977 19297 or visit our center.",
         keywords: "contact EduPrajna, course enrollment, free counseling, software training admission, training institute contact, Bangalore Koramangala, education consultation",
         url: `${siteConfig.siteUrl}/contact`
@@ -252,4 +261,47 @@ export const generateBreadcrumbSchema = (breadcrumbs) => ({
     "name": crumb.name,
     "item": `${siteConfig.siteUrl}${crumb.url}`
   }))
+});
+
+export const generateSiteNavigationSchema = () => ({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "SiteNavigationElement",
+      "position": 1,
+      "name": "Courses",
+      "url": `${siteConfig.siteUrl}/courses`
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 2,
+      "name": "Gallery",
+      "url": `${siteConfig.siteUrl}/gallery`
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 3,
+      "name": "Hire from Us",
+      "url": `${siteConfig.siteUrl}/hire`
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 4,
+      "name": "Blog",
+      "url": `${siteConfig.siteUrl}/blog`
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 5,
+      "name": "About Us",
+      "url": `${siteConfig.siteUrl}/about`
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 6,
+      "name": "Free Counseling",
+      "url": `${siteConfig.siteUrl}/free-counseling`
+    }
+  ]
 });

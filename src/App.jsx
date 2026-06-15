@@ -19,6 +19,7 @@ import BlogDetailPage from './pages/BlogDetailPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import GalleryPage from './pages/GalleryPage';
+import FreeCounselingPage from './pages/FreeCounselingPage';
 
 function AppRoutes({ onEnrollClick, onCallbackClick }) {
   return (
@@ -32,6 +33,7 @@ function AppRoutes({ onEnrollClick, onCallbackClick }) {
       <Route path="/about" element={<AboutPage onEnrollClick={onEnrollClick} />} />
       <Route path="/gallery" element={<GalleryPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/free-counseling" element={<FreeCounselingPage />} />
       <Route path="*" element={
         <div className="min-h-screen flex items-center justify-center pt-20">
           <div className="text-center">
