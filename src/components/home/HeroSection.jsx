@@ -203,14 +203,14 @@ export default function HeroSection({ onEnrollClick }) {
 
           {/* Headline */}
           <h1 className="font-['Sora'] font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] leading-[1.06] text-slate-900 mb-5 text-center">
-            Learn{' '}
+            Premier{' '}
             <span className="relative inline-block">
-              <span className="text-brand-600">Future Ready</span>
+              <span className="text-brand-600">Software Training Institute</span>
               <svg className="absolute -bottom-1 left-0 w-full" viewBox="0 0 300 12" fill="none">
                 <path d="M2 9 C60 3, 140 3, 298 9" stroke="#c8e6be" strokeWidth="3.5" strokeLinecap="round" />
               </svg>
             </span>{' '}
-            Skills.
+            in Bangalore
           </h1>
 
           {/* Dynamic tagline */}

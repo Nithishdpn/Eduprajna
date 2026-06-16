@@ -1,7 +1,7 @@
 [
   {
     "id": "artificial-intelligence",
-    "slug": "artificial-intelligence",
+    "slug": "artificial-intelligence-course-bangalore",
     "title": "Artificial Intelligence & Cognitive Computing",
     "category": "ai-data",
     "categoryLabel": "AI & Data Technologies",
@@ -79,7 +79,7 @@
   },
   {
     "id": "machine-learning",
-    "slug": "machine-learning",
+    "slug": "machine-learning-course-bangalore",
     "title": "Machine Learning & Autonomous Systems",
     "category": "ai-data",
     "categoryLabel": "AI & Data Technologies",
@@ -142,7 +142,7 @@
   },
   {
     "id": "data-science",
-    "slug": "data-science",
+    "slug": "data-science-course-bangalore",
     "title": "Data Science & Predictive AI",
     "category": "ai-data",
     "categoryLabel": "AI & Data Technologies",
@@ -211,7 +211,7 @@
   },
   {
     "id": "python",
-    "slug": "python",
+    "slug": "python-training-course-bangalore",
     "title": "Python with AI & Automation",
     "category": "programming",
     "categoryLabel": "Programming",
@@ -274,7 +274,7 @@
   },
   {
     "id": "full-stack",
-    "slug": "full-stack",
+    "slug": "full-stack-development-course-bangalore",
     "title": "Full Stack Development & Generative AI",
     "category": "programming",
     "categoryLabel": "Programming",
@@ -346,7 +346,7 @@
   },
   {
     "id": "aws",
-    "slug": "aws",
+    "slug": "aws-certification-training-bangalore",
     "title": "AWS Cloud & Cloud AI Architectures",
     "category": "cloud",
     "categoryLabel": "Cloud & DevOps",
@@ -410,7 +410,7 @@
   },
   {
     "id": "devops",
-    "slug": "devops",
+    "slug": "devops-training-course-bangalore",
     "title": "DevOps Engineering & MLOps Automation",
     "category": "cloud",
     "categoryLabel": "Cloud & DevOps",
@@ -478,7 +478,7 @@
   },
   {
     "id": "cyber-security",
-    "slug": "cyber-security",
+    "slug": "ethical-hacking-course-bangalore",
     "title": "Cyber Security & AI Threat Intelligence",
     "category": "cybersecurity",
     "categoryLabel": "Cyber Security",
@@ -541,7 +541,7 @@
   },
   {
     "id": "java",
-    "slug": "java",
+    "slug": "java-full-stack-course-bangalore",
     "title": "Advanced Java & Enterprise AI Systems",
     "category": "programming",
     "categoryLabel": "Programming",
@@ -604,7 +604,7 @@
   },
   {
     "id": "digital-marketing",
-    "slug": "digital-marketing",
+    "slug": "digital-marketing-course-bangalore",
     "title": "Digital Marketing & AI Growth Hacking",
     "category": "business",
     "categoryLabel": "Business Skills",
@@ -662,7 +662,7 @@
   },
   {
     "id": "embedded-systems",
-    "slug": "embedded-systems",
+    "slug": "embedded-systems-course-bangalore",
     "title": "Embedded Systems & Smart IoT",
     "category": "embedded",
     "categoryLabel": "Hardware & Embedded",
@@ -725,7 +725,7 @@
   },
   {
     "id": "r-programming",
-    "slug": "r-programming",
+    "slug": "r-programming-course-bangalore",
     "title": "R Programming & Cognitive Data Analysis",
     "category": "ai-data",
     "categoryLabel": "AI & Data Technologies",
@@ -777,6 +777,691 @@
     ],
     "upcomingBatch": "Available Soon",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+    "icon": ""
+  },
+  {
+    "id": "c-sharp",
+    "slug": "c-sharp-training-course-bangalore",
+    "title": "C# Programming & .NET Foundations",
+    "category": "programming",
+    "categoryLabel": "Software Development",
+    "badge": "New",
+    "badgeColor": "blue",
+    "duration": "2 Months",
+    "mode": "Online / Offline",
+    "level": "Beginner",
+    "rating": 4.7,
+    "reviews": 110,
+    "enrolled": 450,
+    "price": 15000,
+    "originalPrice": 25000,
+    "overview": "Learn C# programming from scratch, covering basic syntax, OOP concepts, LINQ, and asynchronous programming in .NET.",
+    "skills": [
+      "C# Syntax",
+      "OOP Concepts",
+      "LINQ",
+      "Async Programming",
+      "File I/O",
+      "SQL Server"
+    ],
+    "tools": [
+      "Visual Studio",
+      "VS Code",
+      ".NET SDK",
+      "SQL Server Management Studio"
+    ],
+    "projects": [
+      "Console-based Inventory Management System",
+      "Library Book Reservation Tracker with File I/O",
+      "Database-driven Student Management CLI Application"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "C# Basics & Syntax",
+        "lessons": 10
+      },
+      {
+        "module": 2,
+        "title": "Object-Oriented Programming in C#",
+        "lessons": 12
+      },
+      {
+        "module": 3,
+        "title": "Advanced C# & LINQ Queries",
+        "lessons": 12
+      },
+      {
+        "module": 4,
+        "title": "Database Connectivity with ADO.NET",
+        "lessons": 8
+      }
+    ],
+    "upcomingBatch": "Available Soon",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80",
+    "icon": ""
+  },
+  {
+    "id": "asp-net-mvc",
+    "slug": "asp-net-mvc-course-bangalore",
+    "title": "ASP.NET Core MVC Web Applications",
+    "category": "programming",
+    "categoryLabel": "Software Development",
+    "badge": "Popular",
+    "badgeColor": "purple",
+    "duration": "3 Months",
+    "mode": "Online / Offline",
+    "level": "Intermediate",
+    "rating": 4.8,
+    "reviews": 140,
+    "enrolled": 620,
+    "price": 20000,
+    "originalPrice": 32000,
+    "overview": "Master ASP.NET Core MVC, Razor Pages, Entity Framework Core, Web API, and identity management for enterprise web development.",
+    "skills": [
+      "ASP.NET Core",
+      "MVC Pattern",
+      "EF Core",
+      "RESTful Web APIs",
+      "Identity & Security",
+      "SQL Database Integration"
+    ],
+    "tools": [
+      "Visual Studio",
+      "MSSQL Server",
+      "Postman",
+      "IIS / Kestrel"
+    ],
+    "projects": [
+      "E-Commerce Web Portal using ASP.NET Core MVC",
+      "Employee Payroll Management Web API",
+      "Secure Role-based User Registration & Management Portal"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "Introduction to ASP.NET Core MVC",
+        "lessons": 10
+      },
+      {
+        "module": 2,
+        "title": "Entity Framework Core & Data Access",
+        "lessons": 12
+      },
+      {
+        "module": 3,
+        "title": "Creating Secure RESTful Web APIs",
+        "lessons": 12
+      },
+      {
+        "module": 4,
+        "title": "Authentication, Authorization & Deployment",
+        "lessons": 10
+      }
+    ],
+    "upcomingBatch": "Available Soon",
+    "image": "https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=600&q=80",
+    "icon": ""
+  },
+  {
+    "id": "mobile-app",
+    "slug": "mobile-app-development-course-bangalore",
+    "title": "Mobile App Development with Flutter",
+    "category": "programming",
+    "categoryLabel": "Software Development",
+    "badge": "Trending",
+    "badgeColor": "green",
+    "duration": "3 Months",
+    "mode": "Online / Offline",
+    "level": "Intermediate",
+    "rating": 4.9,
+    "reviews": 190,
+    "enrolled": 780,
+    "price": 22000,
+    "originalPrice": 36000,
+    "overview": "Build cross-platform iOS and Android mobile apps using Dart and Flutter, covering widgets, state management, and API integration.",
+    "skills": [
+      "Dart Language",
+      "Flutter SDK",
+      "Material/Cupertino Widgets",
+      "State Management (Provider/Bloc)",
+      "Rest API Integration",
+      "Firebase Integration"
+    ],
+    "tools": [
+      "Android Studio",
+      "VS Code",
+      "Flutter SDK",
+      "Xcode",
+      "Firebase Console"
+    ],
+    "projects": [
+      "Interactive Weather Forecasting App with Rest API",
+      "Real-time Chat App powered by Firebase",
+      "Local Task Planner with SQLite Database Storage"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "Dart Programming Language",
+        "lessons": 10
+      },
+      {
+        "module": 2,
+        "title": "Flutter Basics & Widgets UI Layouts",
+        "lessons": 15
+      },
+      {
+        "module": 3,
+        "title": "State Management & local databases",
+        "lessons": 12
+      },
+      {
+        "module": 4,
+        "title": "API Integrations & App Store Publishing",
+        "lessons": 10
+      }
+    ],
+    "upcomingBatch": "Available Soon",
+    "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80",
+    "icon": ""
+  },
+  {
+    "id": "azure",
+    "slug": "azure-training-course-bangalore",
+    "title": "Microsoft Azure Cloud Solutions Architect",
+    "category": "cloud",
+    "categoryLabel": "Cloud & DevOps",
+    "badge": "Hot",
+    "badgeColor": "orange",
+    "duration": "3 Months",
+    "mode": "Online / Offline",
+    "level": "Intermediate",
+    "rating": 4.8,
+    "reviews": 160,
+    "enrolled": 670,
+    "price": 24000,
+    "originalPrice": 40000,
+    "overview": "Configure and manage Azure resources including VMs, App Services, Virtual Networks, Azure Active Directory, and Azure DevOps.",
+    "skills": [
+      "Azure Architecture",
+      "Virtual Machines",
+      "App Services & Functions",
+      "Azure Active Directory",
+      "VNet Networking",
+      "Azure DevOps Integration"
+    ],
+    "tools": [
+      "Azure Portal",
+      "Azure CLI",
+      "PowerShell",
+      "ARM Templates",
+      "Git"
+    ],
+    "projects": [
+      "Highly-Available Web App Hosting using Azure Scale Sets",
+      "Secure Network Infrastructure using Azure VPN & VNet Peering",
+      "Automated CI/CD Deployment with Azure Pipelines"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "Azure Services & Resource Management",
+        "lessons": 10
+      },
+      {
+        "module": 2,
+        "title": "Azure Network Infrastructure",
+        "lessons": 12
+      },
+      {
+        "module": 3,
+        "title": "Identity, Security & Directory Services",
+        "lessons": 10
+      },
+      {
+        "module": 4,
+        "title": "Serverless Architectures & DevOps Integrations",
+        "lessons": 12
+      }
+    ],
+    "upcomingBatch": "Available Soon",
+    "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=600&q=80",
+    "icon": ""
+  },
+  {
+    "id": "google-cloud",
+    "slug": "google-cloud-training-course-bangalore",
+    "title": "Google Cloud Platform (GCP) Cloud Engineer",
+    "category": "cloud",
+    "categoryLabel": "Cloud & DevOps",
+    "badge": "Growing",
+    "badgeColor": "blue",
+    "duration": "3 Months",
+    "mode": "Online / Offline",
+    "level": "Intermediate",
+    "rating": 4.7,
+    "reviews": 98,
+    "enrolled": 390,
+    "price": 24000,
+    "originalPrice": 38000,
+    "overview": "Master GCP infrastructure components such as Compute Engine, Google Kubernetes Engine (GKE), VPCs, Cloud IAM, and Cloud SQL.",
+    "skills": [
+      "GCP Infrastructure",
+      "Compute Engine VMs",
+      "Google Kubernetes Engine (GKE)",
+      "GCP Networking (VPC)",
+      "Cloud IAM Roles",
+      "Cloud Storage & Databases"
+    ],
+    "tools": [
+      "Google Cloud Console",
+      "gcloud CLI",
+      "Kubectl",
+      "Terraform",
+      "Google Cloud Shell"
+    ],
+    "projects": [
+      "Multi-region Application Load Balancing on GCP",
+      "Deploying Microservices Cluster on Google Kubernetes Engine",
+      "Automated Serverless Workflow using Cloud Functions & Pub/Sub"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "Introduction to Google Cloud Platform",
+        "lessons": 8
+      },
+      {
+        "module": 2,
+        "title": "GCP Compute & Kubernetes Services",
+        "lessons": 14
+      },
+      {
+        "module": 3,
+        "title": "VPC Networks & Cloud Security IAM",
+        "lessons": 12
+      },
+      {
+        "module": 4,
+        "title": "Managed Databases & Serverless Compute",
+        "lessons": 10
+      }
+    ],
+    "upcomingBatch": "Available Soon",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80",
+    "icon": ""
+  },
+  {
+    "id": "linux",
+    "slug": "linux-training-course-bangalore",
+    "title": "Linux System Administration & Security",
+    "category": "cloud",
+    "categoryLabel": "Cloud & DevOps",
+    "badge": "Core",
+    "badgeColor": "red",
+    "duration": "2 Months",
+    "mode": "Online / Offline",
+    "level": "Beginner",
+    "rating": 4.8,
+    "reviews": 210,
+    "enrolled": 890,
+    "price": 12000,
+    "originalPrice": 22000,
+    "overview": "Gain deep hands-on skills in Linux systems, covering shell navigation, file system administration, user management, and security scripting.",
+    "skills": [
+      "Bash Commands",
+      "User Management & Permissions",
+      "Package Management",
+      "Systemd Services",
+      "Network Configuration",
+      "Shell Scripting"
+    ],
+    "tools": [
+      "Ubuntu Linux",
+      "CentOS/RedHat",
+      "Bash Shell",
+      "Git",
+      "SSH Tools"
+    ],
+    "projects": [
+      "Custom Automated System Monitoring Script",
+      "Secure Multi-user File Sharing Server setup",
+      "System Performance & Log Rotator Cron Automation"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "Linux Fundamentals & File Navigation",
+        "lessons": 10
+      },
+      {
+        "module": 2,
+        "title": "User Administration & File Permissions",
+        "lessons": 10
+      },
+      {
+        "module": 3,
+        "title": "System Logs, Disks & Service Management",
+        "lessons": 12
+      },
+      {
+        "module": 4,
+        "title": "Bash Shell Scripting & Automation",
+        "lessons": 10
+      }
+    ],
+    "upcomingBatch": "Available Soon",
+    "image": "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=600&q=80",
+    "icon": ""
+  },
+  {
+    "id": "ccna",
+    "slug": "ccna-training-course-bangalore",
+    "title": "Cisco Certified Network Associate (CCNA)",
+    "category": "cybersecurity",
+    "categoryLabel": "Cyber Security",
+    "badge": "Certified",
+    "badgeColor": "orange",
+    "duration": "2.5 Months",
+    "mode": "Online / Offline",
+    "level": "Beginner to Intermediate",
+    "rating": 4.9,
+    "reviews": 340,
+    "enrolled": 1500,
+    "price": 18000,
+    "originalPrice": 28000,
+    "overview": "Obtain CCNA 200-301 certification. Learn networking fundamentals, IP subnetting, routing protocols, switching operations, and network security.",
+    "skills": [
+      "Routing & Switching",
+      "IP Subnetting (IPv4/IPv6)",
+      "VLANs & Trunking",
+      "OSPF Routing Protocol",
+      "Access Control Lists (ACLs)",
+      "NAT & DHCP Config"
+    ],
+    "tools": [
+      "Cisco Packet Tracer",
+      "GNS3",
+      "Cisco IOS",
+      "SecureCRT",
+      "Wireshark"
+    ],
+    "projects": [
+      "Enterprise WAN Topology Design & Implementation",
+      "Secure Campus LAN Setup with VLANs & Router-on-a-stick",
+      "Network Firewall Filtering using IP ACLs"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "Network Models & OSI/TCP Architecture",
+        "lessons": 12
+      },
+      {
+        "module": 2,
+        "title": "IP Addressing, Subnetting & Routing",
+        "lessons": 15
+      },
+      {
+        "module": 3,
+        "title": "Switching, VLANs & Spanning Tree",
+        "lessons": 12
+      },
+      {
+        "module": 4,
+        "title": "Network Services, Security & Automation",
+        "lessons": 10
+      }
+    ],
+    "upcomingBatch": "Available Soon",
+    "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=80",
+    "icon": ""
+  },
+  {
+    "id": "ccnp",
+    "slug": "ccnp-training-course-bangalore",
+    "title": "Cisco Certified Network Professional (CCNP)",
+    "category": "cybersecurity",
+    "categoryLabel": "Cyber Security",
+    "badge": "Advanced",
+    "badgeColor": "red",
+    "duration": "3 Months",
+    "mode": "Online / Offline",
+    "level": "Advanced",
+    "rating": 4.9,
+    "reviews": 120,
+    "enrolled": 410,
+    "price": 28000,
+    "originalPrice": 45000,
+    "overview": "Advance your routing, switching, and security expertise with CCNP Enterprise training, covering advanced OSPF, BGP, VPNs, and SD-WAN.",
+    "skills": [
+      "Advanced Routing (OSPF/EIGRP/BGP)",
+      "VPN Tunneling (IPsec/GRE)",
+      "SD-WAN Fundamentals",
+      "Network Security Hardening",
+      "Multicast Routing",
+      "QoS Configurations"
+    ],
+    "tools": [
+      "GNS3",
+      "EVENG",
+      "Cisco Catalyst Switches",
+      "Wireshark"
+    ],
+    "projects": [
+      "Deploying BGP Dual-homed Multi-provider Network",
+      "Secure Site-to-Site IPsec VPN Network deployment",
+      "Large-scale Enterprise Core Redundancy Routing Architecture"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "Advanced Unicast Routing Protocols",
+        "lessons": 14
+      },
+      {
+        "module": 2,
+        "title": "Enterprise Core Switching & Redundancy",
+        "lessons": 12
+      },
+      {
+        "module": 3,
+        "title": "Site-to-Site VPNs & Infrastructure Security",
+        "lessons": 14
+      },
+      {
+        "module": 4,
+        "title": "SD-WAN & Network Programmability Automation",
+        "lessons": 10
+      }
+    ],
+    "upcomingBatch": "Available Soon",
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80",
+    "icon": ""
+  },
+  {
+    "id": "networking",
+    "slug": "networking-course-bangalore",
+    "title": "Computer Networking Fundamentals & Infrastructure",
+    "category": "cybersecurity",
+    "categoryLabel": "Cyber Security",
+    "badge": "Core",
+    "badgeColor": "green",
+    "duration": "2 Months",
+    "mode": "Online / Offline",
+    "level": "Beginner",
+    "rating": 4.8,
+    "reviews": 260,
+    "enrolled": 1100,
+    "price": 12000,
+    "originalPrice": 20000,
+    "overview": "Learn how the internet works from the ground up, covering OSI layers, cables, IP addresses, DNS, DHCP, and basic firewall configurations.",
+    "skills": [
+      "OSI & TCP Models",
+      "Cabling & Ports",
+      "IP Addressing & Subnetting",
+      "DNS, DHCP & HTTP Protocols",
+      "Basic Wi-Fi & LAN Security",
+      "Network Troubleshooting"
+    ],
+    "tools": [
+      "Cisco Packet Tracer",
+      "Ping & Traceroute Tools",
+      "Wireshark",
+      "IP Scanners"
+    ],
+    "projects": [
+      "Small Home Office Network Design & Config",
+      "Basic Network Protocol Analysis using Wireshark",
+      "Configuring DNS & DHCP Local Infrastructure Servers"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "OSI Layers & Network Media Types",
+        "lessons": 10
+      },
+      {
+        "module": 2,
+        "title": "IP Addressing, Routing & Subnetting",
+        "lessons": 12
+      },
+      {
+        "module": 3,
+        "title": "Core Network Services (DNS, DHCP)",
+        "lessons": 10
+      },
+      {
+        "module": 4,
+        "title": "Basic Network Diagnostic & Security Tools",
+        "lessons": 10
+      }
+    ],
+    "upcomingBatch": "Available Soon",
+    "image": "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?w=600&q=80",
+    "icon": ""
+  },
+  {
+    "id": "sap-fico",
+    "slug": "sap-fico-course-bangalore",
+    "title": "SAP FICO Financial Accounting & Controlling",
+    "category": "business",
+    "categoryLabel": "Business Skills",
+    "badge": "Corporate",
+    "badgeColor": "blue",
+    "duration": "3 Months",
+    "mode": "Online / Offline",
+    "level": "Beginner to Advanced",
+    "rating": 4.8,
+    "reviews": 180,
+    "enrolled": 730,
+    "price": 25000,
+    "originalPrice": 42000,
+    "overview": "Master SAP Financial Accounting (FI) and Controlling (CO) modules for corporate accounting, GL, AP, AR, Asset Accounting, and Costing.",
+    "skills": [
+      "SAP FI (General Ledger, AP, AR)",
+      "SAP CO (Cost Center, Profit Center)",
+      "Asset Accounting Configuration",
+      "Bank Reconciliation & Integration",
+      "Taxation Configuration (GST/TDS)",
+      "Financial Reporting & Auditing"
+    ],
+    "tools": [
+      "SAP ERP ECC 6.0 / S4 HANA",
+      "SAP GUI Interface",
+      "MS Excel Advanced"
+    ],
+    "projects": [
+      "Enterprise General Ledger Structure Configuration",
+      "Vendor & Customer Subledger Account Settlement setup",
+      "Complete Profitability & Cost Center Controlling Structure"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "SAP Navigation & Enterprise General Ledger Setup",
+        "lessons": 12
+      },
+      {
+        "module": 2,
+        "title": "Accounts Payable & Accounts Receivable Subledgers",
+        "lessons": 14
+      },
+      {
+        "module": 3,
+        "title": "Asset Accounting & Taxation Configurations",
+        "lessons": 12
+      },
+      {
+        "module": 4,
+        "title": "Cost Center Accounting & CO Configurations",
+        "lessons": 12
+      }
+    ],
+    "upcomingBatch": "Available Soon",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80",
+    "icon": ""
+  },
+  {
+    "id": "tally",
+    "slug": "tally-course-bangalore",
+    "title": "Tally Prime ERP with GST & Payroll Training",
+    "category": "business",
+    "categoryLabel": "Business Skills",
+    "badge": "Core",
+    "badgeColor": "green",
+    "duration": "2 Months",
+    "mode": "Online / Offline",
+    "level": "Beginner",
+    "rating": 4.8,
+    "reviews": 290,
+    "enrolled": 1250,
+    "price": 10000,
+    "originalPrice": 18000,
+    "overview": "Learn tally ERP Prime for corporate account management, GST calculations, purchase and sales registers, payroll management, and audits.",
+    "skills": [
+      "Tally Prime Navigation",
+      "Ledger & Group Creation",
+      "Inventory Management",
+      "GST calculations & E-way Bill",
+      "TDS/TCS Tax Configurations",
+      "Payroll Accounting Setup"
+    ],
+    "tools": [
+      "Tally Prime Software",
+      "MS Excel",
+      "GST e-filing portal"
+    ],
+    "projects": [
+      "Company Financial Ledger Setup & Reconciliation",
+      "Inventory Accounting & Purchase Voucher Tracking with GST",
+      "Corporate Payroll Sheet & Employee Salary Processing Setup"
+    ],
+    "curriculum": [
+      {
+        "module": 1,
+        "title": "Tally Prime Basics & Ledger Configurations",
+        "lessons": 10
+      },
+      {
+        "module": 2,
+        "title": "Voucher Management & Inventory Controls",
+        "lessons": 12
+      },
+      {
+        "module": 3,
+        "title": "GST Taxation calculations & GST Returns",
+        "lessons": 12
+      },
+      {
+        "module": 4,
+        "title": "Payroll Setup & Banking Reconciliation Auditing",
+        "lessons": 10
+      }
+    ],
+    "upcomingBatch": "Available Soon",
+    "image": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&q=80",
     "icon": ""
   }
 ]

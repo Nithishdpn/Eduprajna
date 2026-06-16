@@ -27,10 +27,10 @@ function AppRoutes({ onEnrollClick, onCallbackClick }) {
       <Route path="/" element={<HomePage onEnrollClick={onEnrollClick} onCallbackClick={onCallbackClick} />} />
       <Route path="/courses" element={<CoursesPage onEnrollClick={onEnrollClick} />} />
       <Route path="/courses/:slug" element={<CourseDetailPage onEnrollClick={onEnrollClick} />} />
-      <Route path="/hire" element={<HirePage />} />
+      <Route path="/hire-from-us" element={<HirePage />} />
       <Route path="/blog" element={<BlogPage />} />
       <Route path="/blog/:slug" element={<BlogDetailPage />} />
-      <Route path="/about" element={<AboutPage onEnrollClick={onEnrollClick} />} />
+      <Route path="/about-us" element={<AboutPage onEnrollClick={onEnrollClick} />} />
       <Route path="/gallery" element={<GalleryPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/free-counseling" element={<FreeCounselingPage />} />

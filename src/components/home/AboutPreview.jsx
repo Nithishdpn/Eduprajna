@@ -107,7 +107,7 @@ export default function AboutPreview() {
             </ul>
  
             <Link
-              to="/about"
+              to="/about-us"
               className="btn-ghost"
             >
               Learn more about us{' '}

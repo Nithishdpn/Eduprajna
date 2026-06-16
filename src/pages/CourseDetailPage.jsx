@@ -40,7 +40,7 @@ export default function CourseDetailPage({ onEnrollClick }) {
     );
   }
 
-  const schedule = batchSchedule[course.slug] || batchSchedule.default;
+  const schedule = batchSchedule[course.id] || batchSchedule.default;
   const tabs = ['overview', 'modules'];
 
   const relatedCourses = courses
@@ -262,7 +262,7 @@ export default function CourseDetailPage({ onEnrollClick }) {
             
             <div className="relative pl-6 sm:pl-10 border-l-2 border-slate-100 ml-4 sm:ml-6 space-y-8 py-2">
               {course.curriculum.map((mod, i) => {
-                const topics = curriculumTopics[course.slug]?.[mod.module] || [];
+                const topics = curriculumTopics[course.id]?.[mod.module] || [];
                 return (
                   <div key={i} className="relative group">
                     {/* Timeline bullet */}

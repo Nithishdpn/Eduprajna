@@ -44,7 +44,7 @@ export const generatePageSEO = (pageType, data = {}) => {
     case 'home':
       return {
         ...baseConfig,
-        title: "EduPrajna - Premier Software Training Institute & IT Certification Courses",
+        title: "EduPrajna | Software Training Institute in Bangalore",
         description: "Transform your career with India's leading EdTech platform. Master Python, Full Stack Development, AI, Machine Learning, AWS, DevOps, Cyber Security & Data Science. 5000+ students placed with guaranteed job support.",
         keywords: "best software training institute, IT courses Bangalore, Python course, Full Stack development training, AI Machine Learning course, AWS certification, DevOps training, Cyber Security course, Data Science training, placement guarantee, software jobs India"
       };
@@ -110,7 +110,7 @@ export const generatePageSEO = (pageType, data = {}) => {
         title: "Hire from Us | Skilled Developers & Tech Professionals | EduPrajna",
         description: "Partner with EduPrajna to hire job-ready software developers, AI/ML engineers, Full Stack developers, DevOps engineers and Data Scientists. Corporate training solutions and talent acquisition services.",
         keywords: "hire developers, recruit software engineers, corporate training, talent acquisition, skilled programmers, AI ML engineers, Full Stack developers, DevOps professionals, Data Scientists, tech recruitment",
-        url: `${siteConfig.siteUrl}/hire`
+        url: `${siteConfig.siteUrl}/hire-from-us`
       };
 
     case 'about':
@@ -119,7 +119,7 @@ export const generatePageSEO = (pageType, data = {}) => {
         title: "About Us | EduPrajna Software Training Institute",
         description: "Founded in 2020, EduPrajna has transformed 5000+ careers through industry-focused technology training. Learn about our mission, expert trainers, placement success stories and commitment to quality education.",
         keywords: "about EduPrajna, software training institute, EdTech company, technology education, placement success, expert trainers, company story, educational mission",
-        url: `${siteConfig.siteUrl}/about`
+        url: `${siteConfig.siteUrl}/about-us`
       };
 
     case 'contact':
@@ -283,7 +283,7 @@ export const generateSiteNavigationSchema = () => ({
       "@type": "SiteNavigationElement",
       "position": 3,
       "name": "Hire from Us",
-      "url": `${siteConfig.siteUrl}/hire`
+      "url": `${siteConfig.siteUrl}/hire-from-us`
     },
     {
       "@type": "SiteNavigationElement",
@@ -295,7 +295,7 @@ export const generateSiteNavigationSchema = () => ({
       "@type": "SiteNavigationElement",
       "position": 5,
       "name": "About Us",
-      "url": `${siteConfig.siteUrl}/about`
+      "url": `${siteConfig.siteUrl}/about-us`
     },
     {
       "@type": "SiteNavigationElement",

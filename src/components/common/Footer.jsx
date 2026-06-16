@@ -6,20 +6,20 @@ import { FiLinkedin, FiTwitter, FiInstagram, FiYoutube, FiFacebook, FiPhone, FiM
 const companyLinks = [
   { label: 'Courses',        to: '/courses' },
   { label: 'Gallery',        to: '/gallery' },
-  { label: 'Hire from Us',   to: '/hire' },
+  { label: 'Hire from Us',   to: '/hire-from-us' },
   { label: 'Blog',           to: '/blog' },
-  { label: 'About Us',       to: '/about' },
+  { label: 'About Us',       to: '/about-us' },
   { label: 'Free Counseling',to: '/free-counseling' },
   { label: 'Contact Us',     to: '/contact' },
 ];
 
 const footerCourses = [
-  { label: 'Full Stack Development', to: '/courses/full-stack' },
-  { label: 'Data Science & AI', to: '/courses/data-science' },
-  { label: 'Python with AI & Automation', to: '/courses/python' },
-  { label: 'DevOps Engineering', to: '/courses/devops' },
-  { label: 'AWS Cloud Architecture', to: '/courses/aws' },
-  { label: 'Artificial Intelligence', to: '/courses/artificial-intelligence' },
+  { label: 'Full Stack Development', to: '/courses/full-stack-development-course-bangalore' },
+  { label: 'Data Science & AI', to: '/courses/data-science-course-bangalore' },
+  { label: 'Python with AI & Automation', to: '/courses/python-training-course-bangalore' },
+  { label: 'DevOps Engineering', to: '/courses/devops-training-course-bangalore' },
+  { label: 'AWS Cloud Architecture', to: '/courses/aws-certification-training-bangalore' },
+  { label: 'Artificial Intelligence', to: '/courses/artificial-intelligence-course-bangalore' },
 ];
 
 const social = [

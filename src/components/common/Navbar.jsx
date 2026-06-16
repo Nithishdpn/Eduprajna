@@ -87,9 +87,9 @@ export default function Navbar({ onEnrollClick }) {
   const navLinks = [
     { label: 'Courses', to: '/courses', hasMega: true },
     { label: 'Gallery', to: '/gallery' },
-    { label: 'Hire from Us', to: '/hire' },
+    { label: 'Hire from Us', to: '/hire-from-us' },
     { label: 'Blog', to: '/blog' },
-    { label: 'About Us', to: '/about' },
+    { label: 'About Us', to: '/about-us' },
     { label: 'Free Counseling', to: '/free-counseling' },
   ];
 

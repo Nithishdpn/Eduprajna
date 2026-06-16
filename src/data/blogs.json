@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "slug": "ai-careers-2025",
-    "title": "Top 10 AI & ML Career Paths in 2025 — Salaries, Roles & Skills",
+    "slug": "ai-career-opportunities",
+    "title": "Top AI Career Opportunities — Salaries, Roles & In-Demand Skills",
     "excerpt": "Artificial Intelligence is no longer a futuristic concept — it's the engine of today's economy. Explore the most in-demand AI careers, what they pay, and how to get there.",
     "category": "Career Advice",
     "tags": ["AI", "Machine Learning", "Career", "Salary"],
@@ -15,8 +15,8 @@
   },
   {
     "id": 2,
-    "slug": "python-vs-java-2025",
-    "title": "Python vs Java in 2025: Which Should You Learn First?",
+    "slug": "python-career-roadmap",
+    "title": "The Ultimate Python Career Roadmap: Beginner to Professional",
     "excerpt": "Both Python and Java are powerhouses — but they serve different purposes. This guide helps beginners make the right choice based on their goals.",
     "category": "Programming",
     "tags": ["Python", "Java", "Beginner", "Programming"],
@@ -29,8 +29,8 @@
   },
   {
     "id": 3,
-    "slug": "aws-vs-azure-vs-gcp",
-    "title": "AWS vs Azure vs GCP: The 2025 Cloud Battle — Which Certification Pays More?",
+    "slug": "aws-certification-roadmap",
+    "title": "AWS Certification Roadmap: Cloud Career Guide",
     "excerpt": "The cloud war is real. We compare AWS, Azure, and GCP on jobs, salaries, learning curves, and which certification gives you the best ROI.",
     "category": "Cloud",
     "tags": ["AWS", "Azure", "GCP", "Cloud", "Certification"],
@@ -43,8 +43,8 @@
   },
   {
     "id": 4,
-    "slug": "cracking-tcs-interview",
-    "title": "How to Crack TCS, Infosys & Wipro Interviews in 2025 — A Complete Guide",
+    "slug": "best-it-courses-after-graduation",
+    "title": "Best IT Courses After Graduation to Get High-Paying Placements",
     "excerpt": "From aptitude rounds to HR interviews, here's everything you need to know to crack mass recruitment drives at India's top IT companies.",
     "category": "Interview Preparation",
     "tags": ["TCS", "Interview", "Placement", "Aptitude"],
@@ -57,8 +57,8 @@
   },
   {
     "id": 5,
-    "slug": "devops-roadmap-2025",
-    "title": "Complete DevOps Roadmap 2025: From Zero to Job-Ready",
+    "slug": "devops-engineer-roadmap",
+    "title": "DevOps Engineer Roadmap: Complete Learning Guide",
     "excerpt": "Step-by-step guide covering Linux, Docker, Kubernetes, Jenkins, CI/CD, and cloud. With timelines, resources, and job tips.",
     "category": "Career Advice",
     "tags": ["DevOps", "Kubernetes", "Docker", "Roadmap"],
@@ -71,8 +71,8 @@
   },
   {
     "id": 6,
-    "slug": "cyber-security-salary-india",
-    "title": "Cyber Security Salaries in India 2025: CEH vs CISSP vs CompTIA",
+    "slug": "cyber-security-career-guide",
+    "title": "Cyber Security Career Guide: Certifications & Salary Trends",
     "excerpt": "The demand for cyber security professionals in India is exploding. Compare certifications, salaries, and career paths in one definitive guide.",
     "category": "Cyber Security",
     "tags": ["Cyber Security", "CEH", "Salary", "Certification"],
@@ -85,8 +85,8 @@
   },
   {
     "id": 7,
-    "slug": "llm-integration-business",
-    "title": "How Businesses Are Using LLMs to 10x Productivity in 2025",
+    "slug": "full-stack-developer-roadmap",
+    "title": "Full Stack Developer Roadmap: Core Technologies & Best Practices",
     "excerpt": "From customer support automation to internal knowledge systems — real-world LLM use cases that are delivering measurable ROI for companies.",
     "category": "AI",
     "tags": ["LLM", "AI", "Automation", "Business"],
@@ -99,8 +99,8 @@
   },
   {
     "id": 8,
-    "slug": "data-science-fresher-guide",
-    "title": "Data Science for Freshers: Where to Start in 2025",
+    "slug": "data-science-career-guide",
+    "title": "Data Science Career Guide: How to Get Hired as a Fresher",
     "excerpt": "No experience? No problem. This guide maps out the exact learning path, projects, and portfolio tips to land your first data science job.",
     "category": "Career Advice",
     "tags": ["Data Science", "Fresher", "Python", "Portfolio"],
@@ -109,6 +109,34 @@
     "date": "2025-05-02",
     "readTime": "11 min read",
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    "featured": false
+  },
+  {
+    "id": 9,
+    "slug": "placement-preparation-guide",
+    "title": "IT Placement Preparation Guide: Mock Interviews & Resume Tips",
+    "excerpt": "A complete walkthrough on preparing for tech interviews, building standard resumes, optimizing your LinkedIn profile, and securing your dream IT placement.",
+    "category": "Career Advice",
+    "tags": ["Placement", "Interview Prep", "Resume", "LinkedIn"],
+    "author": "Ananya Rao",
+    "authorRole": "Placement Head",
+    "date": "2025-06-18",
+    "readTime": "8 min read",
+    "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80",
+    "featured": false
+  },
+  {
+    "id": 10,
+    "slug": "top-programming-languages-2025",
+    "title": "Top 5 Programming Languages to Learn in 2025 for Placements",
+    "excerpt": "Looking to enter the IT sector? Here are the top 5 programming languages with the highest job openings and placement rates in 2025.",
+    "category": "Programming",
+    "tags": ["Python", "Java", "JavaScript", "C#", "SQL"],
+    "author": "Divya Krishnan",
+    "authorRole": "Senior Developer",
+    "date": "2025-06-20",
+    "readTime": "7 min read",
+    "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
     "featured": false
   }
 ]

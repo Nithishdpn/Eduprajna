@@ -126,6 +126,53 @@ export function CourseSEOHead({ course }) {
     }
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": `Who is this ${course.title} course designed for?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `This course is designed for both beginners wishing to enter the tech sector and professionals seeking to upgrade their skills. Our curriculum starts with foundational concepts and advances to complex real-world projects.`
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the batch timings and schedules?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We offer flexible learning schedules, including weekday morning batches, weekday evening batches for working professionals, and comprehensive weekend batches. You can customize your timeline during enrollment."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this program include hands-on project experience?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, every module features mandatory practical exercises. You will build actual industry-level projects (listed in the course details) that you can showcase in your professional portfolio."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the placement support system work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Upon completing 80% of the course, you gain access to our placement support: mock interviews, resume review sessions, LinkedIn profile audit, and direct referrals to our network of 1000+ hiring partners."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I attend the classes both online and offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we support a hybrid structure. You can attend live online lectures or join our physical classrooms and lab facilities. Recorded sessions are also archived for review."
+        }
+      }
+    ]
+  };
+
   return (
     <SEOHead
       title={`${course.title} Course - Training & Certification | EduPrajna`}
@@ -133,7 +180,7 @@ export function CourseSEOHead({ course }) {
       keywords={`${course.title} course, ${course.title} training, ${course.title} certification, ${course.skills?.join(', ')}, learn ${course.title}, software training`}
       url={`${siteConfig.siteUrl}/courses/${course.slug}`}
       image={course.image}
-      structuredData={structuredData}
+      structuredData={[structuredData, faqSchema]}
     />
   );
 }

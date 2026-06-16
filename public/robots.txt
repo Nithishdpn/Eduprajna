@@ -4,8 +4,8 @@ Allow: /
 # Important pages
 Allow: /courses
 Allow: /blog
-Allow: /hire
-Allow: /about
+Allow: /hire-from-us
+Allow: /about-us
 Allow: /contact
 
 # Course pages
